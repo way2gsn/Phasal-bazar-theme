@@ -115,14 +115,26 @@
 
 .phasal-collection-grid .facets-wrapper {
   margin-bottom: 2.4rem;
-  padding: 1.6rem 2rem;
+  padding: 1.8rem 2.4rem;
   border: 1px solid var(--phasal-border);
   border-radius: 2rem;
   background: #fff;
+  box-shadow: 0 0.8rem 2.8rem rgba(26, 77, 46, 0.05);
 }
 
 .phasal-collection-grid .facets__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
   gap: 1.6rem;
+}
+
+.phasal-collection-grid .facets__wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  flex-wrap: wrap;
 }
 
 .phasal-collection-grid .facets__heading,
@@ -138,6 +150,35 @@
 .phasal-collection-grid .facet-filters__field .select,
 .phasal-collection-grid .mobile-facets__sort .select {
   border-radius: 1.6rem;
+}
+
+.phasal-collection-grid .facets__summary {
+  min-height: 4.6rem;
+  padding: 0.9rem 1.5rem;
+  border: 1px solid transparent;
+  border-radius: 1.6rem;
+  background: #fff;
+}
+
+.phasal-collection-grid .facet-filters__field .select,
+.phasal-collection-grid .mobile-facets__sort .select {
+  min-height: 4.6rem;
+  padding: 0 1.4rem;
+  border: 1px solid var(--phasal-border);
+  background: #fff;
+}
+
+.phasal-collection-grid .facet-filters__sort,
+.phasal-collection-grid .select__select {
+  min-height: 4.6rem;
+}
+
+.phasal-collection-grid .product-count-vertical,
+.phasal-collection-grid .product-count {
+  margin-left: auto;
+  color: var(--phasal-text-700);
+  font-size: 1.25rem;
+  font-weight: 600;
 }
 
 .phasal-collection-grid .active-facets__button-inner {
@@ -157,6 +198,8 @@
 }
 
 .phasal-collection-grid .card {
+  display: flex;
+  flex-direction: column;
   height: 100%;
   border: 1.5px solid var(--phasal-border);
   border-radius: 2.4rem;
@@ -172,6 +215,8 @@
 }
 
 .phasal-collection-grid .card__inner {
+  display: flex;
+  flex-direction: column;
   background: #fff;
 }
 
@@ -183,12 +228,34 @@
   object-fit: cover;
 }
 
+.phasal-collection-grid .card__media .placeholder-svg {
+  width: 100%;
+  height: 100%;
+  min-height: 28rem;
+  display: block;
+  background: linear-gradient(145deg, #f4efe4, #dcead8);
+  color: rgba(45, 106, 64, 0.18);
+}
+
+.phasal-collection-grid .card__media,
+.phasal-collection-grid .card__inner .ratio {
+  min-height: 28rem;
+}
+
 .phasal-collection-grid .card__content {
-  padding: 0 1.6rem 1.8rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0 1.8rem 1.8rem;
 }
 
 .phasal-collection-grid .card__information {
-  padding-top: 1.4rem;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding-top: 1.6rem;
+  padding-bottom: 0;
 }
 
 .phasal-collection-grid .card__heading,
@@ -199,13 +266,23 @@
   text-decoration: none;
 }
 
+.phasal-collection-grid .card-information {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
 .phasal-collection-grid .card-information > .caption-large {
   color: var(--phasal-text-500);
   font-size: 1.2rem;
+  line-height: 1.55;
+  min-height: 3.8rem;
 }
 
 .phasal-collection-grid .price {
   color: var(--phasal-green-800);
+  margin-top: auto;
 }
 
 .phasal-collection-grid .price-item {
@@ -213,12 +290,62 @@
   font-weight: 800;
 }
 
+.phasal-collection-grid .price__container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.phasal-collection-grid .price-item--regular {
+  color: var(--phasal-text-500);
+  font-size: 1.25rem;
+}
+
+.phasal-collection-grid .price-item--sale.price-item--last,
+.phasal-collection-grid .price__regular .price-item--regular:last-child {
+  color: var(--phasal-green-800);
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.phasal-collection-grid .quick-add {
+  margin-top: 1.6rem;
+}
+
 .phasal-collection-grid .quick-add__submit,
 .phasal-collection-grid .quick-add__submit.button {
   min-height: 4.6rem;
+  width: 100%;
   border-radius: 999px;
   background: var(--phasal-green-800);
   border-color: var(--phasal-green-800);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.phasal-collection-grid .quick-add__submit:hover,
+.phasal-collection-grid .quick-add__submit.button:hover {
+  background: var(--phasal-green-700);
+  border-color: var(--phasal-green-700);
+}
+
+.phasal-collection-grid .quick-add__submit::after,
+.phasal-collection-grid .quick-add__submit.button::after {
+  display: none;
+}
+
+.phasal-collection-grid .card__badge {
+  margin: 1.2rem;
+}
+
+.phasal-collection-grid .badge {
+  border-radius: 999px;
+  padding: 0.45rem 1rem;
+  font-size: 1rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .phasal-collection-grid .pagination__list > li > * {
@@ -230,5 +357,14 @@
     grid-template-columns: 1fr;
     gap: 2.4rem;
     padding: 3rem 0;
+  }
+
+  .phasal-collection-grid .facets__form {
+    align-items: flex-start;
+  }
+
+  .phasal-collection-grid .product-count-vertical,
+  .phasal-collection-grid .product-count {
+    margin-left: 0;
   }
 }
