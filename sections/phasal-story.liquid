@@ -1,0 +1,79 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-story">
+      <div class="phasal-story__media">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 1800
+            | image_tag:
+              widths: '720, 1200, 1800',
+              sizes: '(max-width: 989px) 100vw, 50vw',
+              loading: 'lazy'
+          }}
+        {%- endif -%}
+        <div class="phasal-story__stats">
+          <div>
+            <div class="phasal-story__stat-number">{{ section.settings.stat_number_1 | escape }}</div>
+            <div class="phasal-story__stat-label">{{ section.settings.stat_label_1 | escape }}</div>
+          </div>
+          <div>
+            <div class="phasal-story__stat-number">{{ section.settings.stat_number_2 | escape }}</div>
+            <div class="phasal-story__stat-label">{{ section.settings.stat_label_2 | escape }}</div>
+          </div>
+        </div>
+      </div>
+      <div class="phasal-story__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-story__title">{{ section.settings.title | escape }}</h2>
+        <p class="phasal-story__copy">{{ section.settings.copy | escape }}</p>
+        <div class="phasal-story__feature-list">
+          {%- for block in section.blocks -%}
+            <div class="phasal-story__feature" {{ block.shopify_attributes }}>
+              <div class="phasal-story__feature-icon">{{ block.settings.icon | escape }}</div>
+              <div>
+                <h3 class="phasal-story__feature-title">{{ block.settings.title | escape }}</h3>
+                <p class="phasal-story__feature-copy">{{ block.settings.copy | escape }}</p>
+              </div>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Story",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Farm story" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Built with farmers, not around them" },
+    { "type": "text", "id": "copy", "label": "Copy", "default": "Use this section to explain sourcing, processing, and how the brand protects nutrition and farmer value." },
+    { "type": "text", "id": "stat_number_1", "label": "Stat number 1", "default": "72K+" },
+    { "type": "text", "id": "stat_label_1", "label": "Stat label 1", "default": "farmer partners" },
+    { "type": "text", "id": "stat_number_2", "label": "Stat number 2", "default": "18" },
+    { "type": "text", "id": "stat_label_2", "label": "Stat label 2", "default": "districts reached" }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Feature",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon or emoji", "default": "🌾" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Traceable sourcing" },
+        { "type": "text", "id": "copy", "label": "Copy", "default": "Show how product origin and processing are made visible to customers." }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    { "name": "Phasal Story", "blocks": [{ "type": "feature" }, { "type": "feature" }, { "type": "feature" }] }
+  ]
+}
+{% endschema %}

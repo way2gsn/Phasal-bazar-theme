@@ -1,0 +1,206 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+{%- liquid
+  assign source_collection = section.settings.collection
+  assign product_limit = section.settings.products_to_show
+-%}
+
+<section class="phasal-home phasal-section phasal-section--white">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-section__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-section__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- if source_collection != blank and section.settings.link_label != blank -%}
+        <a class="phasal-section__link" href="{{ section.settings.link | default: source_collection.url }}">
+          {{ section.settings.link_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="phasal-product-grid">
+      {%- if source_collection != blank and source_collection.products_count > 0 -%}
+        {%- for product in source_collection.products limit: product_limit -%}
+          {%- liquid
+            assign variant = product.selected_or_first_available_variant
+            assign badge_class = 'phasal-product-card__badge--network'
+            assign badge_text = section.settings.default_badge
+            if product.available == false
+              assign badge_class = 'phasal-product-card__badge--sold'
+              assign badge_text = 'Sold out'
+            elsif product.compare_at_price_max > product.price
+              assign badge_class = 'phasal-product-card__badge--sale'
+              assign badge_text = 'Best seller'
+            elsif product.tags contains 'organic'
+              assign badge_class = 'phasal-product-card__badge--organic'
+              assign badge_text = 'Organic'
+            endif
+          -%}
+          <article class="phasal-product-card">
+            <div class="phasal-product-card__media">
+              <span class="phasal-product-card__badge {{ badge_class }}">{{ badge_text }}</span>
+              <a href="{{ product.url }}">
+                {%- if product.featured_image != blank -%}
+                  {{
+                    product.featured_image
+                    | image_url: width: 900
+                    | image_tag:
+                      widths: '360, 540, 720, 900',
+                      sizes: '(max-width: 749px) 100vw, (max-width: 989px) 50vw, 25vw',
+                      loading: 'lazy'
+                  }}
+                {%- endif -%}
+              </a>
+            </div>
+            <div class="phasal-product-card__body">
+              <div class="phasal-product-card__tags">
+                {%- if product.type != blank -%}
+                  <span class="phasal-product-card__tag">{{ product.type | escape }}</span>
+                {%- endif -%}
+                {%- assign first_tag = product.tags | first -%}
+                {%- if first_tag != blank -%}
+                  <span class="phasal-product-card__tag">{{ first_tag | escape }}</span>
+                {%- endif -%}
+              </div>
+              <h3 class="phasal-product-card__title"><a href="{{ product.url }}">{{ product.title | escape }}</a></h3>
+              <div class="phasal-product-card__description">
+                {%- if product.metafields.custom.short_description != blank -%}
+                  {{ product.metafields.custom.short_description | metafield_tag | strip_html }}
+                {%- else -%}
+                  {{ product.description | strip_html | truncate: 95 }}
+                {%- endif -%}
+              </div>
+              <div class="phasal-product-card__features">
+                {%- if product.available -%}
+                  <span class="phasal-product-card__feature">Available now</span>
+                {%- endif -%}
+                {%- if product.compare_at_price_max > product.price -%}
+                  <span class="phasal-product-card__feature">On sale</span>
+                {%- endif -%}
+                {%- if variant.unit_price_measurement != blank -%}
+                  <span class="phasal-product-card__feature">
+                    {{ variant.unit_price | money }}/{{ variant.unit_price_measurement.reference_value }}{{ variant.unit_price_measurement.reference_unit }}
+                  </span>
+                {%- endif -%}
+              </div>
+              {%- if product.metafields.reviews.rating.value != blank -%}
+                <div class="phasal-product-card__rating">
+                  ★ {{ product.metafields.reviews.rating.value.rating }} ({{ product.metafields.reviews.rating_count }})
+                </div>
+              {%- endif -%}
+              <div class="phasal-product-card__footer">
+                <div class="phasal-product-card__price-wrap">
+                  {%- if variant.compare_at_price > variant.price -%}
+                    <span class="phasal-product-card__compare">{{ variant.compare_at_price | money }}</span>
+                  {%- endif -%}
+                  <span class="phasal-product-card__price">{{ variant.price | money }}</span>
+                  {%- if variant.unit_price_measurement != blank -%}
+                    <span class="phasal-product-card__unit">
+                      per {{ variant.unit_price_measurement.reference_value }}{{ variant.unit_price_measurement.reference_unit }}
+                    </span>
+                  {%- endif -%}
+                </div>
+                {%- if product.available == false -%}
+                  <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="View {{ product.title | escape }}">→</a>
+                {%- elsif product.has_only_default_variant -%}
+                  <product-form class="phasal-product-card__form">
+                    {%- form 'product', product, id: 'PhasalCardProductForm-' | append: section.id | append: '-' | append: product.id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+                      <input type="hidden" name="id" value="{{ variant.id }}">
+                      <button
+                        id="PhasalCardAdd-{{ section.id }}-{{ product.id }}"
+                        class="phasal-product-card__cart-button"
+                        type="submit"
+                        name="add"
+                        aria-label="Add {{ product.title | escape }} to cart"
+                      >
+                        <span>+</span>
+                        <div class="loading__spinner hidden">
+                          <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
+                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                          </svg>
+                        </div>
+                      </button>
+                    {%- endform -%}
+                  </product-form>
+                {%- else -%}
+                  <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="Choose options for {{ product.title | escape }}">+</a>
+                {%- endif -%}
+              </div>
+            </div>
+          </article>
+        {%- endfor -%}
+      {%- else -%}
+        <p>No products available yet. Select a collection for this section in the theme editor.</p>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Featured products"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Best from the harvest"
+    },
+    {
+      "type": "text",
+      "id": "copy",
+      "label": "Copy",
+      "default": "Live products pulled directly from Shopify so the homepage always stays in sync."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 4,
+      "max": 12,
+      "step": 1,
+      "default": 4,
+      "label": "Products to show"
+    },
+    {
+      "type": "text",
+      "id": "default_badge",
+      "label": "Default badge text",
+      "default": "72K+ network"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "View collection"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Override link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Phasal Featured Products"
+    }
+  ]
+}
+{% endschema %}

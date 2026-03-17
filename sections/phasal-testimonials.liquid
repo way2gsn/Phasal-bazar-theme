@@ -1,0 +1,60 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-section__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-section__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="phasal-testimonial-grid">
+      {%- for block in section.blocks -%}
+        <article class="phasal-testimonial" {{ block.shopify_attributes }}>
+          <div class="phasal-testimonial__stars">{{ block.settings.stars | escape }}</div>
+          <div class="phasal-testimonial__quote">{{ block.settings.quote | escape }}</div>
+          <div class="phasal-testimonial__user">
+            <span class="phasal-testimonial__avatar">{{ block.settings.avatar | escape }}</span>
+            <div>
+              <div class="phasal-testimonial__name">{{ block.settings.name | escape }}</div>
+              <div class="phasal-testimonial__meta">{{ block.settings.meta | escape }}</div>
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Testimonials",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Testimonials" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Loved by families who cook mindfully" },
+    { "type": "text", "id": "copy", "label": "Copy", "default": "This is one of the few places where static cards are expected and useful." }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "text", "id": "stars", "label": "Stars", "default": "★★★★★" },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "The quality felt different from our first order. The grains cook beautifully and the story behind them matters to us." },
+        { "type": "text", "id": "avatar", "label": "Avatar or emoji", "default": "🙂" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Customer Name" },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Verified buyer" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "Phasal Testimonials", "blocks": [{ "type": "testimonial" }, { "type": "testimonial" }, { "type": "testimonial" }] }
+  ]
+}
+{% endschema %}

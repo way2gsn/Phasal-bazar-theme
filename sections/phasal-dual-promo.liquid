@@ -1,0 +1,57 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-dual-grid">
+      {%- for block in section.blocks -%}
+        <article class="phasal-promo-card" {{ block.shopify_attributes }}>
+          <div class="phasal-promo-card__image">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1600
+                | image_tag:
+                  widths: '540, 900, 1200, 1600',
+                  sizes: '(max-width: 989px) 100vw, 50vw',
+                  loading: 'lazy'
+              }}
+            {%- endif -%}
+          </div>
+          <div class="phasal-promo-card__overlay"></div>
+          <div class="phasal-promo-card__content">
+            <div class="phasal-promo-card__kicker">{{ block.settings.kicker | escape }}</div>
+            <h3 class="phasal-promo-card__title">{{ block.settings.title | escape }}</h3>
+            <p class="phasal-promo-card__copy">{{ block.settings.copy | escape }}</p>
+            {%- if block.settings.link_label != blank -%}
+              <a class="phasal-promo-card__link" href="{{ block.settings.link | default: routes.root_url }}">{{ block.settings.link_label | escape }}</a>
+            {%- endif -%}
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Dual Promo",
+  "blocks": [
+    {
+      "type": "promo",
+      "name": "Promo",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "Seasonal edit" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Curated combos for healthier kitchens" },
+        { "type": "text", "id": "copy", "label": "Copy", "default": "Use this as a promotional spotlight for a collection, page, or campaign." },
+        { "type": "text", "id": "link_label", "label": "Link label", "default": "Explore" },
+        { "type": "url", "id": "link", "label": "Link" }
+      ]
+    }
+  ],
+  "max_blocks": 2,
+  "presets": [
+    { "name": "Phasal Dual Promo", "blocks": [{ "type": "promo" }, { "type": "promo" }] }
+  ]
+}
+{% endschema %}

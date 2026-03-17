@@ -1,0 +1,75 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-section__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-section__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="phasal-guide-grid">
+      {%- for block in section.blocks -%}
+        <article class="phasal-guide-card" {{ block.shopify_attributes }}>
+          <div class="phasal-guide-card__media">
+            {%- if block.settings.image != blank -%}
+              {{
+                block.settings.image
+                | image_url: width: 1200
+                | image_tag:
+                  widths: '360, 720, 1200',
+                  sizes: '(max-width: 989px) 50vw, 33vw',
+                  loading: 'lazy'
+              }}
+            {%- endif -%}
+          </div>
+          <div class="phasal-guide-card__body">
+            <div class="phasal-guide-card__kicker">{{ block.settings.kicker | escape }}</div>
+            <h3 class="phasal-guide-card__title">{{ block.settings.title | escape }}</h3>
+            <p class="phasal-guide-card__copy">{{ block.settings.copy | escape }}</p>
+            <div class="phasal-guide-card__tags">
+              {%- if block.settings.tag_1 != blank -%}<span class="phasal-guide-card__tag">{{ block.settings.tag_1 | escape }}</span>{%- endif -%}
+              {%- if block.settings.tag_2 != blank -%}<span class="phasal-guide-card__tag">{{ block.settings.tag_2 | escape }}</span>{%- endif -%}
+              {%- if block.settings.tag_3 != blank -%}<span class="phasal-guide-card__tag">{{ block.settings.tag_3 | escape }}</span>{%- endif -%}
+            </div>
+          </div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Guide Cards",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Millet guide" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Know what reaches your kitchen" },
+    { "type": "text", "id": "copy", "label": "Copy", "default": "Use this space for education, recipes, or story-led content that supports the product journey." }
+  ],
+  "blocks": [
+    {
+      "type": "card",
+      "name": "Card",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "kicker", "label": "Kicker", "default": "Nutrition" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Why millet works for everyday meals" },
+        { "type": "text", "id": "copy", "label": "Copy", "default": "Explain the grain, how to cook it, or what benefit makes it worth trying." },
+        { "type": "text", "id": "tag_1", "label": "Tag 1", "default": "Fiber rich" },
+        { "type": "text", "id": "tag_2", "label": "Tag 2", "default": "Traditional" },
+        { "type": "text", "id": "tag_3", "label": "Tag 3", "default": "Easy recipes" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "Phasal Guide Cards", "blocks": [{ "type": "card" }, { "type": "card" }, { "type": "card" }] }
+  ]
+}
+{% endschema %}

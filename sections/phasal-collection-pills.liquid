@@ -1,0 +1,109 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--white">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-section__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-section__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+      </div>
+      {%- if section.settings.link_label != blank -%}
+        <a class="phasal-section__link" href="{{ section.settings.link | default: routes.all_products_collection_url }}">
+          {{ section.settings.link_label | escape }}
+        </a>
+      {%- endif -%}
+    </div>
+
+    <div class="phasal-pill-list">
+      {%- for block in section.blocks -%}
+        {%- assign collection = block.settings.collection -%}
+        {%- if collection != blank -%}
+          <a
+            class="phasal-pill{% if block.settings.highlight %} phasal-pill--active{% endif %}"
+            href="{{ collection.url }}"
+            {{ block.shopify_attributes }}
+          >
+            <span class="phasal-pill__emoji">{{ block.settings.icon | escape }}</span>
+            <span class="phasal-pill__title">{{ collection.title | escape }}</span>
+            <span class="phasal-pill__count">
+              {{ collection.all_products_count }} items
+            </span>
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Collection Pills",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Browse Collection"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Shop by Grain"
+    },
+    {
+      "type": "text",
+      "id": "copy",
+      "label": "Copy",
+      "default": "Ancient superfoods grown in the heartland of Chhattisgarh"
+    },
+    {
+      "type": "text",
+      "id": "link_label",
+      "label": "Link label",
+      "default": "All Products"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon or emoji",
+          "default": "🌾"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight pill",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "max_blocks": 10,
+  "presets": [
+    {
+      "name": "Phasal Collection Pills"
+    }
+  ]
+}
+{% endschema %}

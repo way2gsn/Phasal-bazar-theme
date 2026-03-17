@@ -1,0 +1,52 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-banner">
+      <div class="phasal-banner__image">
+        {%- if section.settings.image != blank -%}
+          {{
+            section.settings.image
+            | image_url: width: 2000
+            | image_tag:
+              widths: '750, 1200, 1600, 2000',
+              sizes: '100vw',
+              loading: 'lazy'
+          }}
+        {%- endif -%}
+      </div>
+      <div class="phasal-banner__overlay"></div>
+      <div class="phasal-banner__content">
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow" style="color:#f5d06e;">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-banner__title">{{ section.settings.title }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-banner__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a class="phasal-home__button phasal-home__button--primary" href="{{ section.settings.button_link | default: routes.all_products_collection_url }}">
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Wide Banner",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Farmer first" },
+    { "type": "image_picker", "id": "image", "label": "Image" },
+    { "type": "richtext", "id": "title", "label": "Title", "default": "<p>Healthy staples with a <strong>direct village story</strong></p>" },
+    { "type": "text", "id": "copy", "label": "Copy", "default": "Bring home grains and oils that keep nutrition intact and keep value closer to the farm." },
+    { "type": "text", "id": "button_label", "label": "Button label", "default": "Shop now" },
+    { "type": "url", "id": "button_link", "label": "Button link" }
+  ],
+  "presets": [
+    { "name": "Phasal Wide Banner" }
+  ]
+}
+{% endschema %}

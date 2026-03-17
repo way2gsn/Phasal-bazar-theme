@@ -423,6 +423,672 @@
   font-size: 1.1rem;
 }
 
+.phasal-section {
+  padding: 7.2rem 0;
+}
+
+.phasal-section--white {
+  background: #fff;
+}
+
+.phasal-section--cream {
+  background: var(--phasal-cream-100);
+}
+
+.phasal-section__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+.phasal-section__title {
+  margin: 0;
+  color: var(--phasal-green-800);
+  font-size: clamp(2.8rem, 4vw, 4.6rem);
+  line-height: 1.08;
+}
+
+.phasal-section__copy {
+  max-width: 58rem;
+  margin-top: 1rem;
+  color: var(--phasal-text-700);
+  font-size: 1.5rem;
+  line-height: 1.65;
+}
+
+.phasal-section__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--phasal-green-800);
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.phasal-pill-list {
+  display: flex;
+  gap: 1.2rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+}
+
+.phasal-pill-list::-webkit-scrollbar {
+  display: none;
+}
+
+.phasal-pill {
+  display: flex;
+  min-width: 11rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 2rem 2.2rem;
+  border: 1.5px solid var(--phasal-border);
+  border-radius: 1.8rem;
+  background: #fff;
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.phasal-pill:hover {
+  border-color: var(--phasal-green-600);
+  box-shadow: 0 0.8rem 3.2rem rgba(26, 77, 46, 0.12);
+  transform: translateY(-4px);
+}
+
+.phasal-pill--active {
+  border-color: var(--phasal-green-800);
+  background: var(--phasal-green-800);
+  color: #fff;
+}
+
+.phasal-pill__emoji {
+  font-size: 2.8rem;
+}
+
+.phasal-pill__title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.phasal-pill__count {
+  color: var(--phasal-text-500);
+  font-size: 1.1rem;
+}
+
+.phasal-pill--active .phasal-pill__count {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.phasal-product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+.phasal-product-card {
+  overflow: hidden;
+  border: 1.5px solid var(--phasal-border);
+  border-radius: 2.4rem;
+  background: #fff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.phasal-product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 2rem 6rem rgba(26, 77, 46, 0.16);
+}
+
+.phasal-product-card__media {
+  position: relative;
+  overflow: hidden;
+  height: 22rem;
+  background: var(--phasal-cream-100);
+}
+
+.phasal-product-card__media a,
+.phasal-product-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.phasal-product-card__media img {
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.phasal-product-card:hover .phasal-product-card__media img {
+  transform: scale(1.05);
+}
+
+.phasal-product-card__badge {
+  position: absolute;
+  top: 1.2rem;
+  left: 1.2rem;
+  z-index: 1;
+  padding: 0.4rem 1rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.phasal-product-card__badge--organic {
+  background: #e8f4e8;
+  color: var(--phasal-green-800);
+}
+
+.phasal-product-card__badge--sale {
+  background: #fff3e0;
+  color: var(--phasal-gold-500);
+}
+
+.phasal-product-card__badge--sold {
+  background: #fce4ec;
+  color: #c62828;
+}
+
+.phasal-product-card__badge--network {
+  background: rgba(26, 77, 46, 0.88);
+  color: #fff;
+}
+
+.phasal-product-card__body {
+  padding: 1.8rem 1.8rem 2rem;
+}
+
+.phasal-product-card__tags,
+.phasal-guide-card__tags,
+.phasal-story__features,
+.phasal-why-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
+.phasal-product-card__tag,
+.phasal-guide-card__tag,
+.phasal-story__feature-badge {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--phasal-cream-200);
+  color: var(--phasal-brown-700);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.phasal-product-card__title {
+  margin: 1rem 0 0;
+  color: var(--phasal-text-900);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.phasal-product-card__title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.phasal-product-card__description {
+  margin-top: 0.4rem;
+  color: var(--phasal-text-500);
+  font-size: 1.2rem;
+  line-height: 1.55;
+}
+
+.phasal-product-card__features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.phasal-product-card__feature {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  background: var(--phasal-green-100);
+  color: var(--phasal-green-700);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.phasal-product-card__rating {
+  margin-top: 1rem;
+  color: var(--phasal-text-500);
+  font-size: 1.15rem;
+}
+
+.phasal-product-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-top: 1.4rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--phasal-border);
+}
+
+.phasal-product-card__price-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.phasal-product-card__compare {
+  color: var(--phasal-text-500);
+  font-size: 1.1rem;
+  text-decoration: line-through;
+}
+
+.phasal-product-card__price {
+  color: var(--phasal-green-800);
+  font-size: 1.9rem;
+  font-weight: 800;
+}
+
+.phasal-product-card__unit {
+  color: var(--phasal-text-500);
+  font-size: 1.05rem;
+}
+
+.phasal-product-card__form {
+  display: flex;
+  align-items: center;
+}
+
+.phasal-product-card__cart-button,
+.phasal-product-card__options-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 0;
+  border-radius: 999px;
+  background: var(--phasal-green-800);
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.phasal-product-card__cart-button:hover,
+.phasal-product-card__options-link:hover {
+  background: var(--phasal-gold-500);
+  transform: scale(1.08);
+}
+
+.phasal-product-card__cart-button.loading {
+  position: relative;
+}
+
+.phasal-product-card__cart-button .loading__spinner {
+  position: absolute;
+}
+
+.phasal-product-card__cart-button .loading__spinner .path {
+  stroke: currentColor;
+}
+
+.phasal-banner {
+  position: relative;
+  overflow: hidden;
+  min-height: 34rem;
+  border-radius: 2.8rem;
+  background: var(--phasal-green-900);
+}
+
+.phasal-banner__image,
+.phasal-banner__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.phasal-banner__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  opacity: 0.5;
+}
+
+.phasal-banner__overlay {
+  background: linear-gradient(90deg, rgba(8, 30, 15, 0.92) 0%, rgba(8, 30, 15, 0.62) 52%, rgba(8, 30, 15, 0.1) 100%);
+}
+
+.phasal-banner__content {
+  position: relative;
+  z-index: 1;
+  max-width: 60rem;
+  padding: 5.6rem 6.4rem;
+}
+
+.phasal-banner__title {
+  margin: 0;
+  color: #fff;
+  font-size: clamp(2.8rem, 4vw, 4.4rem);
+  line-height: 1.1;
+}
+
+.phasal-banner__title strong {
+  color: #f5d06e;
+}
+
+.phasal-banner__copy {
+  margin-top: 1.4rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.6rem;
+  line-height: 1.65;
+}
+
+.phasal-guide-grid,
+.phasal-why-grid,
+.phasal-testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+.phasal-guide-card,
+.phasal-why-card,
+.phasal-testimonial {
+  overflow: hidden;
+  border: 1.5px solid var(--phasal-border);
+  border-radius: 2rem;
+  background: #fff;
+}
+
+.phasal-guide-card__media {
+  height: 16rem;
+  overflow: hidden;
+  background: var(--phasal-cream-200);
+}
+
+.phasal-guide-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phasal-guide-card__body {
+  padding: 2.2rem;
+}
+
+.phasal-guide-card__kicker {
+  color: var(--phasal-brown-700);
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.phasal-guide-card__title,
+.phasal-why-card__title {
+  margin: 0.7rem 0 0;
+  color: var(--phasal-green-800);
+  font-size: 1.7rem;
+  line-height: 1.3;
+}
+
+.phasal-guide-card__copy,
+.phasal-why-card__copy {
+  margin-top: 0.8rem;
+  color: var(--phasal-text-700);
+  font-size: 1.3rem;
+  line-height: 1.65;
+}
+
+.phasal-guide-card__tags {
+  margin-top: 1.4rem;
+}
+
+.phasal-dual-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 2.2rem;
+}
+
+.phasal-promo-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 26rem;
+  border-radius: 2.4rem;
+}
+
+.phasal-promo-card__image,
+.phasal-promo-card__overlay {
+  position: absolute;
+  inset: 0;
+}
+
+.phasal-promo-card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phasal-promo-card__overlay {
+  background: linear-gradient(0deg, rgba(8, 30, 15, 0.9) 0%, rgba(8, 30, 15, 0.3) 60%, transparent 100%);
+}
+
+.phasal-promo-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: inherit;
+  flex-direction: column;
+  justify-content: end;
+  padding: 3rem;
+}
+
+.phasal-promo-card__kicker {
+  color: var(--phasal-gold-500);
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.phasal-promo-card__title {
+  margin: 0.7rem 0 0;
+  color: #fff;
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.phasal-promo-card__copy {
+  margin-top: 0.5rem;
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 1.3rem;
+  line-height: 1.55;
+}
+
+.phasal-promo-card__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  align-self: flex-start;
+  margin-top: 1.4rem;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  backdrop-filter: blur(8px);
+  background: rgba(255, 255, 255, 0.14);
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.phasal-story {
+  display: grid;
+  min-height: 52rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  overflow: hidden;
+  border-radius: 3.2rem;
+  background: linear-gradient(135deg, var(--phasal-cream-200), var(--phasal-green-100));
+}
+
+.phasal-story__media {
+  position: relative;
+}
+
+.phasal-story__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+}
+
+.phasal-story__stats {
+  position: absolute;
+  bottom: 2.4rem;
+  left: 2.4rem;
+  display: flex;
+  gap: 2.2rem;
+  padding: 1.6rem 2.2rem;
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 0.8rem 3.2rem rgba(0, 0, 0, 0.15);
+}
+
+.phasal-story__stat-number {
+  color: var(--phasal-green-800);
+  font-size: 2.4rem;
+  font-weight: 800;
+}
+
+.phasal-story__stat-label {
+  color: var(--phasal-text-500);
+  font-size: 1.05rem;
+}
+
+.phasal-story__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 5.2rem 6rem;
+}
+
+.phasal-story__title {
+  margin: 0;
+  color: var(--phasal-green-800);
+  font-size: clamp(2.8rem, 4vw, 3.8rem);
+  line-height: 1.15;
+}
+
+.phasal-story__copy {
+  margin-top: 1.4rem;
+  color: var(--phasal-text-700);
+  font-size: 1.5rem;
+  line-height: 1.7;
+}
+
+.phasal-story__feature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-top: 2rem;
+}
+
+.phasal-story__feature {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
+  padding: 1.3rem 1.7rem;
+  border-radius: 1.4rem;
+  background: #fff;
+  box-shadow: 0 0.2rem 1.2rem rgba(26, 77, 46, 0.07);
+}
+
+.phasal-story__feature-icon {
+  display: inline-flex;
+  width: 4.8rem;
+  height: 4.8rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--phasal-green-100);
+  font-size: 2.2rem;
+}
+
+.phasal-story__feature-title {
+  margin: 0;
+  color: var(--phasal-text-900);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.phasal-story__feature-copy {
+  margin-top: 0.2rem;
+  color: var(--phasal-text-500);
+  font-size: 1.15rem;
+}
+
+.phasal-why-card,
+.phasal-testimonial {
+  padding: 2.8rem;
+}
+
+.phasal-why-card__icon {
+  display: inline-block;
+  margin-bottom: 1.6rem;
+  font-size: 3.4rem;
+}
+
+.phasal-testimonial__stars {
+  color: #f5a623;
+  font-size: 1.5rem;
+}
+
+.phasal-testimonial__quote {
+  margin-top: 1.2rem;
+  color: var(--phasal-text-700);
+  font-size: 1.45rem;
+  font-style: italic;
+  line-height: 1.7;
+}
+
+.phasal-testimonial__user {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  margin-top: 1.8rem;
+}
+
+.phasal-testimonial__avatar {
+  display: inline-flex;
+  width: 4.2rem;
+  height: 4.2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--phasal-green-100);
+  font-size: 2rem;
+}
+
+.phasal-testimonial__name {
+  color: var(--phasal-text-900);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+.phasal-testimonial__meta {
+  color: var(--phasal-text-500);
+  font-size: 1.15rem;
+}
+
 @media screen and (max-width: 1199px) {
   .phasal-hero__inner {
     gap: 3rem;
@@ -448,6 +1114,10 @@
   .phasal-impact__item:nth-child(n + 4) {
     border-top-color: rgba(255, 255, 255, 0.12);
   }
+
+  .phasal-product-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
 @media screen and (max-width: 989px) {
@@ -466,6 +1136,24 @@
 
   .phasal-hero__stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phasal-section__header,
+  .phasal-story {
+    grid-template-columns: 1fr;
+  }
+
+  .phasal-guide-grid,
+  .phasal-why-grid,
+  .phasal-testimonial-grid,
+  .phasal-dual-grid,
+  .phasal-product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .phasal-banner__content,
+  .phasal-story__content {
+    padding: 4rem 3rem;
   }
 }
 
@@ -513,6 +1201,20 @@
     grid-template-columns: 1fr;
   }
 
+  .phasal-section {
+    padding: 5rem 0;
+  }
+
+  .phasal-section__header,
+  .phasal-guide-grid,
+  .phasal-why-grid,
+  .phasal-testimonial-grid,
+  .phasal-dual-grid,
+  .phasal-product-grid,
+  .phasal-story {
+    grid-template-columns: 1fr;
+  }
+
   .phasal-trust__item,
   .phasal-impact__item {
     border-right: 0;
@@ -529,5 +1231,17 @@
   .phasal-hero-card--feature .phasal-hero-card__body {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .phasal-banner__content,
+  .phasal-story__content {
+    padding: 3rem 2rem;
+  }
+
+  .phasal-story__stats {
+    left: 1.6rem;
+    right: 1.6rem;
+    gap: 1.2rem;
+    justify-content: space-between;
   }
 }

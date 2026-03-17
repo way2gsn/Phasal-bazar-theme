@@ -1,5 +1,9 @@
 {{ 'phasal-home.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign hero_products = section.settings.product_collection.products
+-%}
+
 <section class="phasal-home phasal-hero">
   <div class="phasal-hero__media">
     {%- if section.settings.background_image != blank -%}
@@ -66,15 +70,15 @@
     </div>
 
     <div class="phasal-hero__cards">
-      {%- assign product_blocks = section.blocks | where: 'type', 'product_card' -%}
-      {%- if product_blocks.size > 0 -%}
+      {%- if section.settings.product_collection != blank and hero_products.size > 0 -%}
         <div class="phasal-hero__card-grid">
-          {%- for block in product_blocks limit: 2 -%}
-            <article class="phasal-hero-card" {{ block.shopify_attributes }}>
+          {%- for product in hero_products limit: 2 -%}
+            {%- assign variant = product.selected_or_first_available_variant -%}
+            <article class="phasal-hero-card">
               <div class="phasal-hero-card__image">
-                {%- if block.settings.image != blank -%}
+                {%- if product.featured_image != blank -%}
                   {{
-                    block.settings.image
+                    product.featured_image
                     | image_url: width: 900
                     | image_tag:
                       widths: '360, 540, 720, 900',
@@ -83,15 +87,21 @@
                 {%- endif -%}
               </div>
               <div class="phasal-hero-card__body">
-                <h2 class="phasal-hero-card__title">{{ block.settings.title | escape }}</h2>
-                {%- if block.settings.copy != blank -%}
-                  <p class="phasal-hero-card__copy">{{ block.settings.copy | escape }}</p>
+                <h2 class="phasal-hero-card__title">{{ product.title | escape }}</h2>
+                {%- if product.metafields.custom.short_description != blank -%}
+                  <p class="phasal-hero-card__copy">{{ product.metafields.custom.short_description | metafield_tag | strip_html }}</p>
+                {%- elsif product.description != blank -%}
+                  <p class="phasal-hero-card__copy">{{ product.description | strip_html | truncate: 70 }}</p>
                 {%- endif -%}
-                {%- if block.settings.price != blank -%}
+                {%- if variant != blank -%}
                   <div class="phasal-hero-card__price">
-                    {{ block.settings.price | escape }}
-                    {%- if block.settings.price_unit != blank -%}
-                      <span class="phasal-hero-card__price-unit">{{ block.settings.price_unit | escape }}</span>
+                    {{ variant.price | money }}
+                    {%- if variant.unit_price_measurement != blank -%}
+                      <span class="phasal-hero-card__price-unit">
+                        /
+                        {{ variant.unit_price_measurement.reference_value -}}
+                        {{- variant.unit_price_measurement.reference_unit }}
+                      </span>
                     {%- endif -%}
                   </div>
                 {%- endif -%}
@@ -156,6 +166,11 @@
       "default": "72,000+ Farmers - Chhattisgarh"
     },
     {
+      "type": "collection",
+      "id": "product_collection",
+      "label": "Hero product collection"
+    },
+    {
       "type": "text",
       "id": "heading_line_1",
       "label": "Heading line 1",
@@ -218,41 +233,6 @@
           "id": "label",
           "label": "Label",
           "default": "Farmer Partners"
-        }
-      ]
-    },
-    {
-      "type": "product_card",
-      "name": "Product card",
-      "settings": [
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title",
-          "default": "Kodo Millet (Whole Grain)"
-        },
-        {
-          "type": "text",
-          "id": "copy",
-          "label": "Copy",
-          "default": "Pure and unrefined - Low GI - Rich in fiber"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "Price",
-          "default": "Rs. 180"
-        },
-        {
-          "type": "text",
-          "id": "price_unit",
-          "label": "Price unit",
-          "default": "/ 500g"
         }
       ]
     },
@@ -322,24 +302,6 @@
           "settings": {
             "number": "100%",
             "label": "Organic"
-          }
-        },
-        {
-          "type": "product_card",
-          "settings": {
-            "title": "Kodo Millet (Whole Grain)",
-            "copy": "Pure and unrefined - Low GI - Rich in fiber",
-            "price": "Rs. 180",
-            "price_unit": "/ 500g"
-          }
-        },
-        {
-          "type": "product_card",
-          "settings": {
-            "title": "Mustard Oil - Kachi Ghani",
-            "copy": "Cold-Pressed - 100% Pure - MUFA rich",
-            "price": "Rs. 320",
-            "price_unit": "/ 1L"
           }
         },
         {

@@ -1,0 +1,52 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-home phasal-section phasal-section--cream">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header">
+      <div>
+        {%- if section.settings.eyebrow != blank -%}
+          <div class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</div>
+        {%- endif -%}
+        <h2 class="phasal-section__title">{{ section.settings.title | escape }}</h2>
+        {%- if section.settings.copy != blank -%}
+          <p class="phasal-section__copy">{{ section.settings.copy | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+    <div class="phasal-why-grid">
+      {%- for block in section.blocks -%}
+        <article class="phasal-why-card" {{ block.shopify_attributes }}>
+          <span class="phasal-why-card__icon">{{ block.settings.icon | escape }}</span>
+          <h3 class="phasal-why-card__title">{{ block.settings.title | escape }}</h3>
+          <p class="phasal-why-card__copy">{{ block.settings.copy | escape }}</p>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasal Why Choose Us",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Phasal" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Why customers come back" },
+    { "type": "text", "id": "copy", "label": "Copy", "default": "Highlight your strongest trust points after shoppers have seen products and story." }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon or emoji", "default": "🌿" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Clean sourcing" },
+        { "type": "text", "id": "copy", "label": "Copy", "default": "Explain the proof point behind this benefit." }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    { "name": "Phasal Why Choose Us", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }] }
+  ]
+}
+{% endschema %}

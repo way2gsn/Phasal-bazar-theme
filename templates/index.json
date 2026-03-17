@@ -85,24 +85,6 @@
             "label": "Organic"
           }
         },
-        "product_card_1": {
-          "type": "product_card",
-          "settings": {
-            "title": "Kodo Millet (Whole Grain)",
-            "copy": "Pure and unrefined - Low GI - Rich in fiber",
-            "price": "Rs. 180",
-            "price_unit": "/ 500g"
-          }
-        },
-        "product_card_2": {
-          "type": "product_card",
-          "settings": {
-            "title": "Mustard Oil - Kachi Ghani",
-            "copy": "Cold-Pressed - 100% Pure - MUFA rich",
-            "price": "Rs. 320",
-            "price_unit": "/ 1L"
-          }
-        },
         "feature_card_1": {
           "type": "feature_card",
           "settings": {
@@ -117,13 +99,12 @@
         "stat_2",
         "stat_3",
         "stat_4",
-        "product_card_1",
-        "product_card_2",
         "feature_card_1"
       ],
       "settings": {
         "eyebrow": "Ganwai Collection 2025",
         "meta": "72,000+ Farmers - Chhattisgarh",
+        "product_collection": "all",
         "heading_line_1": "Ancient Grains,",
         "heading_line_2": "Direct from the",
         "heading_line_3": "Heart of India",
@@ -235,32 +216,254 @@
       ],
       "settings": {}
     },
-    "featured_collection": {
-      "type": "featured-collection",
+    "phasal_collection_pills": {
+      "type": "phasal-collection-pills",
+      "blocks": {
+        "collection_1": {
+          "type": "collection",
+          "settings": {
+            "collection": "all",
+            "icon": "🌾",
+            "highlight": true
+          }
+        }
+      },
+      "block_order": [
+        "collection_1"
+      ],
       "settings": {
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
+        "eyebrow": "Browse Collection",
+        "title": "Shop by Grain",
+        "copy": "Ancient superfoods grown in the heartland of Chhattisgarh",
+        "link_label": "All Products",
+        "link": "shopify://collections/all"
+      }
+    },
+    "phasal_featured_products": {
+      "type": "phasal-featured-products",
+      "settings": {
+        "eyebrow": "Featured products",
+        "title": "Best from the harvest",
+        "copy": "Live products pulled directly from Shopify so the homepage always stays in sync.",
         "collection": "all",
-        "products_to_show": 8,
-        "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "padding_top": 44,
-        "padding_bottom": 36
+        "products_to_show": 4,
+        "default_badge": "72K+ network",
+        "link_label": "View collection"
+      }
+    },
+    "phasal_wide_banner": {
+      "type": "phasal-wide-banner",
+      "settings": {
+        "eyebrow": "Farmer first",
+        "title": "<p>Healthy staples with a <strong>direct village story</strong></p>",
+        "copy": "Bring home grains and oils that keep nutrition intact and keep value closer to the farm.",
+        "button_label": "Shop now",
+        "button_link": "shopify://collections/all"
+      }
+    },
+    "phasal_guide_cards": {
+      "type": "phasal-guide-cards",
+      "blocks": {
+        "guide_1": {
+          "type": "card",
+          "settings": {
+            "kicker": "Nutrition",
+            "title": "Why millet works for everyday meals",
+            "copy": "Explain the grain, how to cook it, or what benefit makes it worth trying.",
+            "tag_1": "Fiber rich",
+            "tag_2": "Traditional",
+            "tag_3": "Easy recipes"
+          }
+        },
+        "guide_2": {
+          "type": "card",
+          "settings": {
+            "kicker": "Kitchen guide",
+            "title": "Choosing between whole grain, poha, and flour",
+            "copy": "Help shoppers understand the right form factor for breakfast, dinner, or daily staples.",
+            "tag_1": "Whole grain",
+            "tag_2": "Poha",
+            "tag_3": "Aata"
+          }
+        },
+        "guide_3": {
+          "type": "card",
+          "settings": {
+            "kicker": "Origin story",
+            "title": "From Chhattisgarh fields to modern kitchens",
+            "copy": "Use a short educational story to make sourcing feel tangible and credible.",
+            "tag_1": "Traceable",
+            "tag_2": "Farmer direct",
+            "tag_3": "Organic"
+          }
+        }
+      },
+      "block_order": [
+        "guide_1",
+        "guide_2",
+        "guide_3"
+      ],
+      "settings": {
+        "eyebrow": "Millet guide",
+        "title": "Know what reaches your kitchen",
+        "copy": "Use this space for education, recipes, or story-led content that supports the product journey."
+      }
+    },
+    "phasal_dual_promo": {
+      "type": "phasal-dual-promo",
+      "blocks": {
+        "promo_1": {
+          "type": "promo",
+          "settings": {
+            "kicker": "Seasonal edit",
+            "title": "Curated combos for healthier kitchens",
+            "copy": "Use this as a promotional spotlight for a collection, page, or campaign.",
+            "link_label": "Explore",
+            "link": "shopify://collections/all"
+          }
+        },
+        "promo_2": {
+          "type": "promo",
+          "settings": {
+            "kicker": "From the village pantry",
+            "title": "Cold-pressed oils and staple essentials",
+            "copy": "Highlight a second category without duplicating your main hero.",
+            "link_label": "Shop oils",
+            "link": "shopify://collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "promo_1",
+        "promo_2"
+      ],
+      "settings": {}
+    },
+    "phasal_story": {
+      "type": "phasal-story",
+      "blocks": {
+        "feature_1": {
+          "type": "feature",
+          "settings": {
+            "icon": "🌾",
+            "title": "Traceable sourcing",
+            "copy": "Show how product origin and processing are made visible to customers."
+          }
+        },
+        "feature_2": {
+          "type": "feature",
+          "settings": {
+            "icon": "🪨",
+            "title": "Traditional processing",
+            "copy": "Explain how you preserve texture, nutrition, and taste through careful handling."
+          }
+        },
+        "feature_3": {
+          "type": "feature",
+          "settings": {
+            "icon": "🤝",
+            "title": "Farmer value",
+            "copy": "Make clear that better sourcing means better outcomes beyond the checkout."
+          }
+        }
+      },
+      "block_order": [
+        "feature_1",
+        "feature_2",
+        "feature_3"
+      ],
+      "settings": {
+        "eyebrow": "Farm story",
+        "title": "Built with farmers, not around them",
+        "copy": "Use this section to explain sourcing, processing, and how the brand protects nutrition and farmer value.",
+        "stat_number_1": "72K+",
+        "stat_label_1": "farmer partners",
+        "stat_number_2": "18",
+        "stat_label_2": "districts reached"
+      }
+    },
+    "phasal_why": {
+      "type": "phasal-why",
+      "blocks": {
+        "why_1": {
+          "type": "item",
+          "settings": {
+            "icon": "🌿",
+            "title": "Clean sourcing",
+            "copy": "Explain the proof point behind this benefit."
+          }
+        },
+        "why_2": {
+          "type": "item",
+          "settings": {
+            "icon": "🥣",
+            "title": "Everyday usability",
+            "copy": "Help shoppers imagine these products in real kitchens and routines."
+          }
+        },
+        "why_3": {
+          "type": "item",
+          "settings": {
+            "icon": "📦",
+            "title": "Reliable fulfillment",
+            "copy": "Use a final reassurance point around delivery, quality, or support."
+          }
+        }
+      },
+      "block_order": [
+        "why_1",
+        "why_2",
+        "why_3"
+      ],
+      "settings": {
+        "eyebrow": "Why Phasal",
+        "title": "Why customers come back",
+        "copy": "Highlight your strongest trust points after shoppers have seen products and story."
+      }
+    },
+    "phasal_testimonials": {
+      "type": "phasal-testimonials",
+      "blocks": {
+        "testimonial_1": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "The quality felt different from our first order. The grains cook beautifully and the story behind them matters to us.",
+            "avatar": "🙂",
+            "name": "Customer Name",
+            "meta": "Verified buyer"
+          }
+        },
+        "testimonial_2": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "We switched a few staples at home and these products immediately felt cleaner and fresher.",
+            "avatar": "😊",
+            "name": "Returning customer",
+            "meta": "Family shopper"
+          }
+        },
+        "testimonial_3": {
+          "type": "testimonial",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "The sourcing story gave us confidence, and the taste made us reorder.",
+            "avatar": "🌾",
+            "name": "Health-conscious buyer",
+            "meta": "Repeat order"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_1",
+        "testimonial_2",
+        "testimonial_3"
+      ],
+      "settings": {
+        "eyebrow": "Testimonials",
+        "title": "Loved by families who cook mindfully",
+        "copy": "This is one of the few places where static cards are expected and useful."
       }
     }
   },
@@ -269,6 +472,13 @@
     "phasal_hero",
     "phasal_trust",
     "phasal_impact",
-    "featured_collection"
+    "phasal_collection_pills",
+    "phasal_featured_products",
+    "phasal_wide_banner",
+    "phasal_guide_cards",
+    "phasal_dual_promo",
+    "phasal_story",
+    "phasal_why",
+    "phasal_testimonials"
   ]
 }
