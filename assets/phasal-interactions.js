@@ -52,15 +52,21 @@ class PhasalInteractions {
     document.querySelectorAll('[data-phasal-product-card]').forEach((card) => {
       const variantId = Number(card.dataset.variantId);
       const quantity = this.getVariantQuantity(variantId);
-      const addButton = card.querySelector('[data-phasal-add]');
-      const quantityWrap = card.querySelector('[data-phasal-quantity]');
-      const quantityValue = card.querySelector('[data-phasal-quantity-value]');
-
-      if (quantityValue) quantityValue.textContent = quantity;
-
-      if (addButton) addButton.hidden = quantity > 0;
-      if (quantityWrap) quantityWrap.hidden = quantity < 1;
+      this.setCardQuantity(card, quantity);
     });
+  }
+
+  setCardQuantity(card, quantity) {
+    const addButton = card.querySelector('[data-phasal-add]');
+    const quantityWrap = card.querySelector('[data-phasal-quantity]');
+    const quantityValue = card.querySelector('[data-phasal-quantity-value]');
+
+    if (quantityValue) quantityValue.textContent = quantity;
+
+    card.classList.toggle('is-in-cart', quantity > 0);
+
+    if (addButton) addButton.hidden = quantity > 0;
+    if (quantityWrap) quantityWrap.hidden = quantity < 1;
   }
 
   syncWishlistUI() {
@@ -130,8 +136,8 @@ class PhasalInteractions {
     }
 
     const data = await response.json();
-    this.renderDrawerSections(data);
-    await this.syncCartUI();
+    this.renderDrawerSections(data, true);
+    this.syncCartUI();
   }
 
   async changeCartQuantity(variantId, quantity) {
@@ -166,7 +172,7 @@ class PhasalInteractions {
     }
 
     const data = await response.json();
-    this.renderDrawerSections(data);
+    this.renderDrawerSections(data, false);
     this.cart = data;
     this.updateCartCount();
     this.updateProductCardQuantities();
@@ -179,11 +185,40 @@ class PhasalInteractions {
     return ids;
   }
 
-  renderDrawerSections(data) {
+  renderDrawerSections(data, shouldOpen) {
     const cartDrawer = document.querySelector('cart-drawer');
-    if (cartDrawer && data.sections) {
+    if (cartDrawer && data.sections && (shouldOpen || cartDrawer.classList.contains('active'))) {
       cartDrawer.renderContents(data);
     }
+  }
+
+  applyOptimisticQuantity(variantId, nextQuantity) {
+    if (!this.cart) {
+      this.cart = { item_count: 0, items: [] };
+    }
+
+    if (!this.cart.items) this.cart.items = [];
+
+    const existingIndex = this.cart.items.findIndex((item) => item.variant_id === variantId);
+    const previousQuantity = existingIndex >= 0 ? this.cart.items[existingIndex].quantity : 0;
+    const delta = nextQuantity - previousQuantity;
+
+    this.cart.item_count = Math.max((this.cart.item_count || 0) + delta, 0);
+
+    if (existingIndex >= 0) {
+      if (nextQuantity <= 0) {
+        this.cart.items.splice(existingIndex, 1);
+      } else {
+        this.cart.items[existingIndex].quantity = nextQuantity;
+      }
+    } else if (nextQuantity > 0) {
+      this.cart.items.push({ variant_id: variantId, quantity: nextQuantity });
+    }
+
+    this.updateCartCount();
+    this.updateProductCardQuantities();
+
+    return previousQuantity;
   }
 
   async handleCartButton(button, nextQuantity) {
@@ -191,18 +226,25 @@ class PhasalInteractions {
     const variantId = Number(card?.dataset.variantId);
     if (!variantId || this.pendingVariantIds.has(variantId)) return;
 
+    if (!this.cart) {
+      await this.syncCartUI();
+    }
+
     this.pendingVariantIds.add(variantId);
     card?.classList.add('is-loading');
 
+    const previousQuantity = this.applyOptimisticQuantity(variantId, nextQuantity);
+
     try {
-      const currentQuantity = this.getVariantQuantity(variantId);
-      if (currentQuantity === 0 && nextQuantity > 0) {
+      if (previousQuantity === 0 && nextQuantity > 0) {
         await this.addToCart(variantId, nextQuantity);
       } else {
         await this.changeCartQuantity(variantId, nextQuantity);
       }
     } catch (error) {
       console.error(error);
+      this.applyOptimisticQuantity(variantId, previousQuantity);
+      await this.syncCartUI();
     } finally {
       this.pendingVariantIds.delete(variantId);
       card?.classList.remove('is-loading');
