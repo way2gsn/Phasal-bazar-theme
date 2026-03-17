@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
+{{ 'phasal-collection.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
   @media screen and (max-width: 749px) {
@@ -9,39 +10,54 @@
   }
 {%- endstyle -%}
 
-<div class="collection-hero{% if section.settings.show_collection_image and collection.image %} collection-hero--with-image{% endif %} color-{{ section.settings.color_scheme }} gradient">
-  <div class="collection-hero__inner page-width {% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-    <div class="collection-hero__text-wrapper">
-      <h1 class="collection-hero__title">
-        <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-        {{- collection.title | escape -}}
-      </h1>
+<div class="phasal-collection-page phasal-collection-shell color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="phasal-collection-hero{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
+      <div class="phasal-collection-hero__inner page-width">
+        <div>
+          <div class="phasal-collection-hero__eyebrow">
+            {{ section.settings.eyebrow | escape }}
+          </div>
+          <h1 class="phasal-collection-hero__title">
+            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+            {{- collection.title | escape -}}
+          </h1>
 
-      {%- if section.settings.show_collection_description -%}
-        <div class="collection-hero__description rte">{{ collection.description }}</div>
-      {%- endif -%}
-    </div>
+          {%- if section.settings.show_collection_description -%}
+            <div class="phasal-collection-hero__description rte">{{ collection.description }}</div>
+          {%- endif -%}
 
-    {%- if section.settings.show_collection_image and collection.image -%}
-      <div class="collection-hero__image-container media gradient">
-        <img
-          srcset="
-            {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-            {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-            {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-            {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-            {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-            {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-            {{ collection.image | image_url }} {{ collection.image.width }}w
-          "
-          src="{{ collection.image | image_url: width: 750 }}"
-          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc(50vw - 130px), calc(50vw - 55px)"
-          alt="{{ collection.image.alt | escape }}"
-          width="{{ collection.image.width }}"
-          height="{{ collection.image.height }}"
-        >
+          <div class="phasal-collection-hero__stats">
+            <span class="phasal-collection-hero__stat">{{ collection.products_count }} products</span>
+            <span class="phasal-collection-hero__stat">{{ section.settings.stat_one | escape }}</span>
+            <span class="phasal-collection-hero__stat">{{ section.settings.stat_two | escape }}</span>
+          </div>
+        </div>
+
+        <div class="phasal-collection-hero__image">
+          {%- if section.settings.show_collection_image and collection.image -%}
+            <img
+              srcset="
+                {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+                {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+                {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+                {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+                {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+                {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+                {{ collection.image | image_url }} {{ collection.image.width }}w
+              "
+              src="{{ collection.image | image_url: width: 1070 }}"
+              sizes="(min-width: {{ settings.page_width }}px) 480px, (min-width: 750px) 36vw, 100vw"
+              alt="{{ collection.image.alt | escape }}"
+              width="{{ collection.image.width }}"
+              height="{{ collection.image.height }}"
+            >
+          {%- else -%}
+            <img src="{{ 'farm_hero2.png' | asset_url }}" alt="{{ collection.title | escape }}">
+          {%- endif -%}
+        </div>
       </div>
-    {%- endif -%}
+    </div>
   </div>
 </div>
 
@@ -55,6 +71,12 @@
       "content": "t:sections.main-collection-banner.settings.paragraph.content"
     },
     {
+      "type": "text",
+      "id": "eyebrow",
+      "default": "Browse Collection",
+      "label": "Eyebrow"
+    },
+    {
       "type": "checkbox",
       "id": "show_collection_description",
       "default": true,
@@ -65,6 +87,18 @@
       "id": "show_collection_image",
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
+    },
+    {
+      "type": "text",
+      "id": "stat_one",
+      "default": "Farm direct",
+      "label": "Stat badge one"
+    },
+    {
+      "type": "text",
+      "id": "stat_two",
+      "default": "Organic staples",
+      "label": "Stat badge two"
     },
     {
       "type": "color_scheme",

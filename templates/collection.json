@@ -12,8 +12,11 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
+        "eyebrow": "Browse Collection",
         "show_collection_description": true,
-        "show_collection_image": false,
+        "show_collection_image": true,
+        "stat_one": "Farm direct",
+        "stat_two": "Organic staples",
         "color_scheme": "scheme-1"
       }
     },
@@ -28,7 +31,7 @@
         "show_secondary_image": false,
         "show_vendor": false,
         "show_rating": false,
-        "quick_add": "none",
+        "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "horizontal",
         "enable_sorting": true,
