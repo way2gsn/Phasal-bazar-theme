@@ -468,7 +468,6 @@
     }
   },
   "order": [
-    "phasal_ticker",
     "phasal_hero",
     "phasal_trust",
     "phasal_impact",

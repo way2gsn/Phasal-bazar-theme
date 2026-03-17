@@ -21,6 +21,21 @@
   box-sizing: border-box;
 }
 
+.phasal-home,
+.phasal-home button,
+.phasal-home input,
+.phasal-home select,
+.phasal-home textarea {
+  font-family: 'DM Sans', sans-serif;
+}
+
+.phasal-home h1,
+.phasal-home h2,
+.phasal-home h3,
+.phasal-home h4 {
+  font-family: 'Playfair Display', serif;
+}
+
 .phasal-home img {
   display: block;
   max-width: 100%;

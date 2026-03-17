@@ -14,18 +14,19 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "scheme-1",
+        "about_text": "Organic millets, cold-pressed oils, and direct-from-farmer staples shaped for healthier kitchens.",
+        "menu_heading_1": "Shop",
+        "footer_menu_1": "main-menu",
+        "menu_heading_2": "Company",
+        "footer_menu_2": "main-menu",
+        "contact_heading": "Contact",
+        "contact_address": "Raigarh, Chhattisgarh, India",
+        "contact_phone": "+91 00000 00000",
+        "contact_email": "hello@example.com",
         "newsletter_enable": true,
-        "newsletter_heading": "Subscribe to our emails",
-        "enable_follow_on_shop": true,
+        "newsletter_heading": "Subscribe for updates",
         "show_social": true,
-        "enable_country_selector": true,
-        "enable_language_selector": true,
-        "payment_enable": true,
-        "show_policy": true,
-        "margin_top": 0,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "payment_enable": true
       }
     }
   },

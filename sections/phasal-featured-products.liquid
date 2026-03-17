@@ -1,5 +1,4 @@
 {{ 'phasal-home.css' | asset_url | stylesheet_tag }}
-<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 
 {%- liquid
   assign source_collection = section.settings.collection
@@ -109,28 +108,20 @@
                 </div>
                 {%- if product.available == false -%}
                   <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="View {{ product.title | escape }}">→</a>
-                {%- elsif product.has_only_default_variant -%}
-                  <product-form class="phasal-product-card__form">
-                    {%- form 'product', product, id: 'PhasalCardProductForm-' | append: section.id | append: '-' | append: product.id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
-                      <input type="hidden" name="id" value="{{ variant.id }}">
-                      <button
-                        id="PhasalCardAdd-{{ section.id }}-{{ product.id }}"
-                        class="phasal-product-card__cart-button"
-                        type="submit"
-                        name="add"
-                        aria-label="Add {{ product.title | escape }} to cart"
-                      >
-                        <span>+</span>
-                        <div class="loading__spinner hidden">
-                          <svg xmlns="http://www.w3.org/2000/svg" class="spinner" viewBox="0 0 66 66">
-                            <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
-                          </svg>
-                        </div>
-                      </button>
-                    {%- endform -%}
-                  </product-form>
                 {%- else -%}
-                  <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="Choose options for {{ product.title | escape }}">+</a>
+                  <form class="phasal-product-card__form" method="post" action="{{ routes.cart_add_url }}">
+                    <input type="hidden" name="id" value="{{ variant.id }}">
+                    <input type="hidden" name="quantity" value="1">
+                    <button
+                      id="PhasalCardAdd-{{ section.id }}-{{ product.id }}"
+                      class="phasal-product-card__cart-button"
+                      type="submit"
+                      name="add"
+                      aria-label="Add {{ product.title | escape }} to cart"
+                    >
+                      <span>+</span>
+                    </button>
+                  </form>
                 {%- endif -%}
               </div>
             </div>
