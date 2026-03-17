@@ -9,12 +9,13 @@ class PhasalInteractions {
   init() {
     document.addEventListener('click', this.handleClick);
     this.syncWishlistUI();
+    this.resetProductCards();
     this.syncCartUI();
   }
 
   async syncCartUI() {
     try {
-      const response = await fetch(`${routes.cart_url}.js`);
+      const response = await fetch(`${routes.cart_url}.js`, { cache: 'no-store' });
       this.cart = await response.json();
       this.updateCartCount();
       this.updateProductCardQuantities();
@@ -53,6 +54,12 @@ class PhasalInteractions {
       const variantId = Number(card.dataset.variantId);
       const quantity = this.getVariantQuantity(variantId);
       this.setCardQuantity(card, quantity);
+    });
+  }
+
+  resetProductCards() {
+    document.querySelectorAll('[data-phasal-product-card]').forEach((card) => {
+      this.setCardQuantity(card, 0);
     });
   }
 
