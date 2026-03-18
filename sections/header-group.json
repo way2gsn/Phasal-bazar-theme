@@ -49,6 +49,7 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [],
       "settings": {
         "menu": "main-menu",
         "category_menu": "",
