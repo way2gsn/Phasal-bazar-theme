@@ -190,17 +190,23 @@
 @media screen and (max-width: 989px) {
   .phasal-product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+      padding-left: 0;
+  list-style: none;
   }
 }
 
 @media screen and (max-width: 749px) {
   .phasal-product-grid {
     gap: 1.4rem;
+      padding-left: 0;
+  list-style: none;
   }
 }
 
 @media screen and (max-width: 480px) {
   .phasal-product-grid {
     grid-template-columns: 1fr;
+      padding-left: 0;
+  list-style: none;
   }
 }
