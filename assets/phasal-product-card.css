@@ -182,31 +182,110 @@
   transition: transform 0.15s ease, background 0.15s ease;
 }
 
+.phasal-product-card__form {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 13rem;
+}
+
+.phasal-product-card__cart-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  border: 0;
+  border-radius: 999px;
+  background: #1a4d2e;
+  color: #fff;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.phasal-product-card__cart-button[hidden] {
+  display: none;
+}
+
+.phasal-product-card__quantity {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.4rem;
+  border: 1px solid #ddd6c8;
+  border-radius: 999px;
+  background: #fff;
+  opacity: 0;
+  transform: scale(0.92);
+  transform-origin: right center;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.phasal-product-card__quantity[hidden] {
+  display: none;
+}
+
+.phasal-product-card__qty-button {
+  width: 3rem;
+  height: 3rem;
+  border: 0;
+  border-radius: 999px;
+  background: #d6ead9;
+  color: #1a4d2e;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.phasal-product-card__qty-value {
+  min-width: 1.6rem;
+  text-align: center;
+  color: #1a1a1a;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.phasal-product-card.is-in-cart .phasal-product-card__quantity {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .phasal-product-card__options-link:hover {
   background: #c8921a;
   transform: scale(1.08);
 }
 
+.phasal-product-card__cart-button:hover {
+  background: #c8921a;
+  transform: scale(1.08);
+}
+
+.phasal-product-card__qty-button:hover {
+  background: #bfe0c5;
+  transform: scale(1.05);
+}
+
+.phasal-product-card.is-loading .phasal-product-card__cart-button,
+.phasal-product-card.is-loading .phasal-product-card__qty-button {
+  pointer-events: none;
+}
+
 @media screen and (max-width: 989px) {
   .phasal-product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-      padding-left: 0;
-  list-style: none;
   }
 }
 
 @media screen and (max-width: 749px) {
   .phasal-product-grid {
     gap: 1.4rem;
-      padding-left: 0;
-  list-style: none;
   }
 }
 
 @media screen and (max-width: 480px) {
   .phasal-product-grid {
     grid-template-columns: 1fr;
-      padding-left: 0;
-  list-style: none;
   }
 }

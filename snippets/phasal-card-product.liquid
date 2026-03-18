@@ -19,7 +19,7 @@
     endif
   -%}
 
-  <article class="phasal-product-card">
+  <article class="phasal-product-card" data-phasal-product-card data-variant-id="{{ variant.id }}">
     <div class="phasal-product-card__media">
       <span class="phasal-product-card__badge {{ badge_class }}">{{ badge_text }}</span>
       <a href="{{ card_product.url }}">
@@ -79,7 +79,25 @@
             </span>
           {%- endif -%}
         </div>
-        <a class="phasal-product-card__options-link" href="{{ card_product.url }}" aria-label="View {{ card_product.title | escape }}">→</a>
+        {%- if card_product.available == false -%}
+          <a class="phasal-product-card__options-link" href="{{ card_product.url }}" aria-label="View {{ card_product.title | escape }}">→</a>
+        {%- else -%}
+          <div class="phasal-product-card__form">
+            <button
+              class="phasal-product-card__cart-button"
+              type="button"
+              data-phasal-add
+              aria-label="Add {{ card_product.title | escape }} to cart"
+            >
+              <span>+</span>
+            </button>
+            <div class="phasal-product-card__quantity" data-phasal-quantity hidden>
+              <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-minus aria-label="Decrease quantity">−</button>
+              <span class="phasal-product-card__qty-value" data-phasal-quantity-value>0</span>
+              <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-plus aria-label="Increase quantity">+</button>
+            </div>
+          </div>
+        {%- endif -%}
       </div>
     </div>
   </article>
