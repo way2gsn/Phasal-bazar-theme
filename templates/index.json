@@ -66,9 +66,9 @@
         "heading_line_3": "Heart of India",
         "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table. Your healthy choice supports rural communities.",
         "primary_button_label": "Shop All Millets",
-        "primary_button_link": "shopify://collections/all",
+        "primary_button_link": "shopify://collections/millets",
         "secondary_button_label": "Learn Our Story",
-        "secondary_button_link": "shopify://pages/about"
+        "secondary_button_link": "https://phasal-bazar.myshopify.com/blogs/news/learn-our-story"
       }
     },
     "phasal_trust": {
