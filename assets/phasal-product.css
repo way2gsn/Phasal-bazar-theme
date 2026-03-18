@@ -624,6 +624,53 @@
 .phasal-product-page .quantity__input::-webkit-outer-spin-button { -webkit-appearance: none; }
 .phasal-product-page .quantity__input[type='number'] { -moz-appearance: textfield; }
 
+.phasal-product-page__bulk-qty {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  margin: 0 0 1.2rem;
+}
+
+.phasal-product-page__bulk-qty-label {
+  color: var(--pp-td);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.phasal-product-page__bulk-qty-buttons {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.phasal-product-page__bulk-qty-button {
+  min-width: 4.6rem;
+  min-height: 4rem;
+  padding: 0.8rem 1.4rem;
+  border: 1.5px solid var(--pp-bd);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--pp-td);
+  font-size: 1.35rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, color .2s, transform .15s;
+}
+
+.phasal-product-page__bulk-qty-button:hover {
+  border-color: var(--pp-g3);
+  color: var(--pp-g1);
+  transform: translateY(-1px);
+}
+
+.phasal-product-page__bulk-qty-button.is-active {
+  background: var(--pp-g1);
+  border-color: var(--pp-g1);
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(26,77,46,.18);
+}
+
 /* ─────────────────────────────────────────
    14. CTA BUTTONS
 ───────────────────────────────────────── */
@@ -1639,6 +1686,11 @@
   .phasal-product-page .price-item--regular { font-size: 3rem; }
 
   .phasal-product-page__nutrition-row { padding: 1.2rem 1.6rem; }
+  .phasal-product-page__bulk-qty {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
 
   .phasal-product-page .product-form__submit { min-height: 5rem; font-size: 1.4rem; }
 

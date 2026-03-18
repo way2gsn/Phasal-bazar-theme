@@ -299,6 +299,26 @@
                       >
                     </span>
                   </label>
+                  {%- assign bulk_quantity_values = section.settings.bulk_quantity_values | replace: ' ', '' | split: ',' -%}
+                  {%- if bulk_quantity_values.size > 0 and section.settings.bulk_quantity_values != blank -%}
+                    <div class="phasal-product-page__bulk-qty" data-bulk-quantity-group data-target-input="Quantity-{{ section.id }}">
+                      <span class="phasal-product-page__bulk-qty-label">Bulk quantity</span>
+                      <div class="phasal-product-page__bulk-qty-buttons">
+                        {%- for qty_value in bulk_quantity_values -%}
+                          {%- assign qty_number = qty_value | plus: 0 -%}
+                          {%- if qty_number > 0 -%}
+                            <button
+                              type="button"
+                              class="phasal-product-page__bulk-qty-button{% if qty_number == product.selected_or_first_available_variant.quantity_rule.min %} is-active{% endif %}"
+                              data-bulk-quantity="{{ qty_number }}"
+                            >
+                              {{ qty_number }}
+                            </button>
+                          {%- endif -%}
+                        {%- endfor -%}
+                      </div>
+                    </div>
+                  {%- endif -%}
                   <div class="price-per-item__container">
                     <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
                       <button class="quantity__button" name="minus" type="button">
@@ -921,6 +941,38 @@
             buttons.forEach((item) => item.classList.toggle('is-active', item === button));
             panels.forEach((panel) => panel.classList.toggle('is-active', panel.id === target));
           });
+        });
+      })();
+    </script>
+    <script>
+      (() => {
+        const groups = document.querySelectorAll('[data-bulk-quantity-group]');
+        groups.forEach((group) => {
+          const inputId = group.getAttribute('data-target-input');
+          const input = document.getElementById(inputId);
+          if (!input) return;
+          const buttons = group.querySelectorAll('[data-bulk-quantity]');
+
+          const syncActive = () => {
+            const current = Number(input.value || 0);
+            buttons.forEach((button) => {
+              button.classList.toggle('is-active', Number(button.getAttribute('data-bulk-quantity')) === current);
+            });
+          };
+
+          buttons.forEach((button) => {
+            button.addEventListener('click', () => {
+              const value = button.getAttribute('data-bulk-quantity');
+              input.value = value;
+              input.dispatchEvent(new Event('input', { bubbles: true }));
+              input.dispatchEvent(new Event('change', { bubbles: true }));
+              syncActive();
+            });
+          });
+
+          input.addEventListener('input', syncActive);
+          input.addEventListener('change', syncActive);
+          syncActive();
         });
       })();
     </script>
@@ -2491,6 +2543,12 @@
       "id": "bulk_order_note",
       "label": "Bulk order note",
       "default": "Need larger quantities for business or events? Get special pricing on bulk orders."
+    },
+    {
+      "type": "text",
+      "id": "bulk_quantity_values",
+      "label": "Bulk quantity chips",
+      "default": "1,2,5,10"
     },
     {
       "type": "text",
