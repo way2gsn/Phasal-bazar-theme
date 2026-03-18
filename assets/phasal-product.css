@@ -65,7 +65,13 @@
 .phasal-product-page .product__media-wrapper,
 .phasal-product-page .product__info-wrapper {
   min-width: 0;
+  width: auto;
+  max-width: none;
   padding-top: 0;
+}
+
+.phasal-product-page .product__info-wrapper {
+  padding-left: 0;
 }
 
 .phasal-product-page media-gallery {
@@ -105,8 +111,11 @@
 }
 
 .phasal-product-page .thumbnail-list {
+  display: flex;
   gap: 1rem;
   margin-top: 1.2rem;
+  flex-wrap: nowrap;
+  align-items: center;
 }
 
 .phasal-product-page .thumbnail {
@@ -122,6 +131,11 @@
 
 .phasal-product-page .product__info-container {
   padding: 0;
+  max-width: none;
+}
+
+.phasal-product-page .product__info-container > * {
+  max-width: none;
 }
 
 .phasal-product-page__meta-row {
@@ -172,6 +186,7 @@
   font-size: clamp(2.8rem, 3vw, 3.8rem);
   font-weight: 900;
   line-height: 1.12;
+  word-break: normal;
 }
 
 .phasal-product-page__subtitle {
@@ -320,6 +335,8 @@
 
 .phasal-product-page .product-form__input {
   margin-bottom: 2.2rem;
+  max-width: none;
+  min-width: 0;
 }
 
 .phasal-product-page .product-form__input .form__label,
@@ -377,6 +394,7 @@
   grid-template-columns: minmax(0, 1fr);
   gap: 1.2rem;
   align-items: stretch;
+  max-width: none;
 }
 
 .phasal-product-page .product-form__submit {
@@ -784,12 +802,40 @@
 }
 
 @media screen and (min-width: 990px) {
+  .phasal-product-page .product__media-wrapper {
+    width: 100%;
+    max-width: none;
+  }
+
+  .phasal-product-page .product__info-wrapper {
+    width: 100%;
+    max-width: none;
+    padding-left: 2rem;
+  }
+
   .phasal-product-page .product__info-container {
     padding-right: 0.2rem;
   }
 
   .phasal-product-page .thumbnail-list {
     flex-wrap: nowrap;
+  }
+
+  .phasal-product-page .thumbnail-slider {
+    width: 100%;
+    max-width: none;
+  }
+
+  .phasal-product-page .product-form,
+  .phasal-product-page .product-form__buttons,
+  .phasal-product-page .product-form__input,
+  .phasal-product-page .quantity__rules,
+  .phasal-product-page .product__inventory,
+  .phasal-product-page .product__sku,
+  .phasal-product-page .product__description,
+  .phasal-product-page .phasal-product__cta {
+    max-width: none;
+    width: 100%;
   }
 
   .phasal-product-page__tabs-nav,
