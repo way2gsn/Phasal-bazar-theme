@@ -17,25 +17,25 @@
         "announcement-bar-0": {
           "type": "announcement",
           "settings": {
-            "text": "Stone-Ground and Unpolished"
+            "text": "Sourced Direct — Dongitara Millet Processing Unit, Raigarh"
           }
         },
         "announcement-bar-1": {
           "type": "announcement",
           "settings": {
-            "text": "Cold-Pressed Oils - No Heat, No Chemicals"
+            "text": "72,000+ Farmers Network — Direct from Chhattisgarh"
           }
         },
         "announcement-bar-2": {
           "type": "announcement",
           "settings": {
-            "text": "Free Delivery on Orders Above Rs. 499"
+            "text": "Use code PHASAL10 — 10% Off Your First Order"
           }
         },
         "announcement-bar-3": {
           "type": "announcement",
           "settings": {
-            "text": "Sourced Direct - Dongitara Millet Processing Unit, Raigarh"
+            "text": "100% Organic Millets · Stone-Ground & Unpolished"
           }
         }
       },
@@ -51,7 +51,7 @@
       "type": "header",
       "settings": {
         "menu": "main-menu",
-        "category_menu": "main-menu",
+        "category_menu": "",
         "show_search": true,
         "search_placeholder": "Search millets, oils, poha, aata...",
         "sticky_header_type": "on-scroll-up",

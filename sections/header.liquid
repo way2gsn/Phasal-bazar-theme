@@ -5,6 +5,26 @@
   if section.settings.sticky_header_type != 'none'
     assign sticky_class = ' phasal-header--sticky'
   endif
+
+  assign use_reference_top_nav = false
+  if section.settings.menu.links.size == 0
+    assign use_reference_top_nav = true
+  elsif section.settings.menu.links.size <= 3
+    assign first_top_title = section.settings.menu.links.first.title | downcase
+    if first_top_title == 'home'
+      assign use_reference_top_nav = true
+    endif
+  endif
+
+  assign use_reference_category_tabs = false
+  if section.settings.category_menu.links.size == 0
+    assign use_reference_category_tabs = true
+  elsif section.settings.category_menu.links.size <= 3
+    assign first_category_title = section.settings.category_menu.links.first.title | downcase
+    if first_category_title == 'home'
+      assign use_reference_category_tabs = true
+    endif
+  endif
 -%}
 
 <section class="phasal-shell phasal-header{{ sticky_class }}">
@@ -15,15 +35,35 @@
       </summary>
       <div class="phasal-header__mobile-panel">
         <nav class="phasal-header__mobile-menu" aria-label="Mobile primary">
-          {%- for link in section.settings.menu.links -%}
-            <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
-          {%- endfor -%}
+          {%- if use_reference_top_nav -%}
+            <a class="phasal-header__mobile-link" href="#shop-by-grain">Shop by Grain</a>
+            <a class="phasal-header__mobile-link" href="#shop-by-form">Shop by Form</a>
+            <a class="phasal-header__mobile-link" href="#farm-to-table-story">Farm to Table Story</a>
+            <a class="phasal-header__mobile-link" href="#impact">Impact</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.blog_url }}">Blog</a>
+          {%- else -%}
+            {%- for link in section.settings.menu.links -%}
+              <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+            {%- endfor -%}
+          {%- endif -%}
         </nav>
         <div class="phasal-header__mobile-categories">
-          {%- assign mobile_category_menu = section.settings.category_menu | default: section.settings.menu -%}
-          {%- for link in mobile_category_menu.links -%}
-            <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
-          {%- endfor -%}
+          {%- if use_reference_category_tabs -%}
+            <a class="phasal-header__mobile-link" href="{{ routes.all_products_collection_url }}">All Products</a>
+            <a class="phasal-header__mobile-link" href="/collections/kodo-millet">Kodo Millet</a>
+            <a class="phasal-header__mobile-link" href="/collections/foxtail-millet">Foxtail Millet</a>
+            <a class="phasal-header__mobile-link" href="/collections/little-millet">Little Millet</a>
+            <a class="phasal-header__mobile-link" href="/collections/barnyard-millet">Barnyard Millet</a>
+            <a class="phasal-header__mobile-link" href="/collections/finger-millet">Finger Millet</a>
+            <a class="phasal-header__mobile-link" href="/collections/cold-press-oils">Cold-Press Oils</a>
+            <a class="phasal-header__mobile-link" href="/collections/poha-aata">Poha &amp; Aata</a>
+            <a class="phasal-header__mobile-link" href="/collections/combo-packs">Combo Packs</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.blog_url }}">Recipes</a>
+          {%- else -%}
+            {%- for link in section.settings.category_menu.links -%}
+              <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+            {%- endfor -%}
+          {%- endif -%}
         </div>
       </div>
     </details>
@@ -62,14 +102,31 @@
     {%- endif -%}
 
     <nav class="phasal-header__top-nav" aria-label="Primary">
-      {%- for link in section.settings.menu.links -%}
-        <a class="phasal-header__top-link" href="{{ link.url }}">
-          {{ link.title | escape }}
-          {%- if link.links != blank -%}
-            <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
-          {%- endif -%}
+      {%- if use_reference_top_nav -%}
+        <a class="phasal-header__top-link" href="#shop-by-grain">
+          Shop by Grain
+          <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
         </a>
-      {%- endfor -%}
+        <a class="phasal-header__top-link" href="#shop-by-form">
+          Shop by Form
+          <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
+        </a>
+        <a class="phasal-header__top-link phasal-header__top-link--highlight" href="#farm-to-table-story">
+          Farm to Table Story
+          <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
+        </a>
+        <a class="phasal-header__top-link" href="#impact">Impact</a>
+        <a class="phasal-header__top-link" href="{{ routes.blog_url }}">Blog</a>
+      {%- else -%}
+        {%- for link in section.settings.menu.links -%}
+          <a class="phasal-header__top-link" href="{{ link.url }}">
+            {{ link.title | escape }}
+            {%- if link.links != blank -%}
+              <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
+            {%- endif -%}
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
     </nav>
 
     <div class="phasal-header__actions">
@@ -92,41 +149,53 @@
 
   <div class="phasal-header__categories">
     <nav class="phasal-shell__inner phasal-header__categories-inner" aria-label="Collections">
-      {%- assign category_menu = section.settings.category_menu | default: section.settings.menu -%}
-      {%- for link in category_menu.links -%}
-        <a class="phasal-header__category-link{% if link.current %} phasal-header__category-link--active{% endif %}" href="{{ link.url }}">
-          <span class="phasal-header__category-icon" aria-hidden="true">
-            {%- liquid
-              assign category_title = link.title | downcase
-              case category_title
-                when 'all products'
-                  echo '🌾'
-                when 'kodo millet'
-                  echo '🌿'
-                when 'foxtail millet'
-                  echo '🟡'
-                when 'little millet'
-                  echo '⚪'
-                when 'barnyard millet'
-                  echo '🟤'
-                when 'finger millet'
-                  echo '🟠'
-                when 'cold-press oils', 'cold-pressed oils'
-                  echo '🫙'
-                when 'poha & aata', 'poha and aata'
-                  echo '🥣'
-                when 'combo packs'
-                  echo '🎁'
-                when 'recipes'
-                  echo '📖'
-                else
-                  echo '•'
-              endcase
-            -%}
-          </span>
-          {{ link.title | escape }}
-        </a>
-      {%- endfor -%}
+      {%- if use_reference_category_tabs -%}
+        <a class="phasal-header__category-link phasal-header__category-link--active" href="{{ routes.all_products_collection_url }}"><span class="phasal-header__category-icon" aria-hidden="true">🌾</span>All Products</a>
+        <a class="phasal-header__category-link" href="/collections/kodo-millet"><span class="phasal-header__category-icon" aria-hidden="true">🌿</span>Kodo Millet</a>
+        <a class="phasal-header__category-link" href="/collections/foxtail-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟡</span>Foxtail Millet</a>
+        <a class="phasal-header__category-link" href="/collections/little-millet"><span class="phasal-header__category-icon" aria-hidden="true">⚪</span>Little Millet</a>
+        <a class="phasal-header__category-link" href="/collections/barnyard-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟤</span>Barnyard Millet</a>
+        <a class="phasal-header__category-link" href="/collections/finger-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟠</span>Finger Millet</a>
+        <a class="phasal-header__category-link" href="/collections/cold-press-oils"><span class="phasal-header__category-icon" aria-hidden="true">🫙</span>Cold-Press Oils</a>
+        <a class="phasal-header__category-link" href="/collections/poha-aata"><span class="phasal-header__category-icon" aria-hidden="true">🥣</span>Poha &amp; Aata</a>
+        <a class="phasal-header__category-link" href="/collections/combo-packs"><span class="phasal-header__category-icon" aria-hidden="true">🎁</span>Combo Packs</a>
+        <a class="phasal-header__category-link" href="{{ routes.blog_url }}"><span class="phasal-header__category-icon" aria-hidden="true">📖</span>Recipes</a>
+      {%- else -%}
+        {%- for link in section.settings.category_menu.links -%}
+          <a class="phasal-header__category-link{% if link.current %} phasal-header__category-link--active{% endif %}" href="{{ link.url }}">
+            <span class="phasal-header__category-icon" aria-hidden="true">
+              {%- liquid
+                assign category_title = link.title | downcase
+                case category_title
+                  when 'all products'
+                    echo '🌾'
+                  when 'kodo millet'
+                    echo '🌿'
+                  when 'foxtail millet'
+                    echo '🟡'
+                  when 'little millet'
+                    echo '⚪'
+                  when 'barnyard millet'
+                    echo '🟤'
+                  when 'finger millet'
+                    echo '🟠'
+                  when 'cold-press oils', 'cold-pressed oils'
+                    echo '🫙'
+                  when 'poha & aata', 'poha and aata'
+                    echo '🥣'
+                  when 'combo packs'
+                    echo '🎁'
+                  when 'recipes'
+                    echo '📖'
+                  else
+                    echo '•'
+                endcase
+              -%}
+            </span>
+            {{ link.title | escape }}
+          </a>
+        {%- endfor -%}
+      {%- endif -%}
     </nav>
   </div>
 

@@ -187,6 +187,11 @@ textarea {
   color: var(--phasal-green-800);
 }
 
+.phasal-header__top-link--highlight {
+  background: #dcefdc;
+  color: var(--phasal-green-800);
+}
+
 .phasal-header__actions {
   display: flex;
   align-items: center;
