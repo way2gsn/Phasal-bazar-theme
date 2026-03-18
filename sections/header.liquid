@@ -9,6 +9,25 @@
 
 <section class="phasal-shell phasal-header{{ sticky_class }}">
   <div class="phasal-shell__inner phasal-header__main">
+    <details class="phasal-header__mobile-nav">
+      <summary class="phasal-header__mobile-toggle" aria-label="Open menu">
+        <span class="phasal-header__icon">{{ 'icon-hamburger.svg' | inline_asset_content }}</span>
+      </summary>
+      <div class="phasal-header__mobile-panel">
+        <nav class="phasal-header__mobile-menu" aria-label="Mobile primary">
+          {%- for link in section.settings.menu.links -%}
+            <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+          {%- endfor -%}
+        </nav>
+        <div class="phasal-header__mobile-categories">
+          {%- assign mobile_category_menu = section.settings.category_menu | default: section.settings.menu -%}
+          {%- for link in mobile_category_menu.links -%}
+            <a class="phasal-header__mobile-link" href="{{ link.url }}">{{ link.title | escape }}</a>
+          {%- endfor -%}
+        </div>
+      </div>
+    </details>
+
     <a class="phasal-header__logo" href="{{ routes.root_url }}">
       {%- if settings.logo != blank -%}
         {{
@@ -76,6 +95,35 @@
       {%- assign category_menu = section.settings.category_menu | default: section.settings.menu -%}
       {%- for link in category_menu.links -%}
         <a class="phasal-header__category-link{% if link.current %} phasal-header__category-link--active{% endif %}" href="{{ link.url }}">
+          <span class="phasal-header__category-icon" aria-hidden="true">
+            {%- liquid
+              assign category_title = link.title | downcase
+              case category_title
+                when 'all products'
+                  echo '🌾'
+                when 'kodo millet'
+                  echo '🌿'
+                when 'foxtail millet'
+                  echo '🟡'
+                when 'little millet'
+                  echo '⚪'
+                when 'barnyard millet'
+                  echo '🟤'
+                when 'finger millet'
+                  echo '🟠'
+                when 'cold-press oils', 'cold-pressed oils'
+                  echo '🫙'
+                when 'poha & aata', 'poha and aata'
+                  echo '🥣'
+                when 'combo packs'
+                  echo '🎁'
+                when 'recipes'
+                  echo '📖'
+                else
+                  echo '•'
+              endcase
+            -%}
+          </span>
           {{ link.title | escape }}
         </a>
       {%- endfor -%}
