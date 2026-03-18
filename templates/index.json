@@ -9,51 +9,6 @@
  */
 {
   "sections": {
-    "phasal_ticker": {
-      "type": "phasal-ticker",
-      "blocks": {
-        "message_1": {
-          "type": "message",
-          "settings": {
-            "text": "72,000+ Farmers Network - Direct from Chhattisgarh"
-          }
-        },
-        "message_2": {
-          "type": "message",
-          "settings": {
-            "text": "Use code PHASAL10 - 10% Off Your First Order"
-          }
-        },
-        "message_3": {
-          "type": "message",
-          "settings": {
-            "text": "100% Organic Millets - Stone-Ground and Unpolished"
-          }
-        },
-        "message_4": {
-          "type": "message",
-          "settings": {
-            "text": "Cold-Pressed Oils - No Heat, No Chemicals"
-          }
-        },
-        "message_5": {
-          "type": "message",
-          "settings": {
-            "text": "Free Delivery on Orders Above Rs. 499"
-          }
-        }
-      },
-      "block_order": [
-        "message_1",
-        "message_2",
-        "message_3",
-        "message_4",
-        "message_5"
-      ],
-      "settings": {
-        "accessibility_label": "Store announcements"
-      }
-    },
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
