@@ -65,7 +65,7 @@
           "settings": {
             "collection": "",
             "label": "All Products",
-            "link": "",
+            "link": "shopify://collections/all",
             "icon": "🌾",
             "active": true
           }
@@ -75,7 +75,7 @@
           "settings": {
             "collection": "",
             "label": "Kodo Millet",
-            "link": "",
+            "link": "shopify://products/kodo-rice-1kg",
             "icon": "🌿",
             "active": false
           }
@@ -85,18 +85,8 @@
           "settings": {
             "collection": "",
             "label": "Foxtail Millet",
-            "link": "",
+            "link": "shopify://products/foxtail-1kg",
             "icon": "🟡",
-            "active": false
-          }
-        },
-        "tab_8iM6yr": {
-          "type": "tab",
-          "settings": {
-            "collection": "",
-            "label": "Little Millet",
-            "link": "",
-            "icon": "⚪",
             "active": false
           }
         },
@@ -104,8 +94,8 @@
           "type": "tab",
           "settings": {
             "collection": "",
-            "label": "Barnyard Millet",
-            "link": "",
+            "label": "Ragi Millet",
+            "link": "shopify://products/ragi-1kg",
             "icon": "🟤",
             "active": false
           }
@@ -114,8 +104,8 @@
           "type": "tab",
           "settings": {
             "collection": "",
-            "label": "Finger Millet",
-            "link": "",
+            "label": "Bajra Millet",
+            "link": "shopify://products/bajra-1kg",
             "icon": "🟠",
             "active": false
           }
@@ -125,7 +115,7 @@
           "settings": {
             "collection": "",
             "label": "Cold-Press Oils",
-            "link": "",
+            "link": "shopify://collections/oils-ghee",
             "icon": "🫙",
             "active": false
           }
@@ -135,18 +125,8 @@
           "settings": {
             "collection": "",
             "label": "Poha & Aata",
-            "link": "",
+            "link": "shopify://collections/poha-flattened-rice",
             "icon": "🥣",
-            "active": false
-          }
-        },
-        "tab_QF9xdi": {
-          "type": "tab",
-          "settings": {
-            "collection": "",
-            "label": "Combo Packs",
-            "link": "",
-            "icon": "🎁",
             "active": false
           }
         },
@@ -165,12 +145,10 @@
         "tab_GG9UfJ",
         "tab_EKtbR9",
         "tab_xW6UQc",
-        "tab_8iM6yr",
         "tab_KkKTAK",
         "tab_hfqKH9",
         "tab_JX4HhR",
         "tab_QdWERH",
-        "tab_QF9xdi",
         "tab_VPCEDd"
       ],
       "name": "Phasal Category Tabs",

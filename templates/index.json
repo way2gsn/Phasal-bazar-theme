@@ -175,71 +175,89 @@
     "phasal_collection_pills": {
       "type": "phasal-collection-pills",
       "blocks": {
-        "collection_WpxE6D": {
+        "collection_9jabKX": {
           "type": "collection",
           "settings": {
-            "collection": "snacks",
+            "collection": "spices-powders",
+            "icon": "🫚",
+            "highlight": false
+          }
+        },
+        "collection_cUDwqE": {
+          "type": "collection",
+          "settings": {
+            "collection": "seeds-superfoods",
+            "icon": "🥒",
+            "highlight": false
+          }
+        },
+        "collection_cCmFMk": {
+          "type": "collection",
+          "settings": {
+            "collection": "rice",
             "icon": "🌾",
             "highlight": false
           }
         },
-        "collection_VBfnxR": {
+        "collection_7Y9Ppz": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "poha-flattened-rice",
+            "icon": "🍚",
+            "highlight": false
+          }
+        },
+        "collection_NEWmNd": {
+          "type": "collection",
+          "settings": {
+            "collection": "oils-ghee",
+            "icon": "🧈",
+            "highlight": false
+          }
+        },
+        "collection_DRdmi3": {
+          "type": "collection",
+          "settings": {
+            "collection": "millets",
             "icon": "🌾",
             "highlight": false
           }
         },
-        "collection_weY3gj": {
+        "collection_4MVWEr": {
           "type": "collection",
           "settings": {
-            "collection": "poha",
-            "icon": "🌾",
+            "collection": "honey-sweeteners",
+            "icon": "🍯",
             "highlight": false
           }
         },
-        "collection_TXr7yF": {
+        "collection_3NBFqU": {
           "type": "collection",
           "settings": {
-            "collection": "millets-rice",
-            "icon": "🌾",
+            "collection": "flours-atta",
+            "icon": "🍞",
             "highlight": false
           }
         },
-        "collection_XMWxkK": {
+        "collection_BiDcPW": {
           "type": "collection",
           "settings": {
             "collection": "dals-pulses",
-            "icon": "🌾",
-            "highlight": false
-          }
-        },
-        "collection_JhE8Mi": {
-          "type": "collection",
-          "settings": {
-            "collection": "cookies-and-snacks",
-            "icon": "🌾",
-            "highlight": false
-          }
-        },
-        "collection_1": {
-          "type": "collection",
-          "settings": {
-            "collection": "all",
             "icon": "🌾",
             "highlight": true
           }
         }
       },
       "block_order": [
-        "collection_WpxE6D",
-        "collection_VBfnxR",
-        "collection_weY3gj",
-        "collection_TXr7yF",
-        "collection_XMWxkK",
-        "collection_JhE8Mi",
-        "collection_1"
+        "collection_9jabKX",
+        "collection_cUDwqE",
+        "collection_cCmFMk",
+        "collection_7Y9Ppz",
+        "collection_NEWmNd",
+        "collection_DRdmi3",
+        "collection_4MVWEr",
+        "collection_3NBFqU",
+        "collection_BiDcPW"
       ],
       "settings": {
         "eyebrow": "Browse Collection",
