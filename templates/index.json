@@ -494,6 +494,40 @@
         "title": "Loved by families who cook mindfully",
         "copy": "This is one of the few places where static cards are expected and useful."
       }
+    },
+    "newsletter_wAi9DL": {
+      "type": "newsletter",
+      "blocks": {
+        "heading_HgQzU9": {
+          "type": "heading",
+          "settings": {
+            "heading": "🌾 Join the Phasal Bazar Ganwai Family",
+            "heading_size": "h1"
+          }
+        },
+        "paragraph_cCM6xU": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Weekly harvest updates, new product launches, seasonal millet recipes and farm-direct offers — straight to your inbox. No spam, ever.</p>"
+          }
+        },
+        "email_form_Yhg37f": {
+          "type": "email_form",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "heading_HgQzU9",
+        "paragraph_cCM6xU",
+        "email_form_Yhg37f"
+      ],
+      "name": "t:sections.newsletter.presets.name",
+      "settings": {
+        "color_scheme": "scheme-newsletter-cream",
+        "full_width": true,
+        "padding_top": 60,
+        "padding_bottom": 60
+      }
     }
   },
   "order": [
@@ -507,6 +541,7 @@
     "phasal_dual_promo",
     "phasal_story",
     "phasal_why",
-    "phasal_testimonials"
+    "phasal_testimonials",
+    "newsletter_wAi9DL"
   ]
 }
