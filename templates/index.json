@@ -244,7 +244,7 @@
           "settings": {
             "collection": "dals-pulses",
             "icon": "🌾",
-            "highlight": true
+            "highlight": false
           }
         }
       },

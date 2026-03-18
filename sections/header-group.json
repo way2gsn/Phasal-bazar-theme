@@ -130,6 +130,16 @@
             "active": false
           }
         },
+        "tab_M8tikW": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "All Products",
+            "link": "",
+            "icon": "🌾",
+            "active": false
+          }
+        },
         "tab_VPCEDd": {
           "type": "tab",
           "settings": {
@@ -149,6 +159,7 @@
         "tab_hfqKH9",
         "tab_JX4HhR",
         "tab_QdWERH",
+        "tab_M8tikW",
         "tab_VPCEDd"
       ],
       "name": "Phasal Category Tabs",
