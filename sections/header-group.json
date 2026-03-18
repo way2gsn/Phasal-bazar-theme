@@ -54,13 +54,135 @@
         "category_menu": "",
         "show_search": true,
         "search_placeholder": "Search millets, oils, poha, aata...",
-        "sticky_header_type": "on-scroll-up",
-        "enable_customer_avatar": true
+        "sticky_header_type": "on-scroll-up"
+      }
+    },
+    "phasal_category_tabs_BHKLqQ": {
+      "type": "phasal-category-tabs",
+      "blocks": {
+        "tab_GG9UfJ": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "All Products",
+            "link": "",
+            "icon": "🌾",
+            "active": true
+          }
+        },
+        "tab_EKtbR9": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Kodo Millet",
+            "link": "",
+            "icon": "🌿",
+            "active": false
+          }
+        },
+        "tab_xW6UQc": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Foxtail Millet",
+            "link": "",
+            "icon": "🟡",
+            "active": false
+          }
+        },
+        "tab_8iM6yr": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Little Millet",
+            "link": "",
+            "icon": "⚪",
+            "active": false
+          }
+        },
+        "tab_KkKTAK": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Barnyard Millet",
+            "link": "",
+            "icon": "🟤",
+            "active": false
+          }
+        },
+        "tab_hfqKH9": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Finger Millet",
+            "link": "",
+            "icon": "🟠",
+            "active": false
+          }
+        },
+        "tab_JX4HhR": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Cold-Press Oils",
+            "link": "",
+            "icon": "🫙",
+            "active": false
+          }
+        },
+        "tab_QdWERH": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Poha & Aata",
+            "link": "",
+            "icon": "🥣",
+            "active": false
+          }
+        },
+        "tab_QF9xdi": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Combo Packs",
+            "link": "",
+            "icon": "🎁",
+            "active": false
+          }
+        },
+        "tab_VPCEDd": {
+          "type": "tab",
+          "settings": {
+            "collection": "",
+            "label": "Recipes",
+            "link": "",
+            "icon": "📖",
+            "active": false
+          }
+        }
+      },
+      "block_order": [
+        "tab_GG9UfJ",
+        "tab_EKtbR9",
+        "tab_xW6UQc",
+        "tab_8iM6yr",
+        "tab_KkKTAK",
+        "tab_hfqKH9",
+        "tab_JX4HhR",
+        "tab_QdWERH",
+        "tab_QF9xdi",
+        "tab_VPCEDd"
+      ],
+      "name": "Phasal Category Tabs",
+      "settings": {
+        "aria_label": "Product categories",
+        "color_scheme": ""
       }
     }
   },
   "order": [
     "announcement-bar",
-    "header"
+    "header",
+    "phasal_category_tabs_BHKLqQ"
   ]
 }
