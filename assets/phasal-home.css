@@ -493,7 +493,7 @@
   white-space: nowrap;
 }
 
-.phasal-collection-pills-section .phasal-section__header > :first-child {
+.phasal-collection-pills-section .phasal-section__header> :first-child {
   max-width: 58rem;
 }
 
@@ -508,6 +508,7 @@
   overflow-x: auto;
   padding-bottom: 0.5rem;
   align-items: stretch;
+  padding: 10px;
 }
 
 .phasal-pill-list::-webkit-scrollbar {
@@ -539,9 +540,12 @@
 }
 
 .phasal-pill:hover {
-  border-color: var(--phasal-green-600);
+  /* border-color: var(--phasal-green-600); */
   box-shadow: 0 0.8rem 3.2rem rgba(26, 77, 46, 0.12);
   transform: translateY(-4px);
+  border-color: var(--phasal-green-800);
+  background: var(--phasal-green-800);
+  color: #fff;
 }
 
 .phasal-pill--active {
@@ -1360,11 +1364,11 @@
     border-right: 0;
   }
 
-  .phasal-trust__item + .phasal-trust__item {
+  .phasal-trust__item+.phasal-trust__item {
     border-top: 1px solid var(--phasal-border);
   }
 
-  .phasal-impact__item + .phasal-impact__item {
+  .phasal-impact__item+.phasal-impact__item {
     border-top: 1px solid rgba(255, 255, 255, 0.12);
   }
 
