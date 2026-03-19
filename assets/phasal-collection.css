@@ -146,8 +146,8 @@
 }
 
 .phasal-collection-grid .facets__form {
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.6rem;
