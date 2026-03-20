@@ -178,7 +178,7 @@
         "collection_9jabKX": {
           "type": "collection",
           "settings": {
-            "collection": "spices-powders",
+            "collection": "our-best-seller-millets",
             "icon": "🫚",
             "highlight": false
           }
@@ -212,6 +212,14 @@
           "settings": {
             "collection": "oils-ghee",
             "icon": "🧈",
+            "highlight": false
+          }
+        },
+        "collection_Hh393c": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "icon": "🌾",
             "highlight": false
           }
         },
@@ -254,6 +262,7 @@
         "collection_cCmFMk",
         "collection_7Y9Ppz",
         "collection_NEWmNd",
+        "collection_Hh393c",
         "collection_DRdmi3",
         "collection_4MVWEr",
         "collection_3NBFqU",
