@@ -260,8 +260,9 @@
 .phasal-product-page__meta-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 1rem;
+  width: 100%;
   margin-bottom: 1rem;
   flex-wrap: wrap;
   animation: ppFadeIn .4s .05s both;
@@ -287,14 +288,20 @@
   background: var(--pp-gd);
 }
 
-.phasal-product-page__share-row { display: flex; align-items: center; gap: .8rem; }
+.phasal-product-page__share-row {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-left: auto;
+  flex-shrink: 0;
+}
 
 .phasal-product-page__share-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 3.4rem;
-  height: 3.4rem;
+  width: 3.2rem;
+  height: 3.2rem;
   border: 1px solid var(--pp-bd);
   border-radius: 50%;
   background: var(--pp-cr2);
@@ -1376,7 +1383,7 @@
   overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: var(--pp-bd) transparent;
-  padding-right: .4rem;
+  padding-right: 1.2rem;
 }
 
 .phasal-product-page .product__column-sticky::-webkit-scrollbar { width: .4rem; }
@@ -1680,6 +1687,10 @@
   .phasal-product-page__social-proof { border-radius: 2.4rem; }
 
   .phasal-product-page__tabs { margin-top: 3.2rem; }
+
+  .phasal-product-page__share-row {
+    margin-left: 0;
+  }
 }
 
 /* ─────────────────────────────────────────

@@ -77,7 +77,7 @@
   {%- assign current_variant = product.selected_or_first_available_variant -%}
   {%- assign compare_price = current_variant.compare_at_price -%}
   {%- assign brand_name = product.vendor | default: shop.name -%}
-  {%- assign product_subtitle = product.metafields.descriptors.subtitle.value | default: product.description | strip_html | truncate: 140 -%}
+  {%- assign product_subtitle = product.metafields.descriptors.subtitle.value | default: product.description | strip_html | truncatewords: 22 -%}
   <div class="page-width">
     <div class="phasal-product-page__breadcrumb">
       <a href="{{ routes.root_url }}">Home</a>
