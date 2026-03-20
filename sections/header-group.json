@@ -50,58 +50,28 @@
     "header": {
       "type": "header",
       "blocks": {
-        "top_link_shop_by_grain": {
+        "top_link_CdK4bi": {
           "type": "top_link",
           "settings": {
             "label": "Shop by Grain",
-            "link": "#shop-by-grain",
-            "show_caret": true,
-            "highlight": false
-          }
-        },
-        "top_link_shop_by_form": {
-          "type": "top_link",
-          "settings": {
-            "label": "Shop by Form",
-            "link": "#shop-by-form",
-            "show_caret": true,
-            "highlight": false
-          }
-        },
-        "top_link_farm_to_table_story": {
-          "type": "top_link",
-          "settings": {
-            "label": "Farm to Table Story",
-            "link": "#farm-to-table-story",
-            "show_caret": true,
-            "highlight": true
-          }
-        },
-        "top_link_impact": {
-          "type": "top_link",
-          "settings": {
-            "label": "Impact",
-            "link": "#impact",
+            "link": "",
             "show_caret": false,
             "highlight": false
           }
         },
-        "top_link_blog": {
+        "top_link_DA3MwY": {
           "type": "top_link",
           "settings": {
-            "label": "Blog",
-            "link": "shopify://blogs/news",
+            "label": "Shop by Grains",
+            "link": "shopify://collections/millets-whole-grains",
             "show_caret": false,
             "highlight": false
           }
         }
       },
       "block_order": [
-        "top_link_shop_by_grain",
-        "top_link_shop_by_form",
-        "top_link_farm_to_table_story",
-        "top_link_impact",
-        "top_link_blog"
+        "top_link_CdK4bi",
+        "top_link_DA3MwY"
       ],
       "custom_css": [],
       "settings": {
