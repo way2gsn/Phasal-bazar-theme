@@ -11,23 +11,23 @@
    1. DESIGN TOKENS
 ───────────────────────────────────────── */
 .phasal-product-page {
-  --pp-g1:    #1a4d2e;
-  --pp-g2:    #2d6a40;
-  --pp-g3:    #4a8c5c;
-  --pp-gl:    #d6ead9;
-  --pp-gl2:   #eaf4eb;
-  --pp-br:    #7b4a1e;
-  --pp-br2:   #a0622a;
-  --pp-cr:    #f7f3eb;
-  --pp-cr2:   #ede6d6;
-  --pp-gd:    #c8921a;
-  --pp-gdl:   #fdf3de;
-  --pp-ea:    #8b6340;
+  --pp-g1:    #0d5a37;
+  --pp-g2:    #00a651;
+  --pp-g3:    #58c78a;
+  --pp-gl:    #d8f4e4;
+  --pp-gl2:   #edf9f1;
+  --pp-br:    #8c5437;
+  --pp-br2:   #b06b49;
+  --pp-cr:    #f8f4ee;
+  --pp-cr2:   #efe5d9;
+  --pp-gd:    #b86b43;
+  --pp-gdl:   #f4e5da;
+  --pp-ea:    #9d674d;
   --pp-wh:    #ffffff;
-  --pp-td:    #1a1a1a;
-  --pp-tm:    #4a4a3a;
-  --pp-ts:    #8a8070;
-  --pp-bd:    #ddd6c8;
+  --pp-td:    #211c18;
+  --pp-tm:    #56483d;
+  --pp-ts:    #8b796a;
+  --pp-bd:    #ddcfbf;
   --pp-red:   #e53935;
 
   --pp-r-sm:  0.8rem;
@@ -35,9 +35,9 @@
   --pp-r-lg:  2.4rem;
   --pp-r-xl:  3.2rem;
 
-  --pp-sh-sm: 0 2px 12px rgba(26,77,46,.07);
-  --pp-sh-md: 0 8px 32px rgba(26,77,46,.12);
-  --pp-sh-lg: 0 20px 60px rgba(26,77,46,.18);
+  --pp-sh-sm: 0 2px 12px rgba(13,90,55,.07);
+  --pp-sh-md: 0 8px 32px rgba(13,90,55,.12);
+  --pp-sh-lg: 0 20px 60px rgba(13,90,55,.18);
 
   --pp-ease:        cubic-bezier(.22,.68,0,1.2);
   --pp-ease-smooth: cubic-bezier(.4,0,.2,1);

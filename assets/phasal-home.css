@@ -1,18 +1,18 @@
 .phasal-home {
-  --phasal-green-900: #081e0f;
-  --phasal-green-800: #1a4d2e;
-  --phasal-green-700: #2d6a40;
-  --phasal-green-600: #4a8c5c;
-  --phasal-green-100: #d6ead9;
-  --phasal-brown-700: #7b4a1e;
-  --phasal-cream-100: #f7f3eb;
-  --phasal-cream-200: #ede6d6;
-  --phasal-gold-500: #c8921a;
-  --phasal-gold-100: #fdf3de;
-  --phasal-text-900: #1a1a1a;
-  --phasal-text-700: #4a4a3a;
-  --phasal-text-500: #8a8070;
-  --phasal-border: #ddd6c8;
+  --phasal-green-900: #0d5a37;
+  --phasal-green-800: #00a651;
+  --phasal-green-700: #1c8f58;
+  --phasal-green-600: #58c78a;
+  --phasal-green-100: #d8f4e4;
+  --phasal-brown-700: #8c5437;
+  --phasal-cream-100: #f8f4ee;
+  --phasal-cream-200: #efe5d9;
+  --phasal-gold-500: #b86b43;
+  --phasal-gold-100: #f4e5da;
+  --phasal-text-900: #211c18;
+  --phasal-text-700: #56483d;
+  --phasal-text-500: #8b796a;
+  --phasal-border: #ddcfbf;
   --phasal-page-width: min(1320px, calc(100vw - 3rem));
 }
 
@@ -126,11 +126,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(8, 30, 15, 0.45);
+  background: rgba(13, 90, 55, 0.42);
 }
 
 .phasal-hero__overlay {
-  background: linear-gradient(105deg, rgba(8, 30, 15, 0.94) 0%, rgba(8, 30, 15, 0.72) 42%, rgba(8, 30, 15, 0.18) 100%);
+  background: linear-gradient(105deg, rgba(13, 90, 55, 0.94) 0%, rgba(13, 90, 55, 0.72) 42%, rgba(13, 90, 55, 0.18) 100%);
 }
 
 .phasal-hero__inner {
@@ -166,9 +166,9 @@
 }
 
 .phasal-hero__badge {
-  border: 1px solid rgba(200, 146, 26, 0.38);
-  background: rgba(200, 146, 26, 0.18);
-  color: #f5d06e;
+  border: 1px solid rgba(184, 107, 67, 0.38);
+  background: rgba(184, 107, 67, 0.16);
+  color: #ddb296;
 }
 
 .phasal-hero__badge-dot {
@@ -192,12 +192,12 @@
 }
 
 .phasal-hero__title-accent {
-  color: #8fda9e;
+  color: #7fe0a9;
   font-style: italic;
 }
 
 .phasal-hero__title-highlight {
-  color: #f5d06e;
+  color: #ddb296;
 }
 
 .phasal-hero__subtitle {
@@ -237,7 +237,7 @@
 
 .phasal-home__button--primary {
   background: var(--phasal-gold-500);
-  box-shadow: 0 0.8rem 2.8rem rgba(200, 146, 26, 0.4);
+  box-shadow: 0 0.8rem 2.8rem rgba(184, 107, 67, 0.35);
   color: #fff;
 }
 

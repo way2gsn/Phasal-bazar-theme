@@ -1,5 +1,5 @@
 .phasal-category-tabs {
-  background: #1e5b33;
+  background: #00a651;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   border-bottom: 1px solid rgba(0, 0, 0, 0.18);
 }
@@ -52,7 +52,7 @@
 .phasal-category-tabs__link:hover,
 .phasal-category-tabs__link--active {
   color: #fff;
-  border-bottom-color: #d29a21;
+  border-bottom-color: #d7a081;
 }
 
 @media screen and (max-width: 1199px) {

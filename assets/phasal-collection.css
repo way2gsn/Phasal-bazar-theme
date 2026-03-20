@@ -1,5 +1,5 @@
 .phasal-collection-page {
-  background: #f7f5ef;
+  background: #f8f4ee;
 }
 
 .phasal-collection-page .page-width {
@@ -8,18 +8,18 @@
 }
 
 .phasal-collection-shell {
-  --phasal-green-900: #081e0f;
-  --phasal-green-800: #1a4d2e;
-  --phasal-green-700: #2d6a40;
-  --phasal-green-100: #d6ead9;
-  --phasal-brown-700: #7b4a1e;
-  --phasal-cream-100: #f7f5ef;
-  --phasal-cream-200: #ede6d6;
-  --phasal-gold-500: #c8921a;
-  --phasal-text-900: #1a1a1a;
-  --phasal-text-700: #4a4a3a;
-  --phasal-text-500: #8a8070;
-  --phasal-border: #ddd6c8;
+  --phasal-green-900: #0d5a37;
+  --phasal-green-800: #00a651;
+  --phasal-green-700: #1c8f58;
+  --phasal-green-100: #d8f4e4;
+  --phasal-brown-700: #8c5437;
+  --phasal-cream-100: #f8f4ee;
+  --phasal-cream-200: #efe5d9;
+  --phasal-gold-500: #b86b43;
+  --phasal-text-900: #211c18;
+  --phasal-text-700: #56483d;
+  --phasal-text-500: #8b796a;
+  --phasal-border: #ddcfbf;
 }
 
 .phasal-collection-shell,
@@ -40,7 +40,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 3rem;
-  background: linear-gradient(140deg, #f1eadf, #d6ead9);
+  background: linear-gradient(140deg, #f2e8df, #d8f4e4);
 }
 
 .phasal-collection-hero__inner {
