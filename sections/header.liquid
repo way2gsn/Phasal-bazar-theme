@@ -50,14 +50,14 @@
         <div class="phasal-header__mobile-categories">
           {%- if use_reference_category_tabs -%}
             <a class="phasal-header__mobile-link" href="{{ routes.all_products_collection_url }}">All Products</a>
-            <a class="phasal-header__mobile-link" href="/collections/kodo-millet">Kodo Millet</a>
-            <a class="phasal-header__mobile-link" href="/collections/foxtail-millet">Foxtail Millet</a>
-            <a class="phasal-header__mobile-link" href="/collections/little-millet">Little Millet</a>
-            <a class="phasal-header__mobile-link" href="/collections/barnyard-millet">Barnyard Millet</a>
-            <a class="phasal-header__mobile-link" href="/collections/finger-millet">Finger Millet</a>
-            <a class="phasal-header__mobile-link" href="/collections/cold-press-oils">Cold-Press Oils</a>
-            <a class="phasal-header__mobile-link" href="/collections/poha-aata">Poha &amp; Aata</a>
-            <a class="phasal-header__mobile-link" href="/collections/combo-packs">Combo Packs</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/kodo-millet' }}">Kodo Millet</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/foxtail-millet' }}">Foxtail Millet</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/little-millet' }}">Little Millet</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/barnyard-millet' }}">Barnyard Millet</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/finger-millet' }}">Finger Millet</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/cold-press-oils' }}">Cold-Press Oils</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/poha-aata' }}">Poha &amp; Aata</a>
+            <a class="phasal-header__mobile-link" href="{{ routes.collections_url | append: '/combo-packs' }}">Combo Packs</a>
             <a class="phasal-header__mobile-link" href="{{ routes.blog_url }}">Recipes</a>
           {%- else -%}
             {%- for link in section.settings.category_menu.links -%}
@@ -80,7 +80,7 @@
             preload: true
         }}
       {%- else -%}
-        <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}">
+        <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" width="1024" height="1024">
       {%- endif -%}
     </a>
 
@@ -151,14 +151,14 @@
     <nav class="phasal-shell__inner phasal-header__categories-inner" aria-label="Collections">
       {%- if use_reference_category_tabs -%}
         <a class="phasal-header__category-link phasal-header__category-link--active" href="{{ routes.all_products_collection_url }}"><span class="phasal-header__category-icon" aria-hidden="true">🌾</span>All Products</a>
-        <a class="phasal-header__category-link" href="/collections/kodo-millet"><span class="phasal-header__category-icon" aria-hidden="true">🌿</span>Kodo Millet</a>
-        <a class="phasal-header__category-link" href="/collections/foxtail-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟡</span>Foxtail Millet</a>
-        <a class="phasal-header__category-link" href="/collections/little-millet"><span class="phasal-header__category-icon" aria-hidden="true">⚪</span>Little Millet</a>
-        <a class="phasal-header__category-link" href="/collections/barnyard-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟤</span>Barnyard Millet</a>
-        <a class="phasal-header__category-link" href="/collections/finger-millet"><span class="phasal-header__category-icon" aria-hidden="true">🟠</span>Finger Millet</a>
-        <a class="phasal-header__category-link" href="/collections/cold-press-oils"><span class="phasal-header__category-icon" aria-hidden="true">🫙</span>Cold-Press Oils</a>
-        <a class="phasal-header__category-link" href="/collections/poha-aata"><span class="phasal-header__category-icon" aria-hidden="true">🥣</span>Poha &amp; Aata</a>
-        <a class="phasal-header__category-link" href="/collections/combo-packs"><span class="phasal-header__category-icon" aria-hidden="true">🎁</span>Combo Packs</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/kodo-millet' }}"><span class="phasal-header__category-icon" aria-hidden="true">🌿</span>Kodo Millet</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/foxtail-millet' }}"><span class="phasal-header__category-icon" aria-hidden="true">🟡</span>Foxtail Millet</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/little-millet' }}"><span class="phasal-header__category-icon" aria-hidden="true">⚪</span>Little Millet</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/barnyard-millet' }}"><span class="phasal-header__category-icon" aria-hidden="true">🟤</span>Barnyard Millet</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/finger-millet' }}"><span class="phasal-header__category-icon" aria-hidden="true">🟠</span>Finger Millet</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/cold-press-oils' }}"><span class="phasal-header__category-icon" aria-hidden="true">🫙</span>Cold-Press Oils</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/poha-aata' }}"><span class="phasal-header__category-icon" aria-hidden="true">🥣</span>Poha &amp; Aata</a>
+        <a class="phasal-header__category-link" href="{{ routes.collections_url | append: '/combo-packs' }}"><span class="phasal-header__category-icon" aria-hidden="true">🎁</span>Combo Packs</a>
         <a class="phasal-header__category-link" href="{{ routes.blog_url }}"><span class="phasal-header__category-icon" aria-hidden="true">📖</span>Recipes</a>
       {%- else -%}
         {%- for link in section.settings.category_menu.links -%}

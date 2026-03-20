@@ -16,9 +16,9 @@
                   loading: 'lazy'
               }}
             {%- elsif forloop.index == 1 -%}
-              <img src="{{ 'farm_hero2.png' | asset_url }}" alt="{{ block.settings.title | escape }}">
+              <img src="{{ 'farm_hero2.png' | asset_url }}" alt="{{ block.settings.title | escape }}" width="2500" height="1061">
             {%- else -%}
-              <img src="{{ 'mustard_oil.png' | asset_url }}" alt="{{ block.settings.title | escape }}">
+              <img src="{{ 'mustard_oil.png' | asset_url }}" alt="{{ block.settings.title | escape }}" width="2000" height="2000">
             {%- endif -%}
           </div>
           <div class="phasal-promo-card__overlay"></div>

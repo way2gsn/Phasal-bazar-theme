@@ -642,16 +642,12 @@
                                 {% endif %}
                               >
                                 <ul class="list-unstyled" role="list">
+                                  {% comment %}theme-check-disable UndefinedObject{% endcomment %}
                                   {%- for product in recommendations.products
                                     limit: block.settings.products_per_page
                                     offset: continue
                                   -%}
                                     <li class="phasal-product-grid__item">
-                                      {%- if block.settings.enable_quick_add -%}
-                                        {% assign quick_add = 'standard' %}
-                                      {%- else -%}
-                                        {% assign quick_add = 'none' %}
-                                      {%- endif -%}
                                       {% render 'phasal-card-product',
                                         card_product: product,
                                         skip_styles: skip_card_product_styles
@@ -659,6 +655,7 @@
                                     </li>
                                     {%- assign skip_card_product_styles = true -%}
                                   {%- endfor -%}
+                                  {% comment %}theme-check-enable UndefinedObject{% endcomment %}
                                 </ul>
                               </div>
                             {%- endfor -%}
@@ -816,7 +813,7 @@
                   alt: product.title
               }}
             {%- else -%}
-              <img src="{{ 'kodo_millet.png' | asset_url }}" alt="{{ product.title | escape }}">
+              <img src="{{ 'kodo_millet.png' | asset_url }}" alt="{{ product.title | escape }}" width="2000" height="2000">
             {%- endif -%}
             <div class="phasal-product-page__description-tag">
               <div class="phasal-product-page__description-tag-title">{{ product.title | escape }}</div>
@@ -875,7 +872,7 @@
                   loading: 'lazy'
               }}
             {%- else -%}
-              <img src="{{ 'farm_banner.png' | asset_url }}" alt="{{ section.settings.story_heading | escape }}">
+              <img src="{{ 'farm_banner.png' | asset_url }}" alt="{{ section.settings.story_heading | escape }}" width="3168" height="1344">
             {%- endif -%}
           </div>
           <div class="phasal-product-page__story-copy">
@@ -973,14 +970,6 @@
       </script>
       <script src="{{ 'product-model.js' | asset_url }}" defer></script>
     {%- endif -%}
-
-    {%- liquid
-      if product.selected_or_first_available_variant.featured_media
-        assign seo_media = product.selected_or_first_available_variant.featured_media
-      else
-        assign seo_media = product.featured_media
-      endif
-    -%}
 
     <script type="application/ld+json">
       {{ product | structured_data }}
