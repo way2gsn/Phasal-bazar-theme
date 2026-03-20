@@ -53,10 +53,10 @@
         "top_link_CdK4bi": {
           "type": "top_link",
           "settings": {
-            "label": "Shop by Grain",
-            "link": "",
+            "label": "Impact",
+            "link": "shopify://blogs/news/learn-our-story",
             "show_caret": false,
-            "highlight": false
+            "highlight": true
           }
         },
         "top_link_DA3MwY": {
