@@ -49,6 +49,60 @@
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "top_link_shop_by_grain": {
+          "type": "top_link",
+          "settings": {
+            "label": "Shop by Grain",
+            "link": "#shop-by-grain",
+            "show_caret": true,
+            "highlight": false
+          }
+        },
+        "top_link_shop_by_form": {
+          "type": "top_link",
+          "settings": {
+            "label": "Shop by Form",
+            "link": "#shop-by-form",
+            "show_caret": true,
+            "highlight": false
+          }
+        },
+        "top_link_farm_to_table_story": {
+          "type": "top_link",
+          "settings": {
+            "label": "Farm to Table Story",
+            "link": "#farm-to-table-story",
+            "show_caret": true,
+            "highlight": true
+          }
+        },
+        "top_link_impact": {
+          "type": "top_link",
+          "settings": {
+            "label": "Impact",
+            "link": "#impact",
+            "show_caret": false,
+            "highlight": false
+          }
+        },
+        "top_link_blog": {
+          "type": "top_link",
+          "settings": {
+            "label": "Blog",
+            "link": "shopify://blogs/news",
+            "show_caret": false,
+            "highlight": false
+          }
+        }
+      },
+      "block_order": [
+        "top_link_shop_by_grain",
+        "top_link_shop_by_form",
+        "top_link_farm_to_table_story",
+        "top_link_impact",
+        "top_link_blog"
+      ],
       "custom_css": [],
       "settings": {
         "menu": "main-menu",

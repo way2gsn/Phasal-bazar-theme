@@ -16,6 +16,11 @@
     endif
   endif
 
+  assign top_nav_blocks = section.blocks | where: 'type', 'top_link'
+  if top_nav_blocks.size > 0
+    assign use_reference_top_nav = false
+  endif
+
   assign use_reference_category_tabs = false
   if section.settings.category_menu.links.size == 0
     assign use_reference_category_tabs = true
@@ -35,7 +40,15 @@
       </summary>
       <div class="phasal-header__mobile-panel">
         <nav class="phasal-header__mobile-menu" aria-label="Mobile primary">
-          {%- if use_reference_top_nav -%}
+          {%- if top_nav_blocks.size > 0 -%}
+            {%- for block in top_nav_blocks -%}
+              {%- if block.settings.label != blank -%}
+                <a class="phasal-header__mobile-link" href="{{ block.settings.link | default: routes.root_url }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.label | escape }}
+                </a>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- elsif use_reference_top_nav -%}
             <a class="phasal-header__mobile-link" href="#shop-by-grain">Shop by Grain</a>
             <a class="phasal-header__mobile-link" href="#shop-by-form">Shop by Form</a>
             <a class="phasal-header__mobile-link" href="#farm-to-table-story">Farm to Table Story</a>
@@ -102,7 +115,22 @@
     {%- endif -%}
 
     <nav class="phasal-header__top-nav" aria-label="Primary">
-      {%- if use_reference_top_nav -%}
+      {%- if top_nav_blocks.size > 0 -%}
+        {%- for block in top_nav_blocks -%}
+          {%- if block.settings.label != blank -%}
+            <a
+              class="phasal-header__top-link{% if block.settings.highlight %} phasal-header__top-link--highlight{% endif %}"
+              href="{{ block.settings.link | default: routes.root_url }}"
+              {{ block.shopify_attributes }}
+            >
+              {{ block.settings.label | escape }}
+              {%- if block.settings.show_caret -%}
+                <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
+              {%- endif -%}
+            </a>
+          {%- endif -%}
+        {%- endfor -%}
+      {%- elsif use_reference_top_nav -%}
         <a class="phasal-header__top-link" href="#shop-by-grain">
           Shop by Grain
           <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
@@ -249,7 +277,37 @@
       ]
     }
   ],
-  "blocks": [],
+  "blocks": [
+    {
+      "type": "top_link",
+      "name": "Top link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Shop by Grain"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "Link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_caret",
+          "label": "Show caret icon",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight link",
+          "default": false
+        }
+      ]
+    }
+  ],
   "presets": [
     {
       "name": "Header"
