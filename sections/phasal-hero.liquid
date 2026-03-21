@@ -1,155 +1,431 @@
 {{ 'phasal-home.css' | asset_url | stylesheet_tag }}
 
 {%- liquid
-  assign hero_products = section.settings.product_collection.products
+  assign hero_slide_blocks = section.blocks | where: 'type', 'hero_slide'
+  assign stat_blocks = section.blocks | where: 'type', 'stat'
+  assign feature_blocks = section.blocks | where: 'type', 'feature_card'
 -%}
 
-<section class="phasal-home phasal-hero">
-  <div class="phasal-hero__media">
-    {%- if section.settings.background_image != blank -%}
-      {{
-        section.settings.background_image
-        | image_url: width: 2400
-        | image_tag:
-          widths: '750, 1100, 1500, 2000, 2400',
-          sizes: '100vw',
-          loading: 'eager'
-      }}
-    {%- endif -%}
-  </div>
-  <div class="phasal-hero__overlay"></div>
-
-  <div class="phasal-hero__inner">
-    <div class="phasal-hero__content">
-      <div class="phasal-hero__badges">
-        {%- if section.settings.eyebrow != blank -%}
-          <span class="phasal-hero__badge">
-            <span class="phasal-hero__badge-dot"></span>
-            {{ section.settings.eyebrow | escape }}
-          </span>
-        {%- endif -%}
-        {%- if section.settings.meta != blank -%}
-          <span class="phasal-hero__meta">{{ section.settings.meta | escape }}</span>
-        {%- endif -%}
-      </div>
-
-      <h1 class="phasal-hero__title">
-        {{ section.settings.heading_line_1 | escape }}<br>
-        <span class="phasal-hero__title-accent">{{ section.settings.heading_line_2 | escape }}</span><br>
-        <span class="phasal-hero__title-highlight">{{ section.settings.heading_line_3 | escape }}</span>
-      </h1>
-
-      {%- if section.settings.subheading != blank -%}
-        <p class="phasal-hero__subtitle">{{ section.settings.subheading | escape }}</p>
-      {%- endif -%}
-
-      <div class="phasal-hero__actions">
-        {%- if section.settings.primary_button_label != blank -%}
-          <a class="phasal-home__button phasal-home__button--primary" href="{{ section.settings.primary_button_link | default: routes.all_products_collection_url }}">
-            {{ section.settings.primary_button_label | escape }}
-          </a>
-        {%- endif -%}
-        {%- if section.settings.secondary_button_label != blank -%}
-          <a class="phasal-home__button phasal-home__button--secondary" href="{{ section.settings.secondary_button_link | default: routes.root_url }}">
-            {{ section.settings.secondary_button_label | escape }}
-          </a>
-        {%- endif -%}
-      </div>
-
-      {%- assign stat_blocks = section.blocks | where: 'type', 'stat' -%}
-      {%- if stat_blocks.size > 0 -%}
-        <div class="phasal-hero__stats">
-          {%- for block in stat_blocks limit: 4 -%}
-            <div {{ block.shopify_attributes }}>
-              <div class="phasal-hero__stat-number">{{ block.settings.number | escape }}</div>
-              <div class="phasal-hero__stat-label">{{ block.settings.label | escape }}</div>
-            </div>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
-    </div>
-
-    <div class="phasal-hero__cards">
-      {%- if section.settings.product_collection != blank and hero_products.size > 0 -%}
-        <div class="phasal-hero__card-grid">
-          {%- for product in hero_products limit: 2 -%}
-            {%- assign variant = product.selected_or_first_available_variant -%}
-            <a class="phasal-hero-card phasal-hero-card--linked" href="{{ product.url }}">
-              <div class="phasal-hero-card__image">
-                {%- if product.featured_image != blank -%}
-                  {{
-                    product.featured_image
-                    | image_url: width: 900
-                    | image_tag:
-                      widths: '360, 540, 720, 900',
-                      sizes: '(max-width: 749px) 100vw, 28vw'
-                  }}
-                {%- endif -%}
-              </div>
-              <div class="phasal-hero-card__body">
-                <h2 class="phasal-hero-card__title">{{ product.title | escape }}</h2>
-                {%- if product.metafields.custom.short_description != blank -%}
-                  <p class="phasal-hero-card__copy">{{ product.metafields.custom.short_description | metafield_tag | strip_html }}</p>
-                {%- elsif product.description != blank -%}
-                  <p class="phasal-hero-card__copy">{{ product.description | strip_html | truncate: 70 }}</p>
-                {%- endif -%}
-                {%- if variant != blank -%}
-                  <div class="phasal-hero-card__price">
-                    {{ variant.price | money }}
-                    {%- if variant.unit_price_measurement != blank -%}
-                      <span class="phasal-hero-card__price-unit">
-                        /
-                        {{ variant.unit_price_measurement.reference_value -}}
-                        {{- variant.unit_price_measurement.reference_unit }}
-                      </span>
-                    {%- endif -%}
-                  </div>
-                {%- endif -%}
-              </div>
-            </a>
-          {%- endfor -%}
-        </div>
-      {%- endif -%}
-
-      {%- assign feature_blocks = section.blocks | where: 'type', 'feature_card' -%}
-      {%- for block in feature_blocks limit: 1 -%}
-        <article class="phasal-hero-card phasal-hero-card--feature" {{ block.shopify_attributes }}>
-          <div class="phasal-hero-card__image">
-            {%- if block.settings.image != blank -%}
+<section
+  class="phasal-home phasal-hero{% if hero_slide_blocks.size > 1 %} phasal-hero--carousel{% endif %}"
+  {% if hero_slide_blocks.size > 1 %}
+    data-phasal-hero-carousel
+    data-auto-rotate="{{ section.settings.auto_rotate }}"
+    data-interval="{{ section.settings.change_slides_speed | times: 1000 }}"
+  {% endif %}
+>
+  <div class="phasal-hero__slides">
+    {%- if hero_slide_blocks.size > 0 -%}
+      {%- for block in hero_slide_blocks -%}
+        {%- liquid
+          assign slide_products = block.settings.product_collection.products
+        -%}
+        <article
+          class="phasal-hero__slide{% if forloop.first %} is-active{% endif %}"
+          data-phasal-hero-slide
+          {{ block.shopify_attributes }}
+        >
+          <div class="phasal-hero__media">
+            {%- if block.settings.background_image != blank -%}
               {{
-                block.settings.image
-                | image_url: width: 1600
+                block.settings.background_image
+                | image_url: width: 2400
                 | image_tag:
-                  widths: '540, 900, 1200, 1600',
-                  sizes: '(max-width: 749px) 100vw, 38vw'
+                  widths: '750, 1100, 1500, 2000, 2400',
+                  sizes: '100vw',
+                  loading: 'eager'
               }}
-            {%- else -%}
-              <img src="{{ 'farm_banner.png' | asset_url }}" alt="{{ block.settings.title | escape }}" width="3168" height="1344">
+            {%- elsif section.settings.background_image != blank -%}
+              {{
+                section.settings.background_image
+                | image_url: width: 2400
+                | image_tag:
+                  widths: '750, 1100, 1500, 2000, 2400',
+                  sizes: '100vw',
+                  loading: 'eager'
+              }}
             {%- endif -%}
           </div>
-          <div class="phasal-hero-card__body">
-            <div>
-              <h2 class="phasal-hero-card__title">{{ block.settings.title | escape }}</h2>
-              {%- if block.settings.copy != blank -%}
-                <p class="phasal-hero-card__copy">{{ block.settings.copy | escape }}</p>
+          <div class="phasal-hero__overlay"></div>
+
+          <div class="phasal-hero__inner">
+            <div class="phasal-hero__content">
+              <div class="phasal-hero__badges">
+                {%- if block.settings.eyebrow != blank -%}
+                  <span class="phasal-hero__badge">
+                    <span class="phasal-hero__badge-dot"></span>
+                    {{ block.settings.eyebrow | escape }}
+                  </span>
+                {%- endif -%}
+                {%- if block.settings.meta != blank -%}
+                  <span class="phasal-hero__meta">{{ block.settings.meta | escape }}</span>
+                {%- endif -%}
+              </div>
+
+              <h2 class="phasal-hero__title">
+                {{ block.settings.heading_line_1 | escape }}<br>
+                <span class="phasal-hero__title-accent">{{ block.settings.heading_line_2 | escape }}</span><br>
+                <span class="phasal-hero__title-highlight">{{ block.settings.heading_line_3 | escape }}</span>
+              </h2>
+
+              {%- if block.settings.subheading != blank -%}
+                <p class="phasal-hero__subtitle">{{ block.settings.subheading | escape }}</p>
+              {%- endif -%}
+
+              <div class="phasal-hero__actions">
+                {%- if block.settings.primary_button_label != blank -%}
+                  <a
+                    class="phasal-home__button phasal-home__button--primary"
+                    href="{{ block.settings.primary_button_link | default: routes.all_products_collection_url }}"
+                  >
+                    {{ block.settings.primary_button_label | escape }}
+                  </a>
+                {%- endif -%}
+                {%- if block.settings.secondary_button_label != blank -%}
+                  <a
+                    class="phasal-home__button phasal-home__button--secondary"
+                    href="{{ block.settings.secondary_button_link | default: routes.root_url }}"
+                  >
+                    {{ block.settings.secondary_button_label | escape }}
+                  </a>
+                {%- endif -%}
+              </div>
+
+              {%- if stat_blocks.size > 0 -%}
+                <div class="phasal-hero__stats">
+                  {%- for stat_block in stat_blocks limit: 4 -%}
+                    <div {{ stat_block.shopify_attributes }}>
+                      <div class="phasal-hero__stat-number">{{ stat_block.settings.number | escape }}</div>
+                      <div class="phasal-hero__stat-label">{{ stat_block.settings.label | escape }}</div>
+                    </div>
+                  {%- endfor -%}
+                </div>
               {%- endif -%}
             </div>
-            {%- if block.settings.link_label != blank -%}
-              <a class="phasal-hero-card__link" href="{{ block.settings.link | default: routes.root_url }}">
-                {{ block.settings.link_label | escape }}
-              </a>
-            {%- endif -%}
+
+            <div class="phasal-hero__cards">
+              {%- if block.settings.show_product_cards and block.settings.product_collection != blank and slide_products.size > 0 -%}
+                <div class="phasal-hero__card-grid">
+                  {%- for product in slide_products limit: 2 -%}
+                    {%- assign variant = product.selected_or_first_available_variant -%}
+                    <a class="phasal-hero-card phasal-hero-card--linked" href="{{ product.url }}">
+                      <div class="phasal-hero-card__image">
+                        {%- if product.featured_image != blank -%}
+                          {{
+                            product.featured_image
+                            | image_url: width: 900
+                            | image_tag:
+                              widths: '360, 540, 720, 900',
+                              sizes: '(max-width: 749px) 100vw, 28vw'
+                          }}
+                        {%- endif -%}
+                      </div>
+                      <div class="phasal-hero-card__body">
+                        <h3 class="phasal-hero-card__title">{{ product.title | escape }}</h3>
+                        {%- if product.metafields.custom.short_description != blank -%}
+                          <p class="phasal-hero-card__copy">{{ product.metafields.custom.short_description | metafield_tag | strip_html }}</p>
+                        {%- elsif product.description != blank -%}
+                          <p class="phasal-hero-card__copy">{{ product.description | strip_html | truncate: 70 }}</p>
+                        {%- endif -%}
+                        {%- if variant != blank -%}
+                          <div class="phasal-hero-card__price">
+                            {{ variant.price | money }}
+                            {%- if variant.unit_price_measurement != blank -%}
+                              <span class="phasal-hero-card__price-unit">
+                                /
+                                {{ variant.unit_price_measurement.reference_value -}}
+                                {{- variant.unit_price_measurement.reference_unit }}
+                              </span>
+                            {%- endif -%}
+                          </div>
+                        {%- endif -%}
+                      </div>
+                    </a>
+                  {%- endfor -%}
+                </div>
+              {%- endif -%}
+
+              {%- if block.settings.show_feature_card -%}
+                <article class="phasal-hero-card phasal-hero-card--feature">
+                  <div class="phasal-hero-card__image">
+                    {%- if block.settings.feature_image != blank -%}
+                      {{
+                        block.settings.feature_image
+                        | image_url: width: 1600
+                        | image_tag:
+                          widths: '540, 900, 1200, 1600',
+                          sizes: '(max-width: 749px) 100vw, 38vw'
+                      }}
+                    {%- else -%}
+                      <img src="{{ 'farm_banner.png' | asset_url }}" alt="{{ block.settings.feature_title | escape }}" width="3168" height="1344">
+                    {%- endif -%}
+                  </div>
+                  <div class="phasal-hero-card__body">
+                    <div>
+                      <h3 class="phasal-hero-card__title">{{ block.settings.feature_title | escape }}</h3>
+                      {%- if block.settings.feature_copy != blank -%}
+                        <p class="phasal-hero-card__copy">{{ block.settings.feature_copy | escape }}</p>
+                      {%- endif -%}
+                    </div>
+                    {%- if block.settings.feature_link_label != blank -%}
+                      <a class="phasal-hero-card__link" href="{{ block.settings.feature_link | default: routes.root_url }}">
+                        {{ block.settings.feature_link_label | escape }}
+                      </a>
+                    {%- endif -%}
+                  </div>
+                </article>
+              {%- endif -%}
+            </div>
           </div>
         </article>
       {%- endfor -%}
-    </div>
+    {%- else -%}
+      {%- liquid
+        assign hero_products = section.settings.product_collection.products
+      -%}
+      <article class="phasal-hero__slide is-active" data-phasal-hero-slide>
+        <div class="phasal-hero__media">
+          {%- if section.settings.background_image != blank -%}
+            {{
+              section.settings.background_image
+              | image_url: width: 2400
+              | image_tag:
+                widths: '750, 1100, 1500, 2000, 2400',
+                sizes: '100vw',
+                loading: 'eager'
+            }}
+          {%- endif -%}
+        </div>
+        <div class="phasal-hero__overlay"></div>
+
+        <div class="phasal-hero__inner">
+          <div class="phasal-hero__content">
+            <div class="phasal-hero__badges">
+              {%- if section.settings.eyebrow != blank -%}
+                <span class="phasal-hero__badge">
+                  <span class="phasal-hero__badge-dot"></span>
+                  {{ section.settings.eyebrow | escape }}
+                </span>
+              {%- endif -%}
+              {%- if section.settings.meta != blank -%}
+                <span class="phasal-hero__meta">{{ section.settings.meta | escape }}</span>
+              {%- endif -%}
+            </div>
+
+            <h1 class="phasal-hero__title">
+              {{ section.settings.heading_line_1 | escape }}<br>
+              <span class="phasal-hero__title-accent">{{ section.settings.heading_line_2 | escape }}</span><br>
+              <span class="phasal-hero__title-highlight">{{ section.settings.heading_line_3 | escape }}</span>
+            </h1>
+
+            {%- if section.settings.subheading != blank -%}
+              <p class="phasal-hero__subtitle">{{ section.settings.subheading | escape }}</p>
+            {%- endif -%}
+
+            <div class="phasal-hero__actions">
+              {%- if section.settings.primary_button_label != blank -%}
+                <a class="phasal-home__button phasal-home__button--primary" href="{{ section.settings.primary_button_link | default: routes.all_products_collection_url }}">
+                  {{ section.settings.primary_button_label | escape }}
+                </a>
+              {%- endif -%}
+              {%- if section.settings.secondary_button_label != blank -%}
+                <a class="phasal-home__button phasal-home__button--secondary" href="{{ section.settings.secondary_button_link | default: routes.root_url }}">
+                  {{ section.settings.secondary_button_label | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+
+            {%- if stat_blocks.size > 0 -%}
+              <div class="phasal-hero__stats">
+                {%- for block in stat_blocks limit: 4 -%}
+                  <div {{ block.shopify_attributes }}>
+                    <div class="phasal-hero__stat-number">{{ block.settings.number | escape }}</div>
+                    <div class="phasal-hero__stat-label">{{ block.settings.label | escape }}</div>
+                  </div>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+          </div>
+
+          <div class="phasal-hero__cards">
+            {%- if section.settings.product_collection != blank and hero_products.size > 0 -%}
+              <div class="phasal-hero__card-grid">
+                {%- for product in hero_products limit: 2 -%}
+                  {%- assign variant = product.selected_or_first_available_variant -%}
+                  <a class="phasal-hero-card phasal-hero-card--linked" href="{{ product.url }}">
+                    <div class="phasal-hero-card__image">
+                      {%- if product.featured_image != blank -%}
+                        {{
+                          product.featured_image
+                          | image_url: width: 900
+                          | image_tag:
+                            widths: '360, 540, 720, 900',
+                            sizes: '(max-width: 749px) 100vw, 28vw'
+                        }}
+                      {%- endif -%}
+                    </div>
+                    <div class="phasal-hero-card__body">
+                      <h2 class="phasal-hero-card__title">{{ product.title | escape }}</h2>
+                      {%- if product.metafields.custom.short_description != blank -%}
+                        <p class="phasal-hero-card__copy">{{ product.metafields.custom.short_description | metafield_tag | strip_html }}</p>
+                      {%- elsif product.description != blank -%}
+                        <p class="phasal-hero-card__copy">{{ product.description | strip_html | truncate: 70 }}</p>
+                      {%- endif -%}
+                      {%- if variant != blank -%}
+                        <div class="phasal-hero-card__price">
+                          {{ variant.price | money }}
+                          {%- if variant.unit_price_measurement != blank -%}
+                            <span class="phasal-hero-card__price-unit">
+                              /
+                              {{ variant.unit_price_measurement.reference_value -}}
+                              {{- variant.unit_price_measurement.reference_unit }}
+                            </span>
+                          {%- endif -%}
+                        </div>
+                      {%- endif -%}
+                    </div>
+                  </a>
+                {%- endfor -%}
+              </div>
+            {%- endif -%}
+
+            {%- for block in feature_blocks limit: 1 -%}
+              <article class="phasal-hero-card phasal-hero-card--feature" {{ block.shopify_attributes }}>
+                <div class="phasal-hero-card__image">
+                  {%- if block.settings.image != blank -%}
+                    {{
+                      block.settings.image
+                      | image_url: width: 1600
+                      | image_tag:
+                        widths: '540, 900, 1200, 1600',
+                        sizes: '(max-width: 749px) 100vw, 38vw'
+                    }}
+                  {%- else -%}
+                    <img src="{{ 'farm_banner.png' | asset_url }}" alt="{{ block.settings.title | escape }}" width="3168" height="1344">
+                  {%- endif -%}
+                </div>
+                <div class="phasal-hero-card__body">
+                  <div>
+                    <h2 class="phasal-hero-card__title">{{ block.settings.title | escape }}</h2>
+                    {%- if block.settings.copy != blank -%}
+                      <p class="phasal-hero-card__copy">{{ block.settings.copy | escape }}</p>
+                    {%- endif -%}
+                  </div>
+                  {%- if block.settings.link_label != blank -%}
+                    <a class="phasal-hero-card__link" href="{{ block.settings.link | default: routes.root_url }}">
+                      {{ block.settings.link_label | escape }}
+                    </a>
+                  {%- endif -%}
+                </div>
+              </article>
+            {%- endfor -%}
+          </div>
+        </div>
+      </article>
+    {%- endif -%}
   </div>
+
+  {%- if hero_slide_blocks.size > 1 -%}
+    <div class="phasal-hero__controls" aria-label="Hero carousel controls">
+      <button type="button" class="phasal-hero__nav phasal-hero__nav--prev" data-phasal-hero-prev aria-label="Previous slide">‹</button>
+      <div class="phasal-hero__dots">
+        {%- for block in hero_slide_blocks -%}
+          <button
+            type="button"
+            class="phasal-hero__dot{% if forloop.first %} is-active{% endif %}"
+            data-phasal-hero-dot
+            data-slide-index="{{ forloop.index0 }}"
+            aria-label="Go to slide {{ forloop.index }}"
+          ></button>
+        {%- endfor -%}
+      </div>
+      <button type="button" class="phasal-hero__nav phasal-hero__nav--next" data-phasal-hero-next aria-label="Next slide">›</button>
+    </div>
+
+    <script>
+      (() => {
+        const carousel = document.currentScript.closest('[data-phasal-hero-carousel]');
+        if (!carousel || carousel.dataset.heroReady === 'true') return;
+        carousel.dataset.heroReady = 'true';
+
+        const slides = Array.from(carousel.querySelectorAll('[data-phasal-hero-slide]'));
+        const dots = Array.from(carousel.querySelectorAll('[data-phasal-hero-dot]'));
+        const prev = carousel.querySelector('[data-phasal-hero-prev]');
+        const next = carousel.querySelector('[data-phasal-hero-next]');
+        const shouldAutoRotate = carousel.dataset.autoRotate === 'true';
+        const interval = Number(carousel.dataset.interval || 5000);
+        let currentIndex = 0;
+        let timerId = null;
+
+        const showSlide = (index) => {
+          currentIndex = (index + slides.length) % slides.length;
+          slides.forEach((slide, slideIndex) => {
+            slide.classList.toggle('is-active', slideIndex === currentIndex);
+          });
+          dots.forEach((dot, dotIndex) => {
+            dot.classList.toggle('is-active', dotIndex === currentIndex);
+          });
+        };
+
+        const startAutoRotate = () => {
+          if (!shouldAutoRotate || slides.length < 2) return;
+          window.clearInterval(timerId);
+          timerId = window.setInterval(() => {
+            showSlide(currentIndex + 1);
+          }, interval);
+        };
+
+        prev?.addEventListener('click', () => {
+          showSlide(currentIndex - 1);
+          startAutoRotate();
+        });
+
+        next?.addEventListener('click', () => {
+          showSlide(currentIndex + 1);
+          startAutoRotate();
+        });
+
+        dots.forEach((dot) => {
+          dot.addEventListener('click', () => {
+            showSlide(Number(dot.dataset.slideIndex));
+            startAutoRotate();
+          });
+        });
+
+        carousel.addEventListener('mouseenter', () => window.clearInterval(timerId));
+        carousel.addEventListener('mouseleave', startAutoRotate);
+
+        showSlide(0);
+        startAutoRotate();
+      })();
+    </script>
+  {%- endif -%}
 </section>
 
 {% schema %}
 {
   "name": "Phasal Hero",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "auto_rotate",
+      "label": "Auto-rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "change_slides_speed",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Change slides every",
+      "default": 5
+    },
+    {
+      "type": "header",
+      "content": "Fallback content"
+    },
     {
       "type": "image_picker",
       "id": "background_image",
@@ -221,6 +497,120 @@
   ],
   "blocks": [
     {
+      "type": "hero_slide",
+      "name": "Hero slide",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "background_image",
+          "label": "Background image"
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "Ganwai Collection 2025"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta",
+          "default": "72,000+ Farmers - Chhattisgarh"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_1",
+          "label": "Heading line 1",
+          "default": "Ancient Grains,"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_2",
+          "label": "Heading line 2",
+          "default": "Direct from the"
+        },
+        {
+          "type": "text",
+          "id": "heading_line_3",
+          "label": "Heading line 3",
+          "default": "Heart of India"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table."
+        },
+        {
+          "type": "text",
+          "id": "primary_button_label",
+          "label": "Primary button label",
+          "default": "Shop now"
+        },
+        {
+          "type": "url",
+          "id": "primary_button_link",
+          "label": "Primary button link"
+        },
+        {
+          "type": "text",
+          "id": "secondary_button_label",
+          "label": "Secondary button label",
+          "default": "Learn more"
+        },
+        {
+          "type": "url",
+          "id": "secondary_button_link",
+          "label": "Secondary button link"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_product_cards",
+          "label": "Show product cards",
+          "default": true
+        },
+        {
+          "type": "collection",
+          "id": "product_collection",
+          "label": "Product collection"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_feature_card",
+          "label": "Show feature card",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "feature_image",
+          "label": "Feature card image"
+        },
+        {
+          "type": "text",
+          "id": "feature_title",
+          "label": "Feature card title",
+          "default": "Millet Processing Unit - Dongitara, Raigarh"
+        },
+        {
+          "type": "text",
+          "id": "feature_copy",
+          "label": "Feature card copy",
+          "default": "From field to pack - Zero additives - Full traceability"
+        },
+        {
+          "type": "text",
+          "id": "feature_link_label",
+          "label": "Feature link label",
+          "default": "Visit Farm"
+        },
+        {
+          "type": "url",
+          "id": "feature_link",
+          "label": "Feature link"
+        }
+      ]
+    },
+    {
       "type": "stat",
       "name": "Stat",
       "settings": [
@@ -240,7 +630,7 @@
     },
     {
       "type": "feature_card",
-      "name": "Feature card",
+      "name": "Legacy feature card",
       "settings": [
         {
           "type": "image_picker",
@@ -273,11 +663,29 @@
       ]
     }
   ],
-  "max_blocks": 7,
+  "max_blocks": 16,
   "presets": [
     {
       "name": "Phasal Hero",
       "blocks": [
+        {
+          "type": "hero_slide",
+          "settings": {
+            "eyebrow": "Ganwai Collection 2025",
+            "meta": "72,000+ Farmers - Chhattisgarh",
+            "heading_line_1": "Ancient Grains,",
+            "heading_line_2": "Direct from the",
+            "heading_line_3": "Heart of India",
+            "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table.",
+            "primary_button_label": "Shop All Millets",
+            "secondary_button_label": "Learn Our Story",
+            "show_product_cards": true,
+            "show_feature_card": true,
+            "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
+            "feature_copy": "From field to pack - Zero additives - Full traceability",
+            "feature_link_label": "Visit Farm"
+          }
+        },
         {
           "type": "stat",
           "settings": {
@@ -304,14 +712,6 @@
           "settings": {
             "number": "100%",
             "label": "Organic"
-          }
-        },
-        {
-          "type": "feature_card",
-          "settings": {
-            "title": "Millet Processing Unit - Dongitara, Raigarh",
-            "copy": "From field to pack - Zero additives - Full traceability",
-            "link_label": "Visit Farm"
           }
         }
       ]
