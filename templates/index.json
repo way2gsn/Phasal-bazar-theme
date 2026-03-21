@@ -9,31 +9,65 @@
  */
 {
   "sections": {
+    "slideshow_DhnnAz": {
+      "type": "slideshow",
+      "blocks": {
+        "slide_z4Uh8W": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/Gemini_Generated_Image_2198cp2198cp2198.png",
+            "image_overlay_opacity": 10,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "top-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "center",
+            "color_scheme": ""
+          }
+        },
+        "slide_JAMBp4": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/result_0.png",
+            "image_overlay_opacity": 0,
+            "heading": "",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": true,
+            "show_text_box": false,
+            "box_align": "top-left",
+            "text_alignment": "left",
+            "text_alignment_mobile": "left",
+            "color_scheme": ""
+          }
+        }
+      },
+      "block_order": [
+        "slide_z4Uh8W",
+        "slide_JAMBp4"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "ambient",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
-        "hero_slide_1": {
-          "type": "hero_slide",
-          "settings": {
-            "eyebrow": "Ganwai Collection 2025",
-            "meta": "72,000+ Farmers - Chhattisgarh",
-            "heading_line_1": "Ancient Grains,",
-            "heading_line_2": "Direct from the",
-            "heading_line_3": "Heart of India",
-            "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table. Your healthy choice supports rural communities.",
-            "primary_button_label": "Shop All Millets",
-            "primary_button_link": "shopify://collections/millets-whole-grains",
-            "secondary_button_label": "Learn Our Story",
-            "secondary_button_link": "shopify://blogs/news/learn-our-story",
-            "show_product_cards": true,
-            "product_collection": "millets-whole-grains",
-            "show_feature_card": true,
-            "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
-            "feature_copy": "From field to pack - Zero additives - Full traceability",
-            "feature_link_label": "Visit Farm",
-            "feature_link": ""
-          }
-        },
         "stat_1": {
           "type": "stat",
           "settings": {
@@ -61,17 +95,29 @@
             "number": "100%",
             "label": "Organic"
           }
+        },
+        "feature_card_1": {
+          "type": "feature_card",
+          "settings": {
+            "title": "Millet Processing Unit - Dongitara, Raigarh",
+            "copy": "From field to pack - Zero additives - Full traceability",
+            "link_label": "Visit Farm",
+            "link": ""
+          }
         }
       },
       "block_order": [
-        "hero_slide_1",
         "stat_1",
         "stat_2",
         "stat_3",
-        "stat_4"
+        "stat_4",
+        "feature_card_1"
       ],
+      "disabled": true,
       "settings": {
-        "eyebrow": "Ganwai Collection 2025",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+        "eyebrow": "Gawai Collection 2025",
         "meta": "72,000+ Farmers - Chhattisgarh",
         "product_collection": "millets-whole-grains",
         "heading_line_1": "Ancient Grains,",
@@ -556,6 +602,7 @@
     }
   },
   "order": [
+    "slideshow_DhnnAz",
     "phasal_hero",
     "phasal_trust",
     "phasal_impact",
