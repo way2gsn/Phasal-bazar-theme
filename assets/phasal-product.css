@@ -151,6 +151,7 @@
   position: relative;
   transition: border-color .3s var(--pp-ease-smooth),
               box-shadow    .3s var(--pp-ease-smooth);
+              width: 100%;
 }
 
 .phasal-product-page .product__media:hover {
