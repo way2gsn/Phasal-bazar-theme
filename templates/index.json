@@ -53,6 +53,7 @@
         "slide_z4Uh8W",
         "slide_JAMBp4"
       ],
+      "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
         "layout": "full_bleed",
@@ -113,7 +114,6 @@
         "stat_4",
         "feature_card_1"
       ],
-      "disabled": true,
       "settings": {
         "auto_rotate": true,
         "change_slides_speed": 5,
