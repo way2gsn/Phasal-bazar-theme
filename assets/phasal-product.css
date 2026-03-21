@@ -133,6 +133,7 @@
   width: auto;
   max-width: none;
   padding-top: 0;
+  align-self: start;
 }
 
 .phasal-product-page .product__info-wrapper { padding-left: 0; }
@@ -1379,18 +1380,7 @@
 .phasal-product-page .product__column-sticky {
   position: sticky;
   top: 9rem;
-  max-height: calc(100vh - 10rem);
-  overflow-y: auto;
-  overflow-x: hidden;
-  scrollbar-width: thin;
-  scrollbar-color: var(--pp-bd) transparent;
-  padding-right: 1.2rem;
-}
-
-.phasal-product-page .product__column-sticky::-webkit-scrollbar { width: .4rem; }
-.phasal-product-page .product__column-sticky::-webkit-scrollbar-thumb {
-  background: var(--pp-bd);
-  border-radius: .2rem;
+  align-self: start;
 }
 
 /* ─────────────────────────────────────────
