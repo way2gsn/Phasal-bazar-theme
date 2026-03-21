@@ -7,6 +7,7 @@
 -%}
 
 <section
+  id="PhasalHero-{{ section.id }}"
   class="phasal-home phasal-hero{% if hero_slide_blocks.size > 1 %} phasal-hero--carousel{% endif %}"
   {% if hero_slide_blocks.size > 1 %}
     data-phasal-hero-carousel
@@ -18,7 +19,10 @@
     {%- if hero_slide_blocks.size > 0 -%}
       {%- for block in hero_slide_blocks -%}
         {%- liquid
-          assign slide_products = block.settings.product_collection.products
+          assign slide_products = blank
+          if block.settings.product_collection != blank
+            assign slide_products = block.settings.product_collection.products
+          endif
         -%}
         <article
           class="phasal-hero__slide{% if forloop.first %} is-active{% endif %}"
@@ -181,7 +185,10 @@
       {%- endfor -%}
     {%- else -%}
       {%- liquid
-        assign hero_products = section.settings.product_collection.products
+        assign hero_products = blank
+        if section.settings.product_collection != blank
+          assign hero_products = section.settings.product_collection.products
+        endif
       -%}
       <article class="phasal-hero__slide is-active" data-phasal-hero-slide>
         <div class="phasal-hero__media">
@@ -344,7 +351,7 @@
 
     <script>
       (() => {
-        const carousel = document.currentScript.closest('[data-phasal-hero-carousel]');
+        const carousel = document.getElementById('PhasalHero-{{ section.id }}');
         if (!carousel || carousel.dataset.heroReady === 'true') return;
         carousel.dataset.heroReady = 'true';
 
