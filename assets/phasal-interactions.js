@@ -3,6 +3,7 @@ class PhasalInteractions {
     this.cart = null;
     this.wishlistKey = 'phasalWishlist';
     this.pendingVariantIds = new Set();
+    this.toastTimeout = null;
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -199,6 +200,37 @@ class PhasalInteractions {
     }
   }
 
+  showCartToast(message) {
+    if (!message) return;
+
+    let stack = document.querySelector('[data-phasal-cart-toast-stack]');
+    if (!stack) {
+      stack = document.createElement('div');
+      stack.className = 'phasal-cart-toast-stack';
+      stack.setAttribute('data-phasal-cart-toast-stack', '');
+      document.body.appendChild(stack);
+    }
+
+    stack.innerHTML = '';
+
+    const toast = document.createElement('div');
+    toast.className = 'phasal-cart-toast';
+    toast.textContent = message;
+    stack.appendChild(toast);
+
+    requestAnimationFrame(() => {
+      toast.classList.add('is-visible');
+    });
+
+    if (this.toastTimeout) clearTimeout(this.toastTimeout);
+    this.toastTimeout = window.setTimeout(() => {
+      toast.classList.remove('is-visible');
+      window.setTimeout(() => {
+        if (toast.parentNode) toast.remove();
+      }, 220);
+    }, 2200);
+  }
+
   applyOptimisticQuantity(variantId, nextQuantity) {
     if (!this.cart) {
       this.cart = { item_count: 0, items: [] };
@@ -231,6 +263,7 @@ class PhasalInteractions {
   async handleCartButton(button, nextQuantity) {
     const card = button.closest('[data-phasal-product-card]');
     const variantId = Number(card?.dataset.variantId);
+    const productTitle = card?.dataset.productTitle;
     if (!variantId || this.pendingVariantIds.has(variantId)) return;
 
     if (!this.cart) {
@@ -245,6 +278,7 @@ class PhasalInteractions {
     try {
       if (previousQuantity === 0 && nextQuantity > 0) {
         await this.addToCart(variantId, nextQuantity);
+        this.showCartToast(`${productTitle || 'Product'} added to cart`);
       } else {
         await this.changeCartQuantity(variantId, nextQuantity);
       }

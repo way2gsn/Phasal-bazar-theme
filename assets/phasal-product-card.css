@@ -277,6 +277,52 @@
   pointer-events: none;
 }
 
+.phasal-cart-toast-stack {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  pointer-events: none;
+}
+
+.phasal-cart-toast {
+  min-width: 24rem;
+  max-width: min(36rem, calc(100vw - 3rem));
+  padding: 1.2rem 1.5rem;
+  border: 1px solid rgba(13, 90, 55, 0.16);
+  border-radius: 1.6rem;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 1.6rem 4rem rgba(13, 90, 55, 0.16);
+  color: #0d5a37;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.45;
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(8px);
+}
+
+.phasal-cart-toast.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media screen and (max-width: 749px) {
+  .phasal-cart-toast-stack {
+    right: 1.2rem;
+    bottom: 1.2rem;
+    left: 1.2rem;
+  }
+
+  .phasal-cart-toast {
+    max-width: 100%;
+  }
+}
+
 @media screen and (max-width: 989px) {
   .phasal-product-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
