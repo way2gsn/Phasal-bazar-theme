@@ -239,6 +239,22 @@
   </div>
 </section>
 
+{%- if section.settings.sticky_header_type != 'none' -%}
+  <script>
+    (() => {
+      const headerSection = document.getElementById('shopify-section-{{ section.id }}');
+      if (!headerSection) return;
+
+      const stickyContainer =
+        headerSection.closest('.shopify-section-group-header-group') || headerSection.closest('.shopify-section');
+
+      if (stickyContainer) {
+        stickyContainer.classList.add('phasal-sticky-shell');
+      }
+    })();
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
   "name": "Header",
