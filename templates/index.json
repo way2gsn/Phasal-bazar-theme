@@ -364,6 +364,7 @@
         "guide_1": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/nutrition_Bajra_front.png",
             "kicker": "Nutrition",
             "title": "Why millet works for everyday meals",
             "copy": "Explain the grain, how to cook it, or what benefit makes it worth trying.",
@@ -375,6 +376,7 @@
         "guide_2": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/vibe_Ragi_Poha_Back.png",
             "kicker": "Kitchen guide",
             "title": "Choosing between whole grain, poha, and flour",
             "copy": "Help shoppers understand the right form factor for breakfast, dinner, or daily staples.",
@@ -386,6 +388,7 @@
         "guide_3": {
           "type": "card",
           "settings": {
+            "image": "shopify://shop_images/nutrition_16.png",
             "kicker": "Origin story",
             "title": "From Chhattisgarh fields to modern kitchens",
             "copy": "Use a short educational story to make sourcing feel tangible and credible.",
