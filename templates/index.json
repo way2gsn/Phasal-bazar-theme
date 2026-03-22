@@ -431,7 +431,7 @@
         "item_bhbknB": {
           "type": "item",
           "settings": {
-            "icon": "🧑‍🍳",
+            "icon": "🌿",
             "title": "Easy to cook",
             "copy": "Very quick to cook, high in iron, lower in calories, and generally lower in glycemic index than polished white rice. Poha made from red rice offers more fiber."
           }
@@ -457,7 +457,7 @@
           "settings": {
             "icon": "🌿",
             "title": "Clean sourcing",
-            "copy": "Explain the proof point behind this benefit."
+            "copy": "Whole grains offer the highest fiber and nutrition, poha is a highly digestible, quick-cooking, low-fat breakfast option, and whole-grain flours (like Chakki Atta) offer a balance of nutrition and convenience."
           }
         },
         "why_2": {
@@ -465,7 +465,7 @@
           "settings": {
             "icon": "🥣",
             "title": "Everyday usability",
-            "copy": "Help shoppers imagine these products in real kitchens and routines."
+            "copy": "Best for daily staples like chapatis, parathas, and naans. Whole wheat offers a hearty, satisfying texture and keeps you full longer, which helps with weight management."
           }
         },
         "why_3": {
@@ -473,7 +473,7 @@
           "settings": {
             "icon": "📦",
             "title": "Reliable fulfillment",
-            "copy": "Use a final reassurance point around delivery, quality, or support."
+            "copy": "We ensure that Customer gets our Best Product Possible in given time."
           }
         }
       },
