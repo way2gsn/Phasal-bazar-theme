@@ -428,6 +428,30 @@
     "phasal_why": {
       "type": "phasal-why",
       "blocks": {
+        "item_bhbknB": {
+          "type": "item",
+          "settings": {
+            "icon": "🧑‍🍳",
+            "title": "Easy to cook",
+            "copy": "Very quick to cook, high in iron, lower in calories, and generally lower in glycemic index than polished white rice. Poha made from red rice offers more fiber."
+          }
+        },
+        "item_UX8jNF": {
+          "type": "item",
+          "settings": {
+            "icon": "🍲",
+            "title": "Customer Satisfaction",
+            "copy": "They love our Product/Millets so much that they can't go back to unhealthy meals."
+          }
+        },
+        "item_pjXfHK": {
+          "type": "item",
+          "settings": {
+            "icon": "🤝",
+            "title": "Gut Friendly",
+            "copy": "100% whole wheat flour retains the bran and germ, offering high fiber and nutrients."
+          }
+        },
         "why_1": {
           "type": "item",
           "settings": {
@@ -454,6 +478,9 @@
         }
       },
       "block_order": [
+        "item_bhbknB",
+        "item_UX8jNF",
+        "item_pjXfHK",
         "why_1",
         "why_2",
         "why_3"
