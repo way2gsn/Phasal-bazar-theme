@@ -9,63 +9,6 @@
  */
 {
   "sections": {
-    "slideshow_DhnnAz": {
-      "type": "slideshow",
-      "blocks": {
-        "slide_z4Uh8W": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/Gemini_Generated_Image_2198cp2198cp2198.png",
-            "image_overlay_opacity": 10,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": false,
-            "show_text_box": false,
-            "box_align": "top-left",
-            "text_alignment": "left",
-            "text_alignment_mobile": "center",
-            "color_scheme": ""
-          }
-        },
-        "slide_JAMBp4": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/result_0.png",
-            "image_overlay_opacity": 0,
-            "heading": "",
-            "heading_size": "h1",
-            "subheading": "",
-            "button_label": "",
-            "link": "",
-            "button_style_secondary": true,
-            "show_text_box": false,
-            "box_align": "top-left",
-            "text_alignment": "left",
-            "text_alignment_mobile": "left",
-            "color_scheme": ""
-          }
-        }
-      },
-      "block_order": [
-        "slide_z4Uh8W",
-        "slide_JAMBp4"
-      ],
-      "disabled": true,
-      "name": "t:sections.slideshow.presets.name",
-      "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "dots",
-        "auto_rotate": false,
-        "change_slides_speed": 5,
-        "image_behavior": "ambient",
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand"
-      }
-    },
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
@@ -341,7 +284,7 @@
         "eyebrow": "Featured products",
         "title": "Best from the harvest",
         "copy": "Live products pulled directly from Shopify so the homepage always stays in sync.",
-        "collection": "all",
+        "collection": "featured-products",
         "products_to_show": 4,
         "default_badge": "72K+ network",
         "link_label": "View collection",
@@ -605,7 +548,6 @@
     }
   },
   "order": [
-    "slideshow_DhnnAz",
     "phasal_hero",
     "phasal_trust",
     "phasal_impact",
