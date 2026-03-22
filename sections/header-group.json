@@ -145,16 +145,6 @@
             "active": false
           }
         },
-        "tab_RpUCgp": {
-          "type": "tab",
-          "settings": {
-            "collection": "",
-            "label": "All Products",
-            "link": "",
-            "icon": "🌾",
-            "active": false
-          }
-        },
         "tab_JX4HhR": {
           "type": "tab",
           "settings": {
@@ -175,16 +165,6 @@
             "active": false
           }
         },
-        "tab_M8tikW": {
-          "type": "tab",
-          "settings": {
-            "collection": "",
-            "label": "All Products",
-            "link": "",
-            "icon": "🌾",
-            "active": false
-          }
-        },
         "tab_VPCEDd": {
           "type": "tab",
           "settings": {
@@ -202,10 +182,8 @@
         "tab_xW6UQc",
         "tab_KkKTAK",
         "tab_hfqKH9",
-        "tab_RpUCgp",
         "tab_JX4HhR",
         "tab_QdWERH",
-        "tab_M8tikW",
         "tab_VPCEDd"
       ],
       "name": "Phasal Category Tabs",
