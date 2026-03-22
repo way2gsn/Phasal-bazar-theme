@@ -296,7 +296,7 @@
       "settings": {
         "eyebrow": "Farmer first",
         "title": "<p>Healthy staples with a <strong>direct village story</strong></p>",
-        "copy": "Bring home grains and oils that keep nutrition intact and keep value closer to the farm.",
+        "copy": "Our millets are grown without pesticides, processed without additives, and packed to preserve every grain of nutrition from Chhattisgarh's fertile fields.",
         "button_label": "Shop now",
         "button_link": "shopify://collections/all"
       }
@@ -347,9 +347,9 @@
         "guide_3"
       ],
       "settings": {
-        "eyebrow": "Millet guide",
-        "title": "Know what reaches your kitchen",
-        "copy": "Use this space for education, recipes, or story-led content that supports the product journey."
+        "eyebrow": "Know Your Grain",
+        "title": "The Millet Guide",
+        "copy": "Each millet carries centuries of wisdom understand what makes them unique"
       }
     },
     "phasal_dual_promo": {
@@ -358,21 +358,23 @@
         "promo_1": {
           "type": "promo",
           "settings": {
-            "kicker": "Seasonal edit",
-            "title": "Curated combos for healthier kitchens",
-            "copy": "Use this as a promotional spotlight for a collection, page, or campaign.",
+            "image": "shopify://shop_images/organic_vibe_Groundnut_Oil.png",
+            "kicker": "Cold-Pressed Collection",
+            "title": "Pure Oils from Ancient Seeds",
+            "copy": "Mustard & Alsi (Flaxseed) — extracted without heat to preserve every nutrient",
             "link_label": "Explore",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/oils-ghee"
           }
         },
         "promo_2": {
           "type": "promo",
           "settings": {
-            "kicker": "From the village pantry",
-            "title": "Cold-pressed oils and staple essentials",
-            "copy": "Highlight a second category without duplicating your main hero.",
+            "image": "shopify://shop_images/organic_vibe_KHAND__800G.png",
+            "kicker": "Poha & Aata Range",
+            "title": "Foxtail Millet Poha & Flour",
+            "copy": "Ready-to-cook millet flours and poha for a nutritious Indian kitchen",
             "link_label": "Shop oils",
-            "link": "shopify://collections/all"
+            "link": "shopify://collections/poha-flattened-rice"
           }
         }
       },
