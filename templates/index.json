@@ -408,7 +408,7 @@
           "settings": {
             "icon": "🤝",
             "title": "Farmer value",
-            "copy": "Make clear that better sourcing means better outcomes beyond the checkout."
+            "copy": "Better sourcing means better outcomes beyond the checkout."
           }
         }
       },
@@ -420,7 +420,7 @@
       "settings": {
         "eyebrow": "Farm story",
         "title": "Built with farmers, not around them",
-        "copy": "Use this section to explain sourcing, processing, and how the brand protects nutrition and farmer value.",
+        "copy": "Phasal Bazar Ganwai was built on a single mission: give Chhattisgarh's millet farmers a direct channel to health-conscious consumers across India — eliminating exploitative middlemen and restoring the dignity of ancient grain farming.Our Millet Processing Unit at Dongitara, Raigarh processes grains the traditional way — no heat, no chemicals, no polishing. Just pure, honest food.",
         "stat_number_1": "72K+",
         "stat_label_1": "farmer partners",
         "stat_number_2": "18",
@@ -502,7 +502,7 @@
             "stars": "★★★★★",
             "quote": "The quality felt different from our first order. The grains cook beautifully and the story behind them matters to us.",
             "avatar": "🙂",
-            "name": "Customer Name",
+            "name": "Ramesh Sahu - Durg",
             "meta": "Verified buyer"
           }
         },
@@ -512,7 +512,7 @@
             "stars": "★★★★★",
             "quote": "We switched a few staples at home and these products immediately felt cleaner and fresher.",
             "avatar": "😊",
-            "name": "Returning customer",
+            "name": "Savitri Bai - Rajnandgaon",
             "meta": "Family shopper"
           }
         },
@@ -522,7 +522,7 @@
             "stars": "★★★★★",
             "quote": "The sourcing story gave us confidence, and the taste made us reorder.",
             "avatar": "🌾",
-            "name": "Health-conscious buyer",
+            "name": "Devanand Patel — Raigarh",
             "meta": "Repeat order"
           }
         }
