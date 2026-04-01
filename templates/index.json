@@ -177,19 +177,12 @@
     "phasal_collection_pills": {
       "type": "phasal-collection-pills",
       "blocks": {
-        "collection_9jabKX": {
-          "type": "collection",
-          "settings": {
-            "collection": "our-best-seller-millets",
-            "icon": "🫚",
-            "highlight": false
-          }
-        },
         "collection_cUDwqE": {
           "type": "collection",
           "settings": {
             "collection": "seeds-superfoods",
-            "icon": "🥒",
+            "image": "shopify://shop_images/Seeds.png",
+            "icon": "",
             "highlight": false
           }
         },
@@ -197,6 +190,7 @@
           "type": "collection",
           "settings": {
             "collection": "rice",
+            "image": "shopify://shop_images/Rice.png",
             "icon": "🌾",
             "highlight": false
           }
@@ -205,6 +199,7 @@
           "type": "collection",
           "settings": {
             "collection": "poha-flattened-rice",
+            "image": "shopify://shop_images/Poha_and_flatende_rice.png",
             "icon": "🍚",
             "highlight": false
           }
@@ -213,6 +208,7 @@
           "type": "collection",
           "settings": {
             "collection": "oils-ghee",
+            "image": "shopify://shop_images/Oils_and_ghee.png",
             "icon": "🧈",
             "highlight": false
           }
@@ -237,6 +233,7 @@
           "type": "collection",
           "settings": {
             "collection": "honey-sweeteners",
+            "image": "shopify://shop_images/Honey.png",
             "icon": "🍯",
             "highlight": false
           }
@@ -245,6 +242,7 @@
           "type": "collection",
           "settings": {
             "collection": "flours-atta",
+            "image": "shopify://shop_images/Flours_and_aata.png",
             "icon": "🍞",
             "highlight": false
           }
@@ -253,13 +251,13 @@
           "type": "collection",
           "settings": {
             "collection": "dals-pulses",
+            "image": "shopify://shop_images/Dals.png",
             "icon": "🌾",
             "highlight": false
           }
         }
       },
       "block_order": [
-        "collection_9jabKX",
         "collection_cUDwqE",
         "collection_cCmFMk",
         "collection_7Y9Ppz",
