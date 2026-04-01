@@ -11,6 +11,9 @@
   "sections": {
     "hero": {
       "type": "phasal-about-hero",
+      "custom_css": [
+        "h1{color: white}"
+      ],
       "settings": {
         "image": "shopify://shop_images/WhatsApp_Image_2024-06-17_at_12.15.50.jpg",
         "eyebrow": "Roots of Heritage",
