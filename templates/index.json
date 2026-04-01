@@ -177,6 +177,15 @@
     "phasal_collection_pills": {
       "type": "phasal-collection-pills",
       "blocks": {
+        "collection_wU88mk": {
+          "type": "collection",
+          "settings": {
+            "collection": "millets-whole-grains",
+            "image": "shopify://shop_images/Dals.png",
+            "icon": "🌾",
+            "highlight": false
+          }
+        },
         "collection_cUDwqE": {
           "type": "collection",
           "settings": {
@@ -258,6 +267,7 @@
         }
       },
       "block_order": [
+        "collection_wU88mk",
         "collection_cUDwqE",
         "collection_cCmFMk",
         "collection_7Y9Ppz",
