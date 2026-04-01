@@ -587,59 +587,79 @@
 
 .phasal-pill {
   display: flex;
-  min-width: 11rem;
-  max-width: 20rem;
   flex-direction: column;
   align-items: center;
-  gap: 0.75rem;
-  padding: 1.6rem 1.8rem;
-  border: 1.5px solid var(--phasal-border);
-  border-radius: 1.8rem;
-  background: #fff;
+  gap: 1.4rem;
+  padding: 0;
+  background: transparent;
   color: inherit;
   text-align: center;
   text-decoration: none;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
-}
-
-.phasal-product-grid__item {
-  min-width: 0;
-  width: 100%;
-  max-width: none;
-  list-style: none;
+  transition: transform 0.3s ease;
+  min-width: 12rem;
 }
 
 .phasal-pill:hover {
-  /* border-color: var(--phasal-green-600); */
-  box-shadow: 0 0.8rem 3.2rem rgba(26, 77, 46, 0.12);
-  transform: translateY(-4px);
-  border-color: var(--phasal-green-800);
-  background: var(--phasal-green-800);
-  color: #fff;
+  transform: translateY(-5px);
 }
 
-.phasal-pill--active {
-  border-color: var(--phasal-green-800);
-  background: var(--phasal-green-800);
-  color: #fff;
+.phasal-pill__circle {
+  position: relative;
+  width: 14rem;
+  height: 14rem;
+  border-radius: 50%;
+  background: #f8f4ee;
+  border: 1.5px solid var(--phasal-border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 0.4rem 1.2rem rgba(13, 90, 55, 0.05);
 }
 
-.phasal-pill__emoji {
-  font-size: 2.8rem;
+.phasal-pill:hover .phasal-pill__circle {
+  border-color: var(--phasal-green-800);
+  background: #fff;
+  box-shadow: 0 1.2rem 3.2rem rgba(13, 90, 55, 0.12);
+}
+
+.phasal-pill__circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2rem;
+  transition: transform 0.4s ease;
+}
+
+.phasal-pill:hover .phasal-pill__circle img {
+  transform: scale(1.1);
+}
+
+.phasal-pill__placeholder {
+  font-size: 4.8rem;
 }
 
 .phasal-pill__title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: 700;
+  color: var(--phasal-text-900);
+  transition: color 0.3s ease;
 }
 
-.phasal-pill__count {
-  color: var(--phasal-text-500);
-  font-size: 1.1rem;
+.phasal-pill:hover .phasal-pill__title {
+  color: var(--phasal-green-800);
 }
 
-.phasal-pill--active .phasal-pill__count {
-  color: rgba(255, 255, 255, 0.72);
+@media screen and (max-width: 749px) {
+  .phasal-pill__circle {
+    width: 10rem;
+    height: 10rem;
+  }
+  
+  .phasal-pill__circle img {
+    padding: 1.4rem;
+  }
 }
 
 .phasal-product-grid {

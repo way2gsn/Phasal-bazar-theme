@@ -28,11 +28,18 @@
             href="{{ collection.url }}"
             {{ block.shopify_attributes }}
           >
-            <span class="phasal-pill__emoji">{{ block.settings.icon | escape }}</span>
+            <div class="phasal-pill__circle">
+              {%- if block.settings.image != blank -%}
+                {{
+                  block.settings.image
+                  | image_url: width: 320
+                  | image_tag: loading: 'lazy', sizes: '14rem', widths: '160, 320'
+                }}
+              {%- else -%}
+                <span class="phasal-pill__placeholder">{{ block.settings.icon | escape }}</span>
+              {%- endif -%}
+            </div>
             <span class="phasal-pill__title">{{ collection.title | escape }}</span>
-            <span class="phasal-pill__count">
-              {{ collection.all_products_count }} items
-            </span>
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -85,9 +92,14 @@
           "label": "Collection"
         },
         {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category image"
+        },
+        {
           "type": "text",
           "id": "icon",
-          "label": "Icon or emoji",
+          "label": "Icon or emoji (fallback)",
           "default": "🌾"
         },
         {
