@@ -334,6 +334,14 @@
                   </details>
               {% endcase %}
             {%- endfor -%}
+
+            {%- if filter_type == 'vertical' -%}
+              <div class="phasal-facets-guarantee">
+                <h4 class="phasal-facets-guarantee__title">Artisan Guarantee</h4>
+                <p class="phasal-facets-guarantee__text">All our snacks are prepared in small batches using sun-dried ingredients and zero refined sugars.</p>
+              </div>
+            {%- endif -%}
+
           </div>
           {% comment %} Pills after filtes on filter type horizontal {% endcomment %}
           {%- if filter_type == 'horizontal' -%}

@@ -2,64 +2,169 @@
 {{ 'component-collection-hero.css' | asset_url | stylesheet_tag }}
 {{ 'phasal-collection.css' | asset_url | stylesheet_tag }}
 
-{%- style -%}
-  @media screen and (max-width: 749px) {
-    .collection-hero--with-image .collection-hero__inner {
-      padding-bottom: calc({{ settings.media_shadow_vertical_offset | at_least: 0 }}px + 2rem);
-    }
-  }
-{%- endstyle -%}
+<section class="phasal-collection-banner">
+  <div class="phasal-collection-banner__media">
+    {%- if section.settings.show_collection_image and collection.image -%}
+      <img
+        srcset="
+          {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
+          {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
+          {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
+          {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
+          {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {{ collection.image | image_url }} {{ collection.image.width }}w
+        "
+        src="{{ collection.image | image_url: width: 1070 }}"
+        sizes="100vw"
+        alt="{{ collection.image.alt | escape }}"
+        width="{{ collection.image.width }}"
+        height="{{ collection.image.height }}"
+      >
+    {%- else -%}
+      <img src="{{ 'collection-hero-bg.png' | asset_url }}" alt="{{ collection.title | escape }}" width="2500" height="1061">
+    {%- endif -%}
+  </div>
 
-<div class="phasal-collection-page phasal-collection-shell color-{{ section.settings.color_scheme }} gradient">
-  <div class="page-width">
-    <div class="phasal-collection-hero{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--fade-in{% endif %}">
-      <div class="phasal-collection-hero__inner">
-        <div>
-          <div class="phasal-collection-hero__eyebrow">
-            {{ section.settings.eyebrow | escape }}
-          </div>
-          <h1 class="phasal-collection-hero__title">
-            <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
-            {{- collection.title | escape -}}
-          </h1>
+  <div class="phasal-collection-banner__content">
+    <div class="page-width">
+      <div class="phasal-collection-banner__inner">
+         <h1 class="phasal-collection-banner__title">
+           <span class="visually-hidden">{{ 'sections.collection_template.title' | t }}: </span>
+           {{- collection.title | escape -}}
+         </h1>
 
-          {%- if section.settings.show_collection_description -%}
-            <div class="phasal-collection-hero__description rte">{{ collection.description }}</div>
-          {%- endif -%}
+         {%- if section.settings.show_collection_description -%}
+           <div class="phasal-collection-banner__description rte">{{ collection.description }}</div>
+         {%- else -%}
+           <!-- Fallback description for demo purposes -->
+           <div class="phasal-collection-banner__description rte">Raw, unfiltered honey and traditional natural sweeteners that retain their full enzymatic and mineral profile.</div>
+         {%- endif -%}
 
-          <div class="phasal-collection-hero__stats">
-            <span class="phasal-collection-hero__stat">{{ collection.products_count }} products</span>
-            <span class="phasal-collection-hero__stat">{{ section.settings.stat_one | escape }}</span>
-            <span class="phasal-collection-hero__stat">{{ section.settings.stat_two | escape }}</span>
-          </div>
-        </div>
-
-        <div class="phasal-collection-hero__image">
-          {%- if section.settings.show_collection_image and collection.image -%}
-            <img
-              srcset="
-                {%- if collection.image.width >= 165 -%}{{ collection.image | image_url: width: 165 }} 165w,{%- endif -%}
-                {%- if collection.image.width >= 360 -%}{{ collection.image | image_url: width: 360 }} 360w,{%- endif -%}
-                {%- if collection.image.width >= 535 -%}{{ collection.image | image_url: width: 535 }} 535w,{%- endif -%}
-                {%- if collection.image.width >= 750 -%}{{ collection.image | image_url: width: 750 }} 750w,{%- endif -%}
-                {%- if collection.image.width >= 1070 -%}{{ collection.image | image_url: width: 1070 }} 1070w,{%- endif -%}
-                {%- if collection.image.width >= 1500 -%}{{ collection.image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                {{ collection.image | image_url }} {{ collection.image.width }}w
-              "
-              src="{{ collection.image | image_url: width: 1070 }}"
-              sizes="(min-width: {{ settings.page_width }}px) 480px, (min-width: 750px) 36vw, 100vw"
-              alt="{{ collection.image.alt | escape }}"
-              width="{{ collection.image.width }}"
-              height="{{ collection.image.height }}"
-            >
-          {%- else -%}
-            <img src="{{ 'farm_hero2.png' | asset_url }}" alt="{{ collection.title | escape }}" width="2500" height="1061">
-          {%- endif -%}
-        </div>
+         <a href="#ProductGridContainer" class="phasal-collection-banner__btn">
+            Explore Collection
+         </a>
       </div>
     </div>
   </div>
-</div>
+</section>
+
+<style>
+.phasal-collection-banner {
+  position: relative;
+  min-height: 550px;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: #f5f5f0;
+}
+
+.phasal-collection-banner__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.phasal-collection-banner__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Gradient overlay so the left text is readable */
+.phasal-collection-banner__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(245, 245, 240, 0.95) 0%, rgba(245, 245, 240, 0.6) 40%, rgba(245, 245, 240, 0) 100%);
+}
+
+.phasal-collection-banner__content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  color: #1b3022;
+}
+
+.phasal-collection-banner__inner {
+  max-width: 60rem;
+  padding: 4rem 0;
+}
+
+.phasal-collection-banner__title {
+  margin: 0 0 2.4rem;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4.8rem, 6vw, 7.2rem);
+  line-height: 1.1;
+  font-weight: 500;
+  color: #1b3022;
+}
+
+.phasal-collection-banner__description {
+  font-size: 1.8rem;
+  line-height: 1.6;
+  color: #56483d;
+  margin-bottom: 4rem;
+}
+
+.phasal-collection-banner__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #1b3022;
+  color: #fff;
+  padding: 1.6rem 3.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  border-radius: 0.4rem;
+  transition: background-color 0.3s ease;
+}
+
+.phasal-collection-banner__btn:hover {
+  background-color: #2a4733;
+}
+
+@media screen and (max-width: 749px) {
+  .phasal-collection-banner {
+    min-height: 450px;
+    align-items: flex-end;
+  }
+  .phasal-collection-banner__media::after {
+    background: linear-gradient(to top, rgba(245, 245, 240, 1) 10%, rgba(245, 245, 240, 0.4) 60%, rgba(245, 245, 240, 0) 100%);
+  }
+  .phasal-collection-banner__inner {
+    padding-bottom: 6rem;
+  }
+}
+</style>
+
+<script>
+// Smooth scroll for the Explore Collection button
+document.addEventListener('DOMContentLoaded', () => {
+  const exploreBtn = document.querySelector('.phasal-collection-banner__btn');
+  if (exploreBtn) {
+    exploreBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = exploreBtn.getAttribute('href');
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        // Offset for sticky header if any
+        const headerOffset = 80;
+        const elementPosition = targetEl.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        
+        window.scrollTo({
+           top: offsetPosition,
+           behavior: "smooth"
+        });
+      }
+    });
+  }
+});
+</script>
 
 {% schema %}
 {
@@ -69,12 +174,6 @@
     {
       "type": "paragraph",
       "content": "t:sections.main-collection-banner.settings.paragraph.content"
-    },
-    {
-      "type": "text",
-      "id": "eyebrow",
-      "default": "Browse Collection",
-      "label": "Eyebrow"
     },
     {
       "type": "checkbox",
@@ -87,24 +186,6 @@
       "id": "show_collection_image",
       "default": false,
       "label": "t:sections.main-collection-banner.settings.show_collection_image.label"
-    },
-    {
-      "type": "text",
-      "id": "stat_one",
-      "default": "Farm direct",
-      "label": "Stat badge one"
-    },
-    {
-      "type": "text",
-      "id": "stat_two",
-      "default": "Organic staples",
-      "label": "Stat badge two"
-    },
-    {
-      "type": "color_scheme",
-      "id": "color_scheme",
-      "label": "t:sections.all.colors.label",
-      "default": "scheme-1"
     }
   ]
 }

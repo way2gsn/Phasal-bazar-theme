@@ -66,8 +66,13 @@ textarea {
 }
 
 @keyframes phasalTicker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 .phasal-header {
@@ -93,7 +98,7 @@ textarea {
   grid-template-columns: auto minmax(30rem, 34vw) minmax(0, 1fr) auto;
   align-items: center;
   gap: 2.2rem;
-  min-height: 10rem;
+  min-height: 7rem;
 }
 
 .phasal-header__logo {
@@ -724,7 +729,7 @@ textarea {
     font-size: 0.92rem;
   }
 
-  .phasal-header__cart > span:nth-child(2) {
+  .phasal-header__cart>span:nth-child(2) {
     display: none;
   }
 
