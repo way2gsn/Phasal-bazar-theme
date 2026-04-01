@@ -88,18 +88,23 @@
           <a class="phasal-product-card__options-link" href="{{ card_product.url }}" aria-label="View {{ card_product.title | escape }}">→</a>
         {%- else -%}
           <div class="phasal-product-card__form">
-            <button
-              class="phasal-product-card__cart-button"
-              type="button"
-              data-phasal-add
-              aria-label="Add {{ card_product.title | escape }} to cart"
-            >
-              <span>+</span>
-            </button>
-            <div class="phasal-product-card__quantity" data-phasal-quantity hidden>
-              <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-minus aria-label="Decrease quantity">−</button>
-              <span class="phasal-product-card__qty-value" data-phasal-quantity-value>0</span>
-              <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-plus aria-label="Increase quantity">+</button>
+            <div class="phasal-product-card__actions">
+              <button
+                class="phasal-product-card__cart-button"
+                type="button"
+                data-phasal-add
+                aria-label="Add {{ card_product.title | escape }} to cart"
+              >
+                <span>Add to Cart</span>
+              </button>
+              <button
+                class="phasal-product-card__buy-button"
+                type="button"
+                data-phasal-buy-now
+                aria-label="Buy {{ card_product.title | escape }} now"
+              >
+                <span>Buy Now</span>
+              </button>
             </div>
           </div>
         {%- endif -%}
