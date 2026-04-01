@@ -53,6 +53,7 @@
             <a class="phasal-header__mobile-link" href="#shop-by-form">Shop by Form</a>
             <a class="phasal-header__mobile-link" href="#farm-to-table-story">Farm to Table Story</a>
             <a class="phasal-header__mobile-link" href="#impact">Impact</a>
+            <a class="phasal-header__mobile-link" href="/pages/about-us">About Us</a>
             <a class="phasal-header__mobile-link" href="{{ routes.blog_url }}">Blog</a>
           {%- else -%}
             {%- for link in section.settings.menu.links -%}
@@ -139,12 +140,13 @@
           Shop by Form
           <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
         </a>
-        <a class="phasal-header__top-link phasal-header__top-link--highlight" href="#farm-to-table-story">
+        <a class="phasal-header__top-link" href="#farm-to-table-story">
           Farm to Table Story
           <span>{{ 'icon-caret.svg' | inline_asset_content }}</span>
         </a>
         <a class="phasal-header__top-link" href="#impact">Impact</a>
         <a class="phasal-header__top-link" href="{{ routes.blog_url }}">Blog</a>
+        <a class="phasal-header__top-link phasal-header__top-link--highlight" href="/pages/about-us">About Us</a>
       {%- else -%}
         {%- for link in section.settings.menu.links -%}
           <a class="phasal-header__top-link" href="{{ link.url }}">
