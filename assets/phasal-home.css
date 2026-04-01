@@ -318,6 +318,7 @@
   backdrop-filter: blur(12px);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  height: fit-content;
 }
 
 .phasal-hero-card:hover {
@@ -326,7 +327,8 @@
 }
 
 .phasal-hero-card__image {
-  min-height: 16.5rem;
+  height: 15rem;
+
 }
 
 .phasal-hero-card__image img {
