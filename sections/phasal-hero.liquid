@@ -95,14 +95,32 @@
                 {%- endif -%}
               </div>
 
-              {%- if stat_blocks.size > 0 -%}
+              {%- if block.settings.stat_1_num != blank or block.settings.stat_2_num != blank or block.settings.stat_3_num != blank or block.settings.stat_4_num != blank -%}
                 <div class="phasal-hero__stats">
-                  {%- for stat_block in stat_blocks limit: 4 -%}
-                    <div {{ stat_block.shopify_attributes }}>
-                      <div class="phasal-hero__stat-number">{{ stat_block.settings.number | escape }}</div>
-                      <div class="phasal-hero__stat-label">{{ stat_block.settings.label | escape }}</div>
+                  {%- if block.settings.stat_1_num != blank -%}
+                    <div>
+                      <div class="phasal-hero__stat-number">{{ block.settings.stat_1_num | escape }}</div>
+                      <div class="phasal-hero__stat-label">{{ block.settings.stat_1_label | escape }}</div>
                     </div>
-                  {%- endfor -%}
+                  {%- endif -%}
+                  {%- if block.settings.stat_2_num != blank -%}
+                    <div>
+                      <div class="phasal-hero__stat-number">{{ block.settings.stat_2_num | escape }}</div>
+                      <div class="phasal-hero__stat-label">{{ block.settings.stat_2_label | escape }}</div>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.stat_3_num != blank -%}
+                    <div>
+                      <div class="phasal-hero__stat-number">{{ block.settings.stat_3_num | escape }}</div>
+                      <div class="phasal-hero__stat-label">{{ block.settings.stat_3_label | escape }}</div>
+                    </div>
+                  {%- endif -%}
+                  {%- if block.settings.stat_4_num != blank -%}
+                    <div>
+                      <div class="phasal-hero__stat-number">{{ block.settings.stat_4_num | escape }}</div>
+                      <div class="phasal-hero__stat-label">{{ block.settings.stat_4_label | escape }}</div>
+                    </div>
+                  {%- endif -%}
                 </div>
               {%- endif -%}
             </div>
@@ -614,27 +632,62 @@
           "type": "url",
           "id": "feature_link",
           "label": "Feature link"
-        }
-      ]
-    },
-    {
-      "type": "stat",
-      "name": "Stat",
-      "settings": [
+        },
+        {
+          "type": "header",
+          "content": "Slide Stats"
+        },
         {
           "type": "text",
-          "id": "number",
-          "label": "Number",
+          "id": "stat_1_num",
+          "label": "Stat 1 Number",
           "default": "72K+"
         },
         {
           "type": "text",
-          "id": "label",
-          "label": "Label",
+          "id": "stat_1_label",
+          "label": "Stat 1 Label",
           "default": "Farmer Partners"
+        },
+        {
+          "type": "text",
+          "id": "stat_2_num",
+          "label": "Stat 2 Number",
+          "default": "9"
+        },
+        {
+          "type": "text",
+          "id": "stat_2_label",
+          "label": "Stat 2 Label",
+          "default": "Millet Varieties"
+        },
+        {
+          "type": "text",
+          "id": "stat_3_num",
+          "label": "Stat 3 Number",
+          "default": "4.9★"
+        },
+        {
+          "type": "text",
+          "id": "stat_3_label",
+          "label": "Stat 3 Label",
+          "default": "Rating"
+        },
+        {
+          "type": "text",
+          "id": "stat_4_num",
+          "label": "Stat 4 Number",
+          "default": "100%"
+        },
+        {
+          "type": "text",
+          "id": "stat_4_label",
+          "label": "Stat 4 Label",
+          "default": "Organic"
         }
       ]
     },
+
     {
       "type": "feature_card",
       "name": "Legacy feature card",
@@ -691,34 +744,6 @@
             "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
             "feature_copy": "From field to pack - Zero additives - Full traceability",
             "feature_link_label": "Visit Farm"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "72K+",
-            "label": "Farmer Partners"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "9",
-            "label": "Millet Varieties"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "4.9★",
-            "label": "Rating"
-          }
-        },
-        {
-          "type": "stat",
-          "settings": {
-            "number": "100%",
-            "label": "Organic"
           }
         }
       ]

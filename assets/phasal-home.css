@@ -146,11 +146,11 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(13, 90, 55, 0.42);
+  background: rgba(0, 0, 0, 0.15);
 }
 
 .phasal-hero__overlay {
-  background: linear-gradient(105deg, rgba(13, 90, 55, 0.94) 0%, rgba(13, 90, 55, 0.72) 42%, rgba(13, 90, 55, 0.18) 100%);
+  background: linear-gradient(105deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 42%, rgba(0, 0, 0, 0) 100%);
 }
 
 .phasal-hero__inner {

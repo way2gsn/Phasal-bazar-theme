@@ -54,35 +54,15 @@
             "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
             "feature_copy": "From field to pack - Zero additives - Full traceability",
             "feature_link_label": "Visit Farm",
-            "feature_link": ""
-          }
-        },
-        "stat_1": {
-          "type": "stat",
-          "settings": {
-            "number": "72K+",
-            "label": "Farmer Partners"
-          }
-        },
-        "stat_2": {
-          "type": "stat",
-          "settings": {
-            "number": "9",
-            "label": "Millet Varieties"
-          }
-        },
-        "stat_3": {
-          "type": "stat",
-          "settings": {
-            "number": "4.9★",
-            "label": "Rating"
-          }
-        },
-        "stat_4": {
-          "type": "stat",
-          "settings": {
-            "number": "100%",
-            "label": "Organic"
+            "feature_link": "",
+            "stat_1_num": "72K+",
+            "stat_1_label": "Farmer Partners",
+            "stat_2_num": "9",
+            "stat_2_label": "Millet Varieties",
+            "stat_3_num": "4.9★",
+            "stat_3_label": "Rating",
+            "stat_4_num": "100%",
+            "stat_4_label": "Organic"
           }
         },
         "feature_card_1": {
@@ -98,10 +78,6 @@
       "block_order": [
         "hero_slide_Mtet8C",
         "slide_1",
-        "stat_1",
-        "stat_2",
-        "stat_3",
-        "stat_4",
         "feature_card_1"
       ],
       "settings": {
