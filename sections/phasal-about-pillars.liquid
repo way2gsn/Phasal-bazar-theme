@@ -1,0 +1,147 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-about-pillars section-{{ section.id }}">
+  <div class="phasal-home__inner">
+    <div class="phasal-section__header phasal-about-pillars__header">
+      <h2 class="phasal-about-pillars__title">{{ section.settings.title | escape }}</h2>
+    </div>
+
+    <div class="phasal-about-pillars__grid">
+      {%- for block in section.blocks -%}
+        <div class="phasal-about-pillars__item" {{ block.shopify_attributes }}>
+          <div class="phasal-about-pillars__icon-wrap">
+             <span class="phasal-about-pillars__emoji">{{ block.settings.icon_emoji | escape }}</span>
+          </div>
+          <h3 class="phasal-about-pillars__item-title">{{ block.settings.title | escape }}</h3>
+          <p class="phasal-about-pillars__item-copy">{{ block.settings.copy | escape }}</p>
+          <div class="phasal-about-pillars__item-image">
+            {%- if block.settings.image != blank -%}
+              {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy' }}
+            {%- endif -%}
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+.phasal-about-pillars {
+  padding: 12rem 0;
+  background: #fff;
+}
+
+.phasal-about-pillars__header {
+  text-align: center;
+  justify-content: center;
+  margin-bottom: 8rem;
+}
+
+.phasal-about-pillars__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-style: italic;
+  color: #1b3022;
+}
+
+.phasal-about-pillars__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+.phasal-about-pillars__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.phasal-about-pillars__icon-wrap {
+  width: 6.4rem;
+  height: 6.4rem;
+  border-radius: 50%;
+  background: #f5f5f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2.8rem;
+}
+
+.phasal-about-pillars__emoji {
+  font-size: 2.8rem;
+}
+
+.phasal-about-pillars__item-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1b3022;
+  margin: 0 0 1.6rem;
+}
+
+.phasal-about-pillars__item-copy {
+  font-size: 1.55rem;
+  line-height: 1.65;
+  color: #8b796a;
+  margin: 0 0 4rem;
+}
+
+.phasal-about-pillars__item-image {
+  width: 100%;
+  aspect-ratio: 4/3;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  margin-top: auto;
+}
+
+.phasal-about-pillars__item-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.phasal-about-pillars__item:hover .phasal-about-pillars__item-image img {
+  transform: scale(1.08);
+}
+
+@media screen and (max-width: 989px) {
+  .phasal-about-pillars__grid {
+    grid-template-columns: 1fr;
+    gap: 8rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Phasal About Pillars",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Section Title", "default": "100% Regenerative Practices" }
+  ],
+  "blocks": [
+    {
+      "type": "pillar",
+      "name": "Pillar",
+      "settings": [
+        { "type": "text", "id": "icon_emoji", "label": "Icon Emoji", "default": "🌿" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Water Purity" },
+        { "type": "textarea", "id": "copy", "label": "Copy", "default": "Implementing natural filtration and catchment systems." },
+        { "type": "image_picker", "id": "image", "label": "Pillar Image" }
+      ]
+    }
+  ],
+  "max_blocks": 3,
+  "presets": [
+    {
+       "name": "Phasal About Pillars",
+       "blocks": [
+         { "type": "pillar", "settings": { "icon_emoji": "💧", "title": "Water Purity", "copy": "Implementing natural filtration and catchment systems that restore the local water table." } },
+         { "type": "pillar", "settings": { "icon_emoji": "🌾", "title": "Fair Profits", "copy": "Ensuring farmers earn a premium that supports their families and future harvests." } },
+         { "type": "pillar", "settings": { "icon_emoji": "🌱", "title": "Carbon Capture", "copy": "Drawing carbon back into the soil, turning our farms into climate solutions." } }
+       ]
+    }
+  ]
+}
+{% endschema %}

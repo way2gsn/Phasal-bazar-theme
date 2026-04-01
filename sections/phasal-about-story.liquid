@@ -1,0 +1,108 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-about-story section-{{ section.id }}">
+  <div class="phasal-home__inner">
+    <div class="phasal-about-story__grid">
+      <div class="phasal-about-story__image">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+        {%- else -%}
+          {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+      </div>
+      <div class="phasal-about-story__content">
+        <span class="phasal-home__eyebrow">{{ section.settings.eyebrow | escape }}</span>
+        <h2 class="phasal-about-story__title">{{ section.settings.title | escape }}</h2>
+        <blockquote class="phasal-about-story__quote">
+          {{ section.settings.quote | escape }}
+        </blockquote>
+        <div class="phasal-about-story__copy">
+          {{ section.settings.copy | newline_to_br }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.phasal-about-story {
+  padding: 12rem 0;
+  background: #f5f5f0;
+}
+
+.phasal-about-story__grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 8rem;
+  align-items: center;
+}
+
+.phasal-about-story__image {
+  position: relative;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  box-shadow: 0 4rem 10rem rgba(27, 48, 34, 0.12);
+}
+
+.phasal-about-story__image img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.phasal-about-story__content {
+  padding: 2rem 0;
+}
+
+.phasal-about-story__title {
+  margin: 2.4rem 0 3.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 5.6rem;
+  line-height: 1.15;
+  color: #1b3022;
+}
+
+.phasal-about-story__quote {
+  margin: 0 0 4rem;
+  padding-left: 2.4rem;
+  border-left: 2px solid #c5a059;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  font-style: italic;
+  line-height: 1.4;
+  color: #8c5437;
+}
+
+.phasal-about-story__copy {
+  font-size: 1.7rem;
+  line-height: 1.75;
+  color: #56483d;
+  max-width: 52rem;
+}
+
+@media screen and (max-width: 989px) {
+  .phasal-about-story__grid {
+    grid-template-columns: 1fr;
+    gap: 4.8rem;
+  }
+  .phasal-about-story__image {
+     order: 2;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Phasal About Story",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Story Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Our Philosophy" },
+    { "type": "text", "id": "title", "label": "Title", "default": "The Modern Agrarian Philosophy" },
+    { "type": "text", "id": "quote", "label": "Quote", "default": "Rooted in integrity, grown for the future." },
+    { "type": "textarea", "id": "copy", "label": "Copy", "default": "Our journey began with a simple observation: the connection between the land and the point of sale was broken. We believe in restoring that bond, ensuring every grain has a story and every farmer has a legacy." }
+  ],
+  "presets": [
+    { "name": "Phasal About Story" }
+  ]
+}
+{% endschema %}

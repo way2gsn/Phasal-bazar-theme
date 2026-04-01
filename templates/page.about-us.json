@@ -1,107 +1,60 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "sections": {
-    "main": {
-      "type": "main-page",
+    "hero": {
+      "type": "phasal-about-hero",
       "settings": {
-        "padding_top": 28,
-        "padding_bottom": 28
+        "eyebrow": "Roots of Heritage",
+        "title": "Roots of Heritage, Seeds of Future.",
+        "subheading": "Nurturing the land that feeds us, supporting the hands that grow it."
       }
     },
     "story": {
-      "type": "phasal-story",
-      "blocks": {
-        "feature_1": {
-          "type": "feature",
-          "settings": {
-            "icon": "🌾",
-            "title": "Direct Sourcing",
-            "copy": "We work directly with 72,000+ farmers across Chhattisgarh, ensuring they get fair value for their hard work."
-          }
-        },
-        "feature_2": {
-          "type": "feature",
-          "settings": {
-            "icon": "🧪",
-            "title": "Pure & Organic",
-            "copy": "Our millets and oils are processed without any additives, preserving the ancient nutritional value."
-          }
-        },
-        "feature_3": {
-          "type": "feature",
-          "settings": {
-            "icon": "🚚",
-            "title": "Traceable Journey",
-            "copy": "Every pack has a story. We make the entire journey from farm to your kitchen completely transparent."
-          }
-        }
-      },
-      "block_order": [
-        "feature_1",
-        "feature_2",
-        "feature_3"
-      ],
+      "type": "phasal-about-story",
       "settings": {
-        "eyebrow": "Our Mission",
-        "title": "Nurturing Soil, Empowering Farmers",
-        "copy": "Phasal Bazar was born from a simple vision: to bring the health of ancient Indian grains back to your table while ensuring the farmers of Chhattisgarh thrive.",
-        "stat_number_1": "72K+",
-        "stat_label_1": "Farmer Partners",
-        "stat_number_2": "100%",
-        "stat_label_2": "Chemical Free"
+        "eyebrow": "Our Philosophy",
+        "title": "The Modern Agrarian Philosophy",
+        "quote": "Rooted in integrity, grown for the future.",
+        "copy": "Our journey began with a simple observation: the connection between the land and the point of sale was broken. We believe in restoring that bond, ensuring every grain has a story and every farmer has a legacy.\n\nWe work directly with 72,000+ farmers across Chhattisgarh, ensuring they get fair value for their hard work."
       }
     },
-    "why": {
-      "type": "phasal-why",
+    "stats": {
+      "type": "phasal-about-stats",
       "blocks": {
-        "item_1": {
-          "type": "item",
-          "settings": {
-            "icon": "🛡️",
-            "title": "Quality Assured",
-            "copy": "Rigorous testing at every stage of processing to ensure the highest purity standards."
-          }
-        },
-        "item_2": {
-          "type": "item",
-          "settings": {
-            "icon": "🛖",
-            "title": "Rural Impact",
-            "copy": "By choosing us, you directly contribute to the livelihood of rural farming communities."
-          }
-        },
-        "item_3": {
-          "type": "item",
-          "settings": {
-            "icon": "🥣",
-            "title": "Ancient Wisdom",
-            "copy": "We use traditional stone-ground and cold-pressed methods to keep nutrition intact."
-          }
-        }
+        "stat_1": { "type": "stat", "settings": { "number": "72K", "label": "Lives Transformed" } },
+        "stat_2": { "type": "stat", "settings": { "number": "12M", "label": "Acres Protected" } },
+        "stat_3": { "type": "stat", "settings": { "number": "100%", "label": "Fair Profit" } },
+        "stat_4": { "type": "stat", "settings": { "number": "0", "label": "Synthetic Chemicals" } }
       },
-      "block_order": [
-        "item_1",
-        "item_2",
-        "item_3"
-      ],
+      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
+      "settings": {}
+    },
+    "pillars": {
+      "type": "phasal-about-pillars",
+      "blocks": {
+        "pillar_1": { "type": "pillar", "settings": { "icon_emoji": "💧", "title": "Water Purity", "copy": "Implementing natural filtration and catchment systems that restore the local water table." } },
+        "pillar_2": { "type": "pillar", "settings": { "icon_emoji": "🌾", "title": "Fair Profits", "copy": "Ensuring farmers earn a premium that supports their families and future harvests." } },
+        "pillar_3": { "type": "pillar", "settings": { "icon_emoji": "🌱", "title": "Carbon Capture", "copy": "Drawing carbon back into the soil, turning our farms into climate solutions." } }
+      },
+      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
       "settings": {
-        "eyebrow": "The Phasal Promise",
-        "title": "Why we do what we do",
-        "copy": "We believe that healthy food is a right, and fair pay for farmers is a necessity. Here is why we are different."
+        "title": "100% Regenerative Practices"
+      }
+    },
+    "transparency": {
+      "type": "phasal-about-transparency",
+      "settings": {
+        "title": "The Transparency Loop",
+        "copy": "Every bag is a story in your hands that grew your food. Our blockchain verification to track every bag to its specific farm, farmer, and harvest date.",
+        "batch_name": "Kodo Millet (Kodra)",
+        "farmer_id": "#CG-8821"
       }
     }
   },
   "order": [
-    "main",
+    "hero",
     "story",
-    "why"
+    "stats",
+    "pillars",
+    "transparency"
   ]
 }

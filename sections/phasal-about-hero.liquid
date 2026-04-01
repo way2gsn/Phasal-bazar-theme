@@ -1,0 +1,111 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-about-hero">
+  <div class="phasal-about-hero__media">
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 3840 | image_tag: loading: 'lazy', widths: '375, 550, 750, 1100, 1500, 1780, 2000, 3000, 3840' }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+  <div class="phasal-about-hero__content">
+    <div class="phasal-home__inner">
+      <div class="phasal-about-hero__text-box">
+        {%- if section.settings.eyebrow != blank -%}
+          <span class="phasal-about-hero__eyebrow">{{ section.settings.eyebrow | escape }}</span>
+        {%- endif -%}
+        <h1 class="phasal-about-hero__title">{{ section.settings.title | escape }}</h1>
+        {%- if section.settings.subheading != blank -%}
+          <p class="phasal-about-hero__subheading">{{ section.settings.subheading | escape }}</p>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.phasal-about-hero {
+  position: relative;
+  height: 85vh;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #1b3022;
+}
+
+.phasal-about-hero__media {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.phasal-about-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.phasal-about-hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(27, 48, 34, 0.4), rgba(27, 48, 34, 0.7));
+}
+
+.phasal-about-hero__content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+}
+
+.phasal-about-hero__text-box {
+  max-width: 84rem;
+  margin: 0 auto;
+}
+
+.phasal-about-hero__eyebrow {
+  display: block;
+  margin-bottom: 2rem;
+  color: #c5a059;
+  font-size: 1.4rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.phasal-about-hero__title {
+  margin: 0;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(4.8rem, 8vw, 9.6rem);
+  line-height: 1.1;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.phasal-about-hero__subheading {
+  margin-top: 2.8rem;
+  font-size: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  font-family: 'Playfair Display', serif;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Phasal About Hero",
+  "settings": [
+    { "type": "image_picker", "id": "image", "label": "Background Image" },
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Roots of Heritage" },
+    { "type": "text", "id": "title", "label": "Title", "default": "Roots of Heritage, Seeds of Future." },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Nurturing the land that feeds us, supporting the hands that grow it." }
+  ],
+  "presets": [
+    { "name": "Phasal About Hero" }
+  ]
+}
+{% endschema %}

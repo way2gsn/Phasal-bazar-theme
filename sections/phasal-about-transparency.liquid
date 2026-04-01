@@ -1,0 +1,183 @@
+{{ 'phasal-home.css' | asset_url | stylesheet_tag }}
+
+<section class="phasal-about-transparency section-{{ section.id }}">
+  <div class="phasal-home__inner">
+    <div class="phasal-about-transparency__grid">
+      <div class="phasal-about-transparency__content">
+        <h2 class="phasal-about-transparency__title">{{ section.settings.title | escape }}</h2>
+        <div class="phasal-about-transparency__copy">
+          {{ section.settings.copy | newline_to_br }}
+        </div>
+        <div class="phasal-about-transparency__stats">
+          <div class="phasal-about-transparency__stat">
+            <span class="phasal-about-transparency__stat-val">100%</span>
+            <span class="phasal-about-transparency__stat-label">Traceable</span>
+          </div>
+          <div class="phasal-about-transparency__stat">
+             <span class="phasal-about-transparency__stat-val">Blockchain</span>
+             <span class="phasal-about-transparency__stat-label">Verified</span>
+          </div>
+        </div>
+      </div>
+      <div class="phasal-about-transparency__card">
+        <div class="phasal-about-transparency__card-header">
+           <div>
+             <div class="phasal-about-transparency__card-label">Current Batch</div>
+             <div class="phasal-about-transparency__card-title">{{ section.settings.batch_name | escape }}</div>
+           </div>
+           <div class="phasal-about-transparency__card-info">
+             <div class="phasal-about-transparency__card-label">Farmer ID</div>
+             <div class="phasal-about-transparency__card-id">{{ section.settings.farmer_id | escape }}</div>
+           </div>
+        </div>
+        <div class="phasal-about-transparency__map">
+          {%- if section.settings.map_image != blank -%}
+             {{ section.settings.map_image | image_url: width: 1200 | image_tag: loading: 'lazy' }}
+          {%- else -%}
+             {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+          <div class="phasal-about-transparency__pulse"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.phasal-about-transparency {
+  padding: 12rem 0;
+  background: #1b3022;
+  color: #fff;
+}
+
+.phasal-about-transparency__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10rem;
+  align-items: center;
+}
+
+.phasal-about-transparency__title {
+  margin: 0 0 3.2rem;
+  font-family: 'Playfair Display', serif;
+  font-size: 5.6rem;
+  line-height: 1.1;
+  font-style: italic;
+}
+
+.phasal-about-transparency__copy {
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4rem;
+}
+
+.phasal-about-transparency__stats {
+  display: flex;
+  gap: 4.8rem;
+}
+
+.phasal-about-transparency__stat {
+  display: flex;
+  flex-direction: column;
+}
+
+.phasal-about-transparency__stat-val {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  color: #c5a059;
+}
+
+.phasal-about-transparency__stat-label {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.4rem;
+}
+
+.phasal-about-transparency__card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2.4rem;
+  padding: 3.2rem;
+  backdrop-filter: blur(12px);
+}
+
+.phasal-about-transparency__card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 3.2rem;
+}
+
+.phasal-about-transparency__card-label {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.6rem;
+}
+
+.phasal-about-transparency__card-title,
+.phasal-about-transparency__card-id {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.4rem;
+  font-style: italic;
+}
+
+.phasal-about-transparency__map {
+  position: relative;
+  border-radius: 1.6rem;
+  overflow: hidden;
+  background: #000;
+  aspect-ratio: 4/3;
+}
+
+.phasal-about-transparency__map img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.phasal-about-transparency__pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  background: #c5a059;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0.7); }
+  70% { transform: translate(-50%, -50%) scale(1); box-shadow: 0 0 0 1.2rem rgba(197, 160, 89, 0); }
+  100% { transform: translate(-50%, -50%) scale(0.95); box-shadow: 0 0 0 0 rgba(197, 160, 89, 0); }
+}
+
+@media screen and (max-width: 989px) {
+  .phasal-about-transparency__grid {
+    grid-template-columns: 1fr;
+    gap: 6.4rem;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Phasal About Transparency",
+  "settings": [
+    { "type": "text", "id": "title", "label": "Title", "default": "The Transparency Loop" },
+    { "type": "textarea", "id": "copy", "label": "Copy", "default": "Every bag is a story in your hands that grew your food. Our blockchain verification to track every bag to its specific farm, farmer, and harvest date." },
+    { "type": "text", "id": "batch_name", "label": "Batch Name", "default": "Kodo Millet (Kodra)" },
+    { "type": "text", "id": "farmer_id", "label": "Farmer ID", "default": "#CG-8821" },
+    { "type": "image_picker", "id": "map_image", "label": "Map Image" }
+  ],
+  "presets": [
+    { "name": "Phasal About Transparency" }
+  ]
+}
+{% endschema %}
