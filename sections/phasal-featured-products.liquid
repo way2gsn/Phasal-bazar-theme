@@ -108,35 +108,48 @@
                 </div>
               {%- endif -%}
               <div class="phasal-product-card__footer">
-                <div class="phasal-product-card__price-wrap">
-                  {%- if variant.compare_at_price > variant.price -%}
-                    <span class="phasal-product-card__compare">{{ variant.compare_at_price | money }}</span>
-                  {%- endif -%}
-                  <span class="phasal-product-card__price">{{ variant.price | money }}</span>
-                  {%- if variant.unit_price_measurement != blank -%}
-                    <span class="phasal-product-card__unit">
-                      per {{ variant.unit_price_measurement.reference_value }}{{ variant.unit_price_measurement.reference_unit }}
-                    </span>
+                <div class="phasal-product-card__price-and-cart">
+                  <div class="phasal-product-card__price-wrap">
+                    {%- if variant.compare_at_price > variant.price -%}
+                      <span class="phasal-product-card__compare">{{ variant.compare_at_price | money }}</span>
+                    {%- endif -%}
+                    <span class="phasal-product-card__price">{{ variant.price | money }}</span>
+                    {%- if variant.unit_price_measurement != blank -%}
+                      <span class="phasal-product-card__unit">
+                        per {{ variant.unit_price_measurement.reference_value }}{{ variant.unit_price_measurement.reference_unit }}
+                      </span>
+                    {%- endif -%}
+                  </div>
+                  {%- if product.available == false -%}
+                    <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="View {{ product.title | escape }}">→</a>
+                  {%- else -%}
+                    <div class="phasal-product-card__form">
+                      <button
+                        id="PhasalCardAdd-{{ section.id }}-{{ product.id }}"
+                        class="phasal-product-card__cart-button"
+                        type="button"
+                        data-phasal-add
+                        aria-label="Add {{ product.title | escape }} to cart"
+                      >
+                        <span>Add to Cart</span>
+                      </button>
+                      <div class="phasal-product-card__quantity" data-phasal-quantity hidden>
+                        <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-minus aria-label="Decrease quantity">−</button>
+                        <span class="phasal-product-card__qty-value" data-phasal-quantity-value>0</span>
+                        <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-plus aria-label="Increase quantity">+</button>
+                      </div>
+                    </div>
                   {%- endif -%}
                 </div>
-                {%- if product.available == false -%}
-                  <a class="phasal-product-card__options-link" href="{{ product.url }}" aria-label="View {{ product.title | escape }}">→</a>
-                {%- else -%}
-                  <div class="phasal-product-card__form">
-                    <button
-                      id="PhasalCardAdd-{{ section.id }}-{{ product.id }}"
-                      class="phasal-product-card__cart-button"
-                      type="button"
-                      data-phasal-add
-                      aria-label="Add {{ product.title | escape }} to cart"
-                    >
-                      <span>+</span>
-                    </button>
-                    <div class="phasal-product-card__quantity" data-phasal-quantity hidden>
-                      <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-minus aria-label="Decrease quantity">−</button>
-                      <span class="phasal-product-card__qty-value" data-phasal-quantity-value>0</span>
-                      <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-plus aria-label="Increase quantity">+</button>
-                    </div>
+                {%- if product.available -%}
+                  <div class="phasal-product-card__buy-now-wrap">
+                    {%- form 'product', product -%}
+                      <input type="hidden" name="id" value="{{ variant.id }}">
+                      <input type="hidden" name="return_to" value="/checkout">
+                      <button type="submit" class="phasal-product-card__buy-now-button">
+                        Buy Now
+                      </button>
+                    {%- endform -%}
                   </div>
                 {%- endif -%}
               </div>
