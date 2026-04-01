@@ -109,8 +109,8 @@
     "brand_headline": "",
     "brand_description": "<p></p>",
     "brand_image_width": 100,
-    "social_facebook_link": "",
-    "social_instagram_link": "",
+    "social_facebook_link": "https://www.facebook.com/phasalbazar_official/",
+    "social_instagram_link": "https://www.instagram.com/phasalbazar_official/",
     "social_youtube_link": "",
     "social_tiktok_link": "",
     "social_twitter_link": "",
@@ -145,68 +145,68 @@
     "color_schemes": {
       "scheme-1": {
         "settings": {
-          "background": "#F8F4EE",
+          "background": "#f8f4ee",
           "background_gradient": "",
-          "text": "#211C18",
-          "button": "#00A651",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#8C5437",
-          "shadow": "#0D5A37"
+          "text": "#211c18",
+          "button": "#00a651",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#8c5437",
+          "shadow": "#0d5a37"
         }
       },
       "scheme-2": {
         "settings": {
-          "background": "#EFE5D9",
+          "background": "#efe5d9",
           "background_gradient": "",
-          "text": "#211C18",
-          "button": "#00A651",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#8C5437",
-          "shadow": "#0D5A37"
+          "text": "#211c18",
+          "button": "#00a651",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#8c5437",
+          "shadow": "#0d5a37"
         }
       },
       "scheme-3": {
         "settings": {
-          "background": "#0D5A37",
+          "background": "#0d5a37",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#B86B43",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#D8F4E4",
-          "shadow": "#0D5A37"
+          "text": "#ffffff",
+          "button": "#b86b43",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#d8f4e4",
+          "shadow": "#0d5a37"
         }
       },
       "scheme-4": {
         "settings": {
-          "background": "#00A651",
+          "background": "#00a651",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#8C5437",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#FFFFFF",
-          "shadow": "#0D5A37"
+          "text": "#ffffff",
+          "button": "#8c5437",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#ffffff",
+          "shadow": "#0d5a37"
         }
       },
       "scheme-5": {
         "settings": {
-          "background": "#8C5437",
+          "background": "#8c5437",
           "background_gradient": "",
-          "text": "#FFFFFF",
-          "button": "#00A651",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#F8F4EE",
-          "shadow": "#0D5A37"
+          "text": "#ffffff",
+          "button": "#00a651",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#f8f4ee",
+          "shadow": "#0d5a37"
         }
       },
       "scheme-newsletter-cream": {
         "settings": {
-          "background": "#F8F4EE",
+          "background": "#f8f4ee",
           "background_gradient": "",
-          "text": "#0D5A37",
-          "button": "#00A651",
-          "button_label": "#FFFFFF",
-          "secondary_button_label": "#8C5437",
-          "shadow": "#0D5A37"
+          "text": "#0d5a37",
+          "button": "#00a651",
+          "button_label": "#ffffff",
+          "secondary_button_label": "#8c5437",
+          "shadow": "#0d5a37"
         }
       }
     }
