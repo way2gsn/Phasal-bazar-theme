@@ -546,7 +546,7 @@
         "item_bhbknB": {
           "type": "item",
           "settings": {
-            "icon": "🌿",
+            "icon": "leaf",
             "title": "Easy to cook",
             "copy": "Very quick to cook, high in iron, lower in calories, and generally lower in glycemic index than polished white rice. Poha made from red rice offers more fiber."
           }
@@ -554,7 +554,7 @@
         "item_UX8jNF": {
           "type": "item",
           "settings": {
-            "icon": "🍲",
+            "icon": "pot",
             "title": "Customer Satisfaction",
             "copy": "They love our Product/Millets so much that they can't go back to unhealthy meals."
           }
@@ -562,7 +562,7 @@
         "item_pjXfHK": {
           "type": "item",
           "settings": {
-            "icon": "🤝",
+            "icon": "heart",
             "title": "Gut Friendly",
             "copy": "100% whole wheat flour retains the bran and germ, offering high fiber and nutrients."
           }
@@ -570,7 +570,7 @@
         "why_1": {
           "type": "item",
           "settings": {
-            "icon": "🌿",
+            "icon": "leaf",
             "title": "Clean sourcing",
             "copy": "Whole grains offer the highest fiber and nutrition, poha is a highly digestible, quick-cooking, low-fat breakfast option, and whole-grain flours (like Chakki Atta) offer a balance of nutrition and convenience."
           }
@@ -578,7 +578,7 @@
         "why_2": {
           "type": "item",
           "settings": {
-            "icon": "🥣",
+            "icon": "bowl",
             "title": "Everyday usability",
             "copy": "Best for daily staples like chapatis, parathas, and naans. Whole wheat offers a hearty, satisfying texture and keeps you full longer, which helps with weight management."
           }
@@ -586,7 +586,7 @@
         "why_3": {
           "type": "item",
           "settings": {
-            "icon": "📦",
+            "icon": "package",
             "title": "Reliable fulfillment",
             "copy": "We ensure that Customer gets our Best Product Possible in given time."
           }

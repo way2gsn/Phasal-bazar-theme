@@ -16,7 +16,22 @@
     <div class="phasal-why-grid">
       {%- for block in section.blocks -%}
         <article class="phasal-why-card" {{ block.shopify_attributes }}>
-          <span class="phasal-why-card__icon">{{ block.settings.icon | escape }}</span>
+          <span class="phasal-why-card__icon">
+            {%- case block.settings.icon -%}
+              {%- when 'leaf' -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path></svg>
+              {%- when 'pot' -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M20 12v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8"></path><path d="m4 8 16-4"></path><path d="m8 8.63 1-3.63"></path><path d="m16 8.63-1-3.63"></path></svg>
+              {%- when 'heart' -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+              {%- when 'bowl' -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12h20"></path><path d="M8 2v2"></path><path d="M12 2v2"></path><path d="M16 2v2"></path><path d="M20 12v6a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-6"></path></svg>
+              {%- when 'package' -%}
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"></path><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"></path><path d="m3.3 7 8.7 5 8.7-5"></path><path d="M12 22V12"></path></svg>
+              {%- else -%}
+                {{ block.settings.icon | escape }}
+            {%- endcase -%}
+          </span>
           <h3 class="phasal-why-card__title">{{ block.settings.title | escape }}</h3>
           <p class="phasal-why-card__copy">{{ block.settings.copy | escape }}</p>
         </article>
@@ -38,7 +53,20 @@
       "type": "item",
       "name": "Item",
       "settings": [
-        { "type": "text", "id": "icon", "label": "Icon or emoji", "default": "🌿" },
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "leaf", "label": "Leaf" },
+            { "value": "pot", "label": "Cooking Pot" },
+            { "value": "heart", "label": "Heart" },
+            { "value": "bowl", "label": "Bowl" },
+            { "value": "package", "label": "Package" },
+            { "value": "none", "label": "None" }
+          ],
+          "default": "leaf"
+        },
         { "type": "text", "id": "title", "label": "Title", "default": "Clean sourcing" },
         { "type": "text", "id": "copy", "label": "Copy", "default": "Explain the proof point behind this benefit." }
       ]

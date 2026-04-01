@@ -1347,15 +1347,30 @@
   font-size: 1.15rem;
 }
 
-.phasal-why-card,
 .phasal-testimonial {
   padding: 2.8rem;
 }
 
+.phasal-why-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3.6rem 2.8rem;
+}
+
 .phasal-why-card__icon {
-  display: inline-block;
-  margin-bottom: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 6.8rem;
+  height: 6.8rem;
+  margin-bottom: 2.4rem;
+  border-radius: 50%;
+  background: var(--phasal-cream-100);
+  color: var(--phasal-green-700);
   font-size: 3.4rem;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), background 0.3s ease, color 0.3s ease;
 }
 
 .phasal-testimonial__stars {
@@ -1390,9 +1405,14 @@
   transition: transform 0.2s ease, background 0.2s ease;
 }
 
-.phasal-testimonial:hover .phasal-testimonial__avatar,
-.phasal-why-card:hover .phasal-why-card__icon {
+.phasal-testimonial:hover .phasal-testimonial__avatar {
   transform: scale(1.08);
+}
+
+.phasal-why-card:hover .phasal-why-card__icon {
+  transform: translateY(-6px) scale(1.08);
+  background: var(--phasal-gold-500);
+  color: var(--phasal-green-900);
 }
 
 .phasal-testimonial__name {
