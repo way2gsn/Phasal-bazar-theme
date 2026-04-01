@@ -579,6 +579,7 @@
   padding-bottom: 0.5rem;
   align-items: stretch;
   padding: 10px;
+  justify-content: center;
 }
 
 .phasal-pill-list::-webkit-scrollbar {
@@ -608,8 +609,8 @@
   width: 14rem;
   height: 14rem;
   border-radius: 50%;
-  background: #f8f4ee;
-  border: 1.5px solid var(--phasal-border);
+  /* background: #f8f4ee; */
+  /* border: 1.5px solid var(--phasal-border); */
   overflow: hidden;
   display: flex;
   align-items: center;
