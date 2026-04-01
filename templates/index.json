@@ -180,7 +180,7 @@
         "collection_wU88mk": {
           "type": "collection",
           "settings": {
-            "collection": "millets-whole-grains",
+            "collection": "featured-products",
             "image": "shopify://shop_images/Dals.png",
             "icon": "🌾",
             "highlight": false
