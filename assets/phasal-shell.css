@@ -420,6 +420,17 @@ textarea {
   background: rgba(255, 255, 255, 0.1);
   color: #fff;
   text-decoration: none;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.phasal-footer__social a:hover {
+  background: var(--phasal-gold-500);
+  color: var(--phasal-green-900);
+}
+
+.phasal-social-icon {
+  width: 1.8rem;
+  height: 1.8rem;
 }
 
 .phasal-footer__heading {
