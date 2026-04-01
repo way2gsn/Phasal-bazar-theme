@@ -76,22 +76,12 @@
             "show_caret": false,
             "highlight": true
           }
-        },
-        "top_link_about_us": {
-          "type": "top_link",
-          "settings": {
-            "label": "About Us",
-            "link": "shopify://pages/about-us",
-            "show_caret": false,
-            "highlight": false
-          }
         }
       },
       "block_order": [
         "top_link_EtwqTU",
         "top_link_DA3MwY",
-        "top_link_CdK4bi",
-        "top_link_about_us"
+        "top_link_CdK4bi"
       ],
       "custom_css": [],
       "settings": {

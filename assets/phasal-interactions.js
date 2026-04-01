@@ -66,13 +66,15 @@ class PhasalInteractions {
 
   setCardQuantity(card, quantity) {
     const addButton = card.querySelector('[data-phasal-add]');
-    if (addButton) {
-      addButton.classList.toggle('is-added', quantity > 0);
-      const label = addButton.querySelector('span');
-      if (label) {
-        label.textContent = quantity > 0 ? `Added (${quantity})` : 'Add to Cart';
-      }
-    }
+    const quantityWrap = card.querySelector('[data-phasal-quantity]');
+    const quantityValue = card.querySelector('[data-phasal-quantity-value]');
+
+    if (quantityValue) quantityValue.textContent = quantity;
+
+    card.classList.toggle('is-in-cart', quantity > 0);
+
+    if (addButton) addButton.hidden = quantity > 0;
+    if (quantityWrap) quantityWrap.hidden = quantity < 1;
   }
 
   syncWishlistUI() {
@@ -121,7 +123,7 @@ class PhasalInteractions {
       .join('');
   }
 
-  async addToCart(variantId, quantity, shouldOpenDrawer = true) {
+  async addToCart(variantId, quantity) {
     const body = {
       items: [{ id: variantId, quantity }],
       sections: this.getSectionIds(),
@@ -142,13 +144,8 @@ class PhasalInteractions {
     }
 
     const data = await response.json();
-    this.renderDrawerSections(data, shouldOpenDrawer);
+    this.renderDrawerSections(data, true);
     this.syncCartUI();
-  }
-
-  async buyNow(variantId) {
-    await this.addToCart(variantId, 1, false);
-    window.location.href = `${routes.cart_url}/checkout`;
   }
 
   async changeCartQuantity(variantId, quantity) {
@@ -295,25 +292,6 @@ class PhasalInteractions {
     }
   }
 
-  async handleBuyNow(button) {
-    const card = button.closest('[data-phasal-product-card]');
-    const variantId = Number(card?.dataset.variantId);
-    if (!variantId || this.pendingVariantIds.has(variantId)) return;
-
-    this.pendingVariantIds.add(variantId);
-    card?.classList.add('is-loading');
-
-    try {
-      await this.buyNow(variantId);
-    } catch (error) {
-      console.error(error);
-      await this.syncCartUI();
-    } finally {
-      this.pendingVariantIds.delete(variantId);
-      card?.classList.remove('is-loading');
-    }
-  }
-
   toggleWishlist(button) {
     const productId = Number(button.dataset.productId);
     if (!productId) return;
@@ -353,10 +331,21 @@ class PhasalInteractions {
       return;
     }
 
-    const buyNowButton = event.target.closest('[data-phasal-buy-now]');
-    if (buyNowButton) {
+    const plusButton = event.target.closest('[data-phasal-qty-plus]');
+    if (plusButton) {
       event.preventDefault();
-      this.handleBuyNow(buyNowButton);
+      const card = plusButton.closest('[data-phasal-product-card]');
+      const nextQuantity = this.getVariantQuantity(Number(card.dataset.variantId)) + 1;
+      this.handleCartButton(plusButton, nextQuantity);
+      return;
+    }
+
+    const minusButton = event.target.closest('[data-phasal-qty-minus]');
+    if (minusButton) {
+      event.preventDefault();
+      const card = minusButton.closest('[data-phasal-product-card]');
+      const nextQuantity = Math.max(this.getVariantQuantity(Number(card.dataset.variantId)) - 1, 0);
+      this.handleCartButton(minusButton, nextQuantity);
       return;
     }
 
