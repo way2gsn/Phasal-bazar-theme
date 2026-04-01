@@ -596,7 +596,7 @@
   text-align: center;
   text-decoration: none;
   transition: transform 0.3s ease;
-  min-width: 12rem;
+  width: 14rem;
 }
 
 .phasal-pill:hover {
@@ -627,8 +627,7 @@
 .phasal-pill__circle img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
-  padding: 2rem;
+  object-fit: cover;
   transition: transform 0.4s ease;
 }
 
@@ -641,10 +640,14 @@
 }
 
 .phasal-pill__title {
+  display: block;
   font-size: 1.4rem;
   font-weight: 700;
   color: var(--phasal-text-900);
   transition: color 0.3s ease;
+  max-width: 100%;
+  line-height: 1.3;
+  word-wrap: break-word;
 }
 
 .phasal-pill:hover .phasal-pill__title {
@@ -652,13 +655,13 @@
 }
 
 @media screen and (max-width: 749px) {
+  .phasal-pill {
+    width: 10rem;
+  }
+
   .phasal-pill__circle {
     width: 10rem;
     height: 10rem;
-  }
-  
-  .phasal-pill__circle img {
-    padding: 1.4rem;
   }
 }
 

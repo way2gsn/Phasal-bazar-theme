@@ -39,7 +39,9 @@
                 <span class="phasal-pill__placeholder">{{ block.settings.icon | escape }}</span>
               {%- endif -%}
             </div>
-            <span class="phasal-pill__title">{{ collection.title | escape }}</span>
+            <span class="phasal-pill__title">
+              {{ block.settings.title | default: collection.title | escape }}
+            </span>
           </a>
         {%- endif -%}
       {%- endfor -%}
@@ -90,6 +92,11 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title (Optional, defaults to collection title)"
         },
         {
           "type": "image_picker",
