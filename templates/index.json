@@ -12,6 +12,29 @@
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
+        "hero_slide_Mtet8C": {
+          "type": "hero_slide",
+          "settings": {
+            "background_image": "shopify://shop_images/about-hero-field.jpg",
+            "eyebrow": "Ganwai Collection 2025",
+            "meta": "72,000+ Farmers - Chhattisgarh",
+            "heading_line_1": "Ancient Grains,",
+            "heading_line_2": "Direct from the",
+            "heading_line_3": "Heart of India",
+            "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table.",
+            "primary_button_label": "Shop now",
+            "primary_button_link": "",
+            "secondary_button_label": "Learn more",
+            "secondary_button_link": "",
+            "show_product_cards": true,
+            "product_collection": "",
+            "show_feature_card": true,
+            "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
+            "feature_copy": "From field to pack - Zero additives - Full traceability",
+            "feature_link_label": "Visit Farm",
+            "feature_link": ""
+          }
+        },
         "slide_1": {
           "type": "hero_slide",
           "settings": {
@@ -27,7 +50,11 @@
             "secondary_button_link": "shopify://blogs/news/learn-our-story",
             "show_product_cards": true,
             "product_collection": "special-products",
-            "show_feature_card": true
+            "show_feature_card": true,
+            "feature_title": "Millet Processing Unit - Dongitara, Raigarh",
+            "feature_copy": "From field to pack - Zero additives - Full traceability",
+            "feature_link_label": "Visit Farm",
+            "feature_link": ""
           }
         },
         "stat_1": {
@@ -69,6 +96,7 @@
         }
       },
       "block_order": [
+        "hero_slide_Mtet8C",
         "slide_1",
         "stat_1",
         "stat_2",
@@ -78,7 +106,18 @@
       ],
       "settings": {
         "auto_rotate": true,
-        "change_slides_speed": 10
+        "change_slides_speed": 10,
+        "eyebrow": "Ganwai Collection 2025",
+        "meta": "72,000+ Farmers - Chhattisgarh",
+        "product_collection": "",
+        "heading_line_1": "Ancient Grains,",
+        "heading_line_2": "Direct from the",
+        "heading_line_3": "Heart of India",
+        "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table. Your healthy choice supports rural communities.",
+        "primary_button_label": "Shop All Millets",
+        "primary_button_link": "",
+        "secondary_button_label": "Learn Our Story",
+        "secondary_button_link": "shopify://pages/about-us"
       }
     },
     "phasal_trust": {
@@ -189,6 +228,7 @@
           "type": "collection",
           "settings": {
             "collection": "featured-products",
+            "title": "",
             "image": "shopify://shop_images/Dals.png",
             "icon": "🌾",
             "highlight": false
@@ -198,6 +238,7 @@
           "type": "collection",
           "settings": {
             "collection": "seeds-superfoods",
+            "title": "",
             "image": "shopify://shop_images/Seeds.png",
             "icon": "",
             "highlight": false
@@ -207,6 +248,7 @@
           "type": "collection",
           "settings": {
             "collection": "rice",
+            "title": "",
             "image": "shopify://shop_images/Rice.png",
             "icon": "🌾",
             "highlight": false
@@ -216,6 +258,7 @@
           "type": "collection",
           "settings": {
             "collection": "poha-flattened-rice",
+            "title": "",
             "image": "shopify://shop_images/Poha_and_flatende_rice.png",
             "icon": "🍚",
             "highlight": false
@@ -225,6 +268,7 @@
           "type": "collection",
           "settings": {
             "collection": "oils-ghee",
+            "title": "",
             "image": "shopify://shop_images/Oils_and_ghee.png",
             "icon": "🧈",
             "highlight": false
@@ -234,6 +278,7 @@
           "type": "collection",
           "settings": {
             "collection": "",
+            "title": "",
             "icon": "🌾",
             "highlight": false
           }
@@ -242,6 +287,7 @@
           "type": "collection",
           "settings": {
             "collection": "millets",
+            "title": "",
             "icon": "🌾",
             "highlight": false
           }
@@ -250,6 +296,7 @@
           "type": "collection",
           "settings": {
             "collection": "honey-sweeteners",
+            "title": "",
             "image": "shopify://shop_images/Honey.png",
             "icon": "🍯",
             "highlight": false
@@ -259,6 +306,7 @@
           "type": "collection",
           "settings": {
             "collection": "flours-atta",
+            "title": "",
             "image": "shopify://shop_images/Flours_and_aata.png",
             "icon": "🍞",
             "highlight": false
@@ -268,6 +316,7 @@
           "type": "collection",
           "settings": {
             "collection": "dals-pulses",
+            "title": "",
             "image": "shopify://shop_images/Dals.png",
             "icon": "🌾",
             "highlight": false
