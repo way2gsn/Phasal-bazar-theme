@@ -1,8 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "phasal-about-hero",
       "settings": {
+        "image": "shopify://shop_images/about-hero-field.jpg",
         "eyebrow": "Roots of Heritage",
         "title": "Roots of Heritage, Seeds of Future.",
         "subheading": "Nurturing the land that feeds us, supporting the hands that grow it."
@@ -11,6 +21,7 @@
     "story": {
       "type": "phasal-about-story",
       "settings": {
+        "image": "shopify://shop_images/about-story-hands.jpg",
         "eyebrow": "Our Philosophy",
         "title": "The Modern Agrarian Philosophy",
         "quote": "Rooted in integrity, grown for the future.",
@@ -20,22 +31,76 @@
     "stats": {
       "type": "phasal-about-stats",
       "blocks": {
-        "stat_1": { "type": "stat", "settings": { "number": "72K", "label": "Lives Transformed" } },
-        "stat_2": { "type": "stat", "settings": { "number": "12M", "label": "Acres Protected" } },
-        "stat_3": { "type": "stat", "settings": { "number": "100%", "label": "Fair Profit" } },
-        "stat_4": { "type": "stat", "settings": { "number": "0", "label": "Synthetic Chemicals" } }
+        "stat_1": {
+          "type": "stat",
+          "settings": {
+            "number": "72K",
+            "label": "Lives Transformed"
+          }
+        },
+        "stat_2": {
+          "type": "stat",
+          "settings": {
+            "number": "12M",
+            "label": "Acres Protected"
+          }
+        },
+        "stat_3": {
+          "type": "stat",
+          "settings": {
+            "number": "100%",
+            "label": "Fair Profit"
+          }
+        },
+        "stat_4": {
+          "type": "stat",
+          "settings": {
+            "number": "0",
+            "label": "Synthetic Chemicals"
+          }
+        }
       },
-      "block_order": ["stat_1", "stat_2", "stat_3", "stat_4"],
+      "block_order": [
+        "stat_1",
+        "stat_2",
+        "stat_3",
+        "stat_4"
+      ],
       "settings": {}
     },
     "pillars": {
       "type": "phasal-about-pillars",
       "blocks": {
-        "pillar_1": { "type": "pillar", "settings": { "icon_emoji": "💧", "title": "Water Purity", "copy": "Implementing natural filtration and catchment systems that restore the local water table." } },
-        "pillar_2": { "type": "pillar", "settings": { "icon_emoji": "🌾", "title": "Fair Profits", "copy": "Ensuring farmers earn a premium that supports their families and future harvests." } },
-        "pillar_3": { "type": "pillar", "settings": { "icon_emoji": "🌱", "title": "Carbon Capture", "copy": "Drawing carbon back into the soil, turning our farms into climate solutions." } }
+        "pillar_1": {
+          "type": "pillar",
+          "settings": {
+            "icon_emoji": "💧",
+            "title": "Water Purity",
+            "copy": "Implementing natural filtration and catchment systems that restore the local water table."
+          }
+        },
+        "pillar_2": {
+          "type": "pillar",
+          "settings": {
+            "icon_emoji": "🌾",
+            "title": "Fair Profits",
+            "copy": "Ensuring farmers earn a premium that supports their families and future harvests."
+          }
+        },
+        "pillar_3": {
+          "type": "pillar",
+          "settings": {
+            "icon_emoji": "🌱",
+            "title": "Carbon Capture",
+            "copy": "Drawing carbon back into the soil, turning our farms into climate solutions."
+          }
+        }
       },
-      "block_order": ["pillar_1", "pillar_2", "pillar_3"],
+      "block_order": [
+        "pillar_1",
+        "pillar_2",
+        "pillar_3"
+      ],
       "settings": {
         "title": "100% Regenerative Practices"
       }
@@ -46,7 +111,8 @@
         "title": "The Transparency Loop",
         "copy": "Every bag is a story in your hands that grew your food. Our blockchain verification to track every bag to its specific farm, farmer, and harvest date.",
         "batch_name": "Kodo Millet (Kodra)",
-        "farmer_id": "#CG-8821"
+        "farmer_id": "#CG-8821",
+        "map_image": "shopify://shop_images/about-transparency-map.jpg"
       }
     }
   },
