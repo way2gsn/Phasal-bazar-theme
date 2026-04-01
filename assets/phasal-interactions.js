@@ -111,13 +111,22 @@ class PhasalInteractions {
     list.innerHTML = wishlist
       .map(
         (item) => `
-          <a class="phasal-wishlist__item" href="${item.url}">
-            <div class="phasal-wishlist__thumb">${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}</div>
-            <div>
-              <div class="phasal-wishlist__title">${item.title}</div>
-              <div class="phasal-wishlist__price">${item.price || ''}</div>
-            </div>
-          </a>
+          <div class="phasal-wishlist__item">
+            <a class="phasal-wishlist__link" href="${item.url}">
+              <div class="phasal-wishlist__thumb">${item.image ? `<img src="${item.image}" alt="${item.title}">` : ''}</div>
+              <div>
+                <div class="phasal-wishlist__title">${item.title}</div>
+                <div class="phasal-wishlist__price">${item.price || ''}</div>
+              </div>
+            </a>
+            <button
+              class="phasal-wishlist__remove"
+              type="button"
+              data-phasal-wishlist-remove
+              data-product-id="${item.id}"
+              aria-label="Remove ${item.title} from wishlist"
+            >×</button>
+          </div>
         `
       )
       .join('');
@@ -310,6 +319,9 @@ class PhasalInteractions {
         image: button.dataset.productImage,
         price: button.dataset.productPrice,
       });
+      // Add animation to the heart button only on add
+      button.classList.add('is-animating');
+      setTimeout(() => button.classList.remove('is-animating'), 300);
     }
 
     this.setWishlist(wishlist);
@@ -361,6 +373,13 @@ class PhasalInteractions {
     if (wishlistOpen) {
       event.preventDefault();
       this.toggleWishlistPanel(true);
+      return;
+    }
+
+    const wishlistRemove = event.target.closest('[data-phasal-wishlist-remove]');
+    if (wishlistRemove) {
+      event.preventDefault();
+      this.toggleWishlist(wishlistRemove);
       return;
     }
 

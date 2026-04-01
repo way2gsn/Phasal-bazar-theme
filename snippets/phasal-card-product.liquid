@@ -27,6 +27,19 @@
   >
     <div class="phasal-product-card__media">
       <span class="phasal-product-card__badge {{ badge_class }}">{{ badge_text }}</span>
+      <button
+        class="phasal-product-card__wishlist"
+        type="button"
+        data-phasal-wishlist-toggle
+        data-product-id="{{ card_product.id }}"
+        data-product-title="{{ card_product.title | escape }}"
+        data-product-url="{{ card_product.url }}"
+        data-product-image="{% if card_product.featured_image != blank %}{{ card_product.featured_image | image_url: width: 360 }}{% endif %}"
+        data-product-price="{{ variant.price | money | escape }}"
+        aria-label="Add {{ card_product.title | escape }} to wishlist"
+      >
+        {{ 'icon-heart.svg' | inline_asset_content }}
+      </button>
       <a href="{{ card_product.url }}">
         {%- if card_product.featured_image != blank -%}
           {{

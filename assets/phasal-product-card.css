@@ -48,6 +48,44 @@
   transform: scale(1.05);
 }
 
+.phasal-product-card__wishlist {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  z-index: 2;
+  display: inline-flex;
+  width: 3.6rem;
+  height: 3.6rem;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #56483d;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+}
+
+.phasal-product-card__wishlist:hover {
+  background: #fff;
+  transform: scale(1.1);
+}
+
+.phasal-product-card__wishlist.is-active {
+  background: #ffe8ea;
+  color: #c62828;
+}
+
+.phasal-product-card__wishlist.is-animating svg {
+  animation: phasal-heart-pop 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+@keyframes phasal-heart-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
 .phasal-product-card__badge {
   position: absolute;
   top: 1.2rem;
