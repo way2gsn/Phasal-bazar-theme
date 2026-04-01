@@ -145,6 +145,7 @@ class PhasalInteractions {
 
     const data = await response.json();
     this.renderDrawerSections(data, true);
+    // Explicitly sync the count and quantities for non-AJAX elements
     this.syncCartUI();
   }
 

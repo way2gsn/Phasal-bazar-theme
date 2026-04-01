@@ -71,8 +71,15 @@ class CartDrawer extends HTMLElement {
   }
 
   renderContents(parsedState) {
-    this.querySelector('.drawer__inner').classList.contains('is-empty') &&
+    this.classList.remove('is-empty');
+    if (this.querySelector('.drawer__inner')) {
       this.querySelector('.drawer__inner').classList.remove('is-empty');
+    }
+    const cartDrawerItems = this.querySelector('cart-drawer-items');
+    if (cartDrawerItems) {
+      cartDrawerItems.classList.remove('is-empty');
+    }
+
     this.productId = parsedState.id;
     this.getSectionsToRender().forEach((section) => {
       const sectionElement = section.selector
