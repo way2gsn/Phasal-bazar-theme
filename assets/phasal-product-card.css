@@ -39,7 +39,8 @@
 }
 
 .phasal-product-card__media img {
-  object-fit: cover;
+  object-fit: contain;
+  padding: 1.2rem;
   transition: transform 0.3s ease;
 }
 
