@@ -72,7 +72,7 @@
           "type": "top_link",
           "settings": {
             "label": "About us",
-            "link": "",
+            "link": "shopify://pages/about-us",
             "show_caret": false,
             "highlight": false
           }
