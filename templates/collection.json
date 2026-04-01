@@ -12,12 +12,8 @@
     "banner": {
       "type": "main-collection-banner",
       "settings": {
-        "eyebrow": "Browse Collection",
         "show_collection_description": true,
-        "show_collection_image": true,
-        "stat_one": "Farm direct",
-        "stat_two": "Organic staples",
-        "color_scheme": "scheme-1"
+        "show_collection_image": true
       }
     },
     "product-grid": {
@@ -25,6 +21,7 @@
       "settings": {
         "products_per_page": 12,
         "columns_desktop": 3,
+        "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "adapt",
         "image_shape": "default",
@@ -35,7 +32,6 @@
         "enable_filtering": true,
         "filter_type": "vertical",
         "enable_sorting": true,
-        "columns_mobile": "2",
         "padding_top": 60,
         "padding_bottom": 80
       }

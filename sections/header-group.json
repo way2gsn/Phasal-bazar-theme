@@ -45,6 +45,7 @@
         "announcement-bar-2",
         "announcement-bar-3"
       ],
+      "disabled": true,
       "settings": {}
     },
     "header": {
