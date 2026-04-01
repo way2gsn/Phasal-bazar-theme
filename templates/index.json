@@ -285,7 +285,7 @@
         "title": "Best from the harvest",
         "copy": "Live products pulled directly from Shopify so the homepage always stays in sync.",
         "collection": "featured-products",
-        "products_to_show": 4,
+        "products_to_show": 6,
         "default_badge": "72K+ network",
         "link_label": "View collection",
         "link": ""
