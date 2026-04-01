@@ -111,22 +111,27 @@
 
 .phasal-hero__slides {
   position: relative;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
 .phasal-hero__slide {
-  position: absolute;
-  inset: 0;
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+  position: relative;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
+  z-index: 1;
   transition: opacity 0.45s ease, visibility 0.45s ease;
 }
 
 .phasal-hero__slide.is-active {
-  position: relative;
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
+  z-index: 2;
 }
 
 .phasal-hero__media,
