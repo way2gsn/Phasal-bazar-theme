@@ -235,7 +235,7 @@
   align-items: center;
   gap: .8rem;
   flex-wrap: wrap;
-  padding: 1.2rem 0 2.8rem;
+  padding: 1rem 0 1.8rem;
   animation: ppFadeIn .4s var(--pp-ease-smooth) both;
 }
 
@@ -930,7 +930,7 @@
    18. TABS
 ───────────────────────────────────────── */
 .phasal-product-page__tabs {
-  margin-top: 4.8rem;
+  margin-top: 3.2rem;
   background: var(--pp-wh);
   border-top: 1.5px solid var(--pp-bd);
   animation: ppFadeIn .5s .5s both;
@@ -985,7 +985,7 @@
 /* Tab panels */
 .phasal-product-page__tab-panel {
   display: none;
-  padding: 4.8rem 4rem;
+  padding: 3.4rem 3rem;
   animation: ppFadeUp .35s var(--pp-ease-smooth) both;
 }
 

@@ -48,7 +48,7 @@
   grid-template-columns: minmax(0, 1.2fr) minmax(26rem, 0.8fr);
   gap: 4rem;
   align-items: center;
-  padding: 5rem 0;
+  padding: 3.8rem 0;
 }
 
 .phasal-collection-hero__inner > * {
@@ -125,7 +125,7 @@
 }
 
 .phasal-collection-grid {
-  padding: 3.2rem 0 6rem;
+  padding: 2.4rem 0 4.4rem;
 }
 
 .phasal-collection-grid .facets-wrapper {
