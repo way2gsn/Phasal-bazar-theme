@@ -68,6 +68,15 @@
             "highlight": false
           }
         },
+        "top_link_y3B8WT": {
+          "type": "top_link",
+          "settings": {
+            "label": "About us",
+            "link": "",
+            "show_caret": false,
+            "highlight": false
+          }
+        },
         "top_link_CdK4bi": {
           "type": "top_link",
           "settings": {
@@ -81,6 +90,7 @@
       "block_order": [
         "top_link_EtwqTU",
         "top_link_DA3MwY",
+        "top_link_y3B8WT",
         "top_link_CdK4bi"
       ],
       "custom_css": [],
