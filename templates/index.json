@@ -12,6 +12,24 @@
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
+        "slide_1": {
+          "type": "hero_slide",
+          "settings": {
+            "eyebrow": "Gawai Collection 2025",
+            "meta": "72,000+ Farmers - Chhattisgarh",
+            "heading_line_1": "Ancient Grains,",
+            "heading_line_2": "Direct from the",
+            "heading_line_3": "Heart of India",
+            "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table. Your healthy choice supports rural communities.",
+            "primary_button_label": "Shop All Millets",
+            "primary_button_link": "shopify://collections/millets-whole-grains",
+            "secondary_button_label": "Learn Our Story",
+            "secondary_button_link": "shopify://blogs/news/learn-our-story",
+            "show_product_cards": true,
+            "product_collection": "special-products",
+            "show_feature_card": true
+          }
+        },
         "stat_1": {
           "type": "stat",
           "settings": {
@@ -51,6 +69,7 @@
         }
       },
       "block_order": [
+        "slide_1",
         "stat_1",
         "stat_2",
         "stat_3",
@@ -59,18 +78,7 @@
       ],
       "settings": {
         "auto_rotate": true,
-        "change_slides_speed": 5,
-        "eyebrow": "Gawai Collection 2025",
-        "meta": "72,000+ Farmers - Chhattisgarh",
-        "product_collection": "special-products",
-        "heading_line_1": "Ancient Grains,",
-        "heading_line_2": "Direct from the",
-        "heading_line_3": "Heart of India",
-        "subheading": "Discover the purest organic millets and cold-pressed oils, sourced directly from farmer networks to your table. Your healthy choice supports rural communities.",
-        "primary_button_label": "Shop All Millets",
-        "primary_button_link": "shopify://collections/millets-whole-grains",
-        "secondary_button_label": "Learn Our Story",
-        "secondary_button_link": "shopify://blogs/news/learn-our-story"
+        "change_slides_speed": 10
       }
     },
     "phasal_trust": {
