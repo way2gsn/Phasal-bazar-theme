@@ -1,6 +1,6 @@
 .phasal-product-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 2.2rem;
   padding-left: 0;
   list-style: none;
@@ -159,20 +159,24 @@
 
 .phasal-product-card__price-wrap {
   display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
+  flex-direction: row;
+  align-items: baseline;
+  gap: 0.8rem;
+  flex-wrap: wrap;
 }
 
 .phasal-product-card__compare {
   color: #8b796a;
   font-size: 1.1rem;
   text-decoration: line-through;
+  white-space: nowrap;
 }
 
 .phasal-product-card__price {
   color: #0d5a37;
   font-size: 1.9rem;
   font-weight: 800;
+  white-space: nowrap;
 }
 
 .phasal-product-card__unit {
