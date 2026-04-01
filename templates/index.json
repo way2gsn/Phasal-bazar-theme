@@ -12,6 +12,37 @@
     "phasal_hero": {
       "type": "phasal-hero",
       "blocks": {
+        "hero_slide_jPY7KQ": {
+          "type": "hero_slide",
+          "settings": {
+            "background_image": "shopify://shop_images/Workshops.png",
+            "eyebrow": "",
+            "meta": "",
+            "heading_line_1": "",
+            "heading_line_2": "",
+            "heading_line_3": "",
+            "subheading": "",
+            "primary_button_label": "",
+            "primary_button_link": "",
+            "secondary_button_label": "",
+            "secondary_button_link": "",
+            "show_product_cards": false,
+            "product_collection": "",
+            "show_feature_card": false,
+            "feature_title": "",
+            "feature_copy": "",
+            "feature_link_label": "",
+            "feature_link": "",
+            "stat_1_num": "",
+            "stat_1_label": "",
+            "stat_2_num": "",
+            "stat_2_label": "",
+            "stat_3_num": "",
+            "stat_3_label": "",
+            "stat_4_num": "",
+            "stat_4_label": ""
+          }
+        },
         "slide_1": {
           "type": "hero_slide",
           "settings": {
@@ -115,6 +146,7 @@
         }
       },
       "block_order": [
+        "hero_slide_jPY7KQ",
         "slide_1",
         "hero_slide_nHUrj4",
         "hero_slide_Mtet8C",
