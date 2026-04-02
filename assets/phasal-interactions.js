@@ -364,6 +364,18 @@ class PhasalInteractions {
       return;
     }
 
+    const buyNowButton = event.target.closest('.phasal-product-card__buy-now-button');
+    if (buyNowButton) {
+      const card = buyNowButton.closest('[data-phasal-product-card]');
+      const variantId = Number(card?.dataset.variantId);
+      if (variantId && this.getVariantQuantity(variantId) > 0) {
+        event.preventDefault();
+        window.location.href = '/checkout';
+        return;
+      }
+      // If quantity is 0, let the form submit normally (adds 1 and goes to checkout)
+    }
+
     const plusButton = event.target.closest('[data-phasal-qty-plus]');
     if (plusButton) {
       event.preventDefault();
