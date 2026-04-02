@@ -12,6 +12,14 @@ class PhasalInteractions {
     this.syncWishlistUI();
     this.resetProductCards();
     this.syncCartUI();
+
+    // Subscribe to cart updates from other sources (drawer, cart page, etc.)
+    if (typeof subscribe === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      subscribe(PUB_SUB_EVENTS.cartUpdate, (event) => {
+        if (event.source === 'phasal-interactions') return;
+        this.syncCartUI();
+      });
+    }
   }
 
   async syncCartUI() {
@@ -154,8 +162,18 @@ class PhasalInteractions {
 
     const data = await response.json();
     this.renderDrawerSections(data, true);
+    
     // Explicitly sync the count and quantities for non-AJAX elements
     this.syncCartUI();
+
+    // Notify other components
+    if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      publish(PUB_SUB_EVENTS.cartUpdate, {
+        source: 'phasal-interactions',
+        cartData: data,
+        variantId: variantId
+      });
+    }
   }
 
   async changeCartQuantity(variantId, quantity) {
@@ -194,6 +212,15 @@ class PhasalInteractions {
     this.cart = data;
     this.updateCartCount();
     this.updateProductCardQuantities();
+
+    // Notify other components
+    if (typeof publish === 'function' && typeof PUB_SUB_EVENTS !== 'undefined') {
+      publish(PUB_SUB_EVENTS.cartUpdate, {
+        source: 'phasal-interactions',
+        cartData: data,
+        variantId: variantId
+      });
+    }
   }
 
   getSectionIds() {
