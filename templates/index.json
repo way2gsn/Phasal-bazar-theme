@@ -153,8 +153,8 @@
         "feature_card_1"
       ],
       "settings": {
-        "auto_rotate": false,
-        "change_slides_speed": 10,
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "eyebrow": "Ganwai Collection 2025",
         "meta": "72,000+ Farmers - Chhattisgarh",
         "product_collection": "",
