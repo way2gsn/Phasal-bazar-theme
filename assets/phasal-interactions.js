@@ -177,16 +177,8 @@ class PhasalInteractions {
   }
 
   async changeCartQuantity(variantId, quantity) {
-    if (!this.cart?.items) {
+    if (!this.cart) {
       await this.syncCartUI();
-    }
-
-    const lineIndex = this.cart.items.findIndex((item) => item.variant_id === variantId);
-    if (lineIndex === -1) {
-      if (quantity > 0) {
-        await this.addToCart(variantId, quantity);
-      }
-      return;
     }
 
     const response = await fetch(routes.cart_change_url, {
@@ -196,7 +188,7 @@ class PhasalInteractions {
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        line: lineIndex + 1,
+        id: String(variantId),
         quantity,
         sections: this.getSectionIds(),
         sections_url: window.location.pathname,
@@ -303,12 +295,13 @@ class PhasalInteractions {
     const productTitle = card?.dataset.productTitle;
     if (!variantId || this.pendingVariantIds.has(variantId)) return;
 
+    const cards = document.querySelectorAll(`[data-phasal-product-card][data-variant-id="${variantId}"]`);
     if (!this.cart) {
       await this.syncCartUI();
     }
 
     this.pendingVariantIds.add(variantId);
-    card?.classList.add('is-loading');
+    cards.forEach(c => c.classList.add('is-loading'));
 
     const previousQuantity = this.applyOptimisticQuantity(variantId, nextQuantity);
 
@@ -325,7 +318,7 @@ class PhasalInteractions {
       await this.syncCartUI();
     } finally {
       this.pendingVariantIds.delete(variantId);
-      card?.classList.remove('is-loading');
+      cards.forEach(c => c.classList.remove('is-loading'));
     }
   }
 

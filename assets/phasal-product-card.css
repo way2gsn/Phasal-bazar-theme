@@ -327,6 +327,28 @@
 .phasal-product-card.is-loading .phasal-product-card__cart-button,
 .phasal-product-card.is-loading .phasal-product-card__qty-button {
   pointer-events: none;
+  opacity: 0.6;
+}
+
+.phasal-product-card.is-loading .phasal-product-card__cart-button,
+.phasal-product-card.is-loading .phasal-product-card__qty-button,
+.phasal-product-card.is-loading .phasal-product-card__qty-value {
+  opacity: 0;
+}
+
+.phasal-product-card.is-loading .phasal-product-card__spinner {
+  display: flex !important;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  width: 2rem;
+  height: 2rem;
+}
+
+.phasal-product-card.is-loading .phasal-product-card__spinner .loading__spinner {
+  display: block !important;
 }
 
 .phasal-product-card__buy-now-wrap form {

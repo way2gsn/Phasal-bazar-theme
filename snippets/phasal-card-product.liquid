@@ -110,6 +110,7 @@
               >
                 <span>Add to Cart</span>
               </button>
+              {% render 'loading-spinner', class: 'phasal-product-card__spinner loading__spinner hidden' %}
               <div class="phasal-product-card__quantity" data-phasal-quantity hidden>
                 <button type="button" class="phasal-product-card__qty-button" data-phasal-qty-minus aria-label="Decrease quantity">−</button>
                 <span class="phasal-product-card__qty-value" data-phasal-quantity-value>0</span>
