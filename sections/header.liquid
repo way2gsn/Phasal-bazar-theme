@@ -161,9 +161,21 @@
 
     <div class="phasal-header__actions">
       {%- if shop.customer_accounts_enabled -%}
-        <a class="phasal-header__icon-button" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="Account">
-          <span class="phasal-header__icon">{{ 'icon-account.svg' | inline_asset_content }}</span>
-        </a>
+        <div class="phasal-header__account">
+          <a class="phasal-header__icon-button" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="Account">
+            <span class="phasal-header__icon">{{ 'icon-account.svg' | inline_asset_content }}</span>
+          </a>
+          <div class="phasal-header__account-dropdown">
+            {%- if customer -%}
+              <a href="{{ routes.account_url }}">My Account</a>
+              <a href="{{ routes.account_url }}">Order History</a>
+              <a href="{{ routes.account_logout_url }}">Logout</a>
+            {%- else -%}
+              <a href="{{ routes.account_login_url }}">Login</a>
+              <a href="{{ routes.account_register_url }}">Create Account</a>
+            {%- endif -%}
+          </div>
+        </div>
       {%- endif -%}
       <button class="phasal-header__icon-button phasal-header__icon-button--wishlist" type="button" aria-label="Wishlist" data-phasal-wishlist-open>
         <span class="phasal-header__icon">{{ 'icon-heart.svg' | inline_asset_content }}</span>

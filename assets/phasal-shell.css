@@ -244,6 +244,50 @@ textarea {
   color: var(--phasal-green-800);
 }
 
+.phasal-header__account {
+  position: relative;
+}
+
+.phasal-header__account-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  visibility: hidden;
+  flex-direction: column;
+  min-width: 18rem;
+  padding: 1rem;
+  border: 1px solid var(--phasal-border);
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transform: translateY(1rem);
+  transition: all 0.2s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.phasal-header__account:hover .phasal-header__account-dropdown {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0.5rem);
+}
+
+.phasal-header__account-dropdown a {
+  padding: 1rem 1.2rem;
+  border-radius: 0.8rem;
+  color: var(--phasal-text-700);
+  font-size: 1.15rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+
+.phasal-header__account-dropdown a:hover {
+  background: var(--phasal-green-100);
+  color: var(--phasal-green-800);
+}
+
 .phasal-header__cart {
   display: inline-flex;
   align-items: center;
