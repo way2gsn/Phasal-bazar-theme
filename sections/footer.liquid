@@ -104,6 +104,20 @@
       {%- endif -%}
     </div>
   </div>
+  </div>
+
+  {%- if section.settings.whatsapp_enable -%}
+    <a href="https://wa.me/{{ section.settings.whatsapp_number | replace: ' ', '' | replace: '+', '' }}?text={{ section.settings.whatsapp_message | url_encode }}" 
+       class="phasal-whatsapp-float" 
+       target="_blank" 
+       rel="noopener" 
+       aria-label="Chat on WhatsApp">
+      <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 0C7.16345 0 0 7.16345 0 16C0 19.349 1.02641 22.4582 2.78317 25.0298L0.727273 31.2727L7.20063 29.1764C9.75654 30.9859 12.7562 32 16 32C24.8365 32 32 24.8365 32 16C32 7.16345 24.8365 0 16 0Z" fill="#25D366"/>
+        <path d="M22.951 21.0503C22.5802 20.865 21.3653 20.2687 21.1388 20.1873C20.9123 20.1058 20.747 20.0653 20.5824 20.3117C20.4172 20.5587 19.9431 21.111 19.8001 21.2748C19.6571 21.439 19.5126 21.4593 19.1418 21.2748C18.771 21.0903 17.5746 20.7001 16.1553 19.4347C15.0457 18.4452 14.2985 17.223 14.072 16.8329C13.8455 16.4427 14.0483 16.2312 14.2338 16.047C14.4005 15.8812 14.604 15.618 14.7701 15.4131C14.9351 15.2075 14.9904 15.0632 15.0999 14.8373C15.2093 14.6114 15.154 14.4259 15.0617 14.2415C14.9694 14.0571 14.31 12.4503 14.0357 11.7924C13.7686 11.1524 13.5015 11.2386 13.3005 11.2285C13.11 11.2189 12.8906 11.2184 12.6712 11.2184C12.4517 11.2184 12.0949 11.3004 11.7937 11.6291C11.4919 11.9577 10.6409 12.759 10.6409 14.3831C10.6409 16.0072 11.8213 17.5694 11.9864 17.7954C12.1514 18.0213 14.3093 21.3155 17.6083 22.7381C18.3931 23.0768 18.9972 23.2762 19.4754 23.4278C20.2642 23.6784 20.9831 23.6425 21.5511 23.5574C22.1843 23.4627 23.5011 22.7584 23.7754 21.9969C24.0498 21.2355 24.0498 20.597 23.9675 20.4533C23.8853 20.3094 23.7206 20.2268 23.3498 20.0423" fill="white"/>
+      </svg>
+    </a>
+  {%- endif -%}
 </footer>
 
 {% schema %}
@@ -196,6 +210,28 @@
       "id": "payment_enable",
       "label": "Show payment types",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "WhatsApp Floating Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "whatsapp_enable",
+      "label": "Enable WhatsApp button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_number",
+      "label": "WhatsApp number (with country code)",
+      "default": "+91 00000 00000"
+    },
+    {
+      "type": "text",
+      "id": "whatsapp_message",
+      "label": "Greeting message",
+      "default": "Hello, I have a question about your products."
     }
   ],
   "blocks": [],
