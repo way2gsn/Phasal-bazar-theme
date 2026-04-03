@@ -78,24 +78,24 @@
           "type": "pillar",
           "settings": {
             "icon_emoji": "💧",
-            "title": "Water Purity",
-            "copy": "Implementing natural filtration and catchment systems that restore the local water table."
+            "title": "Water Conservation & Efficient Resource Management",
+            "copy": "We are committed to promoting water-efficient agricultural practices by encouraging the cultivation of low water requirement crops like millets. Our initiatives help farmers reduce water usage while maintaining productivity. Through awareness programs and sustainable farming techniques, we support the conservation of this vital natural resource for future generations."
           }
         },
         "pillar_2": {
           "type": "pillar",
           "settings": {
             "icon_emoji": "🌾",
-            "title": "Fair Profits",
-            "copy": "Ensuring farmers earn a premium that supports their families and future harvests."
+            "title": "Soil Health Restoration",
+            "copy": "We promote farming practices that improve soil fertility and restore natural nutrients by encouraging crop diversification, millet cultivation, and reduced chemical usage. Our initiatives help farmers adopt practices that improve long-term productivity while protecting the environment."
           }
         },
         "pillar_3": {
           "type": "pillar",
           "settings": {
             "icon_emoji": "🌱",
-            "title": "Carbon Capture",
-            "copy": "Drawing carbon back into the soil, turning our farms into climate solutions."
+            "title": "Climate Resilient & Nutri-Crop Promotion",
+            "copy": "We encourage the cultivation of climate-resilient crops like millets which require less water and are highly nutritious. This helps farmers reduce risk, improve income stability, and contribute to nutritional security while adapting to changing climate conditions."
           }
         }
       },
@@ -105,7 +105,7 @@
         "pillar_3"
       ],
       "settings": {
-        "title": "100% Regenerative Practices"
+        "title": "Committed to Sustainable and Regenerative Agriculture"
       }
     },
     "transparency": {
