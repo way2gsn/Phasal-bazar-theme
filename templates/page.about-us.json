@@ -37,29 +37,29 @@
         "stat_1": {
           "type": "stat",
           "settings": {
-            "number": "72K",
+            "number": "72K+",
             "label": "Lives Transformed"
           }
         },
         "stat_2": {
           "type": "stat",
           "settings": {
-            "number": "12M",
-            "label": "Acres Protected"
+            "number": "3000+",
+            "label": "Acres Farming"
           }
         },
         "stat_3": {
           "type": "stat",
           "settings": {
             "number": "100%",
-            "label": "Fair Profit"
+            "label": "Transparency"
           }
         },
         "stat_4": {
           "type": "stat",
           "settings": {
-            "number": "0",
-            "label": "Synthetic Chemicals"
+            "number": "100%",
+            "label": "Pure Products"
           }
         }
       },
