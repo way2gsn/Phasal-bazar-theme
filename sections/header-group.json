@@ -54,7 +54,7 @@
         "top_link_EtwqTU": {
           "type": "top_link",
           "settings": {
-            "label": "Shop by Snacks",
+            "label": "Millets Snacks",
             "link": "shopify://collections/snacks-ready-to-cook",
             "show_caret": false,
             "highlight": false
@@ -63,7 +63,7 @@
         "top_link_DA3MwY": {
           "type": "top_link",
           "settings": {
-            "label": "Shop by Grains",
+            "label": "Natural Grains",
             "link": "shopify://collections/millets-whole-grains",
             "show_caret": false,
             "highlight": false
