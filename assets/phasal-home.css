@@ -1544,8 +1544,14 @@
     letter-spacing: 0.05em;
   }
 
+  .phasal-hero__title {
+    font-size: clamp(3.2rem, 10vw, 4.4rem);
+    line-height: 1.1;
+  }
+
   .phasal-hero__subtitle {
-    font-size: 1.45rem;
+    font-size: 1.4rem;
+    max-width: 100%;
   }
 
   .phasal-hero__controls {
@@ -1560,8 +1566,49 @@
     width: 100%;
   }
 
-  /* .phasal-hero__stats, */
-  .phasal-hero__card-grid,
+  .phasal-hero__cards {
+    flex-direction: row;
+    overflow-x: auto;
+    margin-inline: -1.6rem;
+    padding-inline: 1.6rem;
+    padding-bottom: 1.2rem;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    gap: 1.2rem;
+  }
+
+  .phasal-hero__cards::-webkit-scrollbar {
+    display: none;
+  }
+
+  .phasal-hero-card {
+    flex-shrink: 0;
+    width: 260px;
+    scroll-snap-align: start;
+  }
+
+  .phasal-hero__card-grid {
+    display: flex;
+    gap: 1.2rem;
+    grid-template-columns: none;
+  }
+
+  .phasal-hero-card--feature {
+    width: 280px;
+  }
+
+  .phasal-hero-card__image {
+    height: 12rem;
+  }
+
+  .phasal-hero-card--feature .phasal-hero-card__body {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+
+  .phasal-hero__stats,
   .phasal-trust__grid,
   .phasal-impact__grid {
     grid-template-columns: 1fr;
