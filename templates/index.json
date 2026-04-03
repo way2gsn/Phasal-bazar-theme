@@ -175,40 +175,40 @@
           "type": "item",
           "settings": {
             "icon": "🌾",
-            "title": "Farm Direct",
-            "copy": "No middlemen, full traceability"
+            "title": "Farmer First Sourcing",
+            "copy": "Direct procurement ensuring fair value to farmers"
           }
         },
         "item_2": {
           "type": "item",
           "settings": {
             "icon": "🪨",
-            "title": "Stone Ground",
-            "copy": "Traditional chakki milling"
+            "title": "Authentic Processing",
+            "copy": "Authentic stone-ground methods for better nutrition"
           }
         },
         "item_3": {
           "type": "item",
           "settings": {
             "icon": "🌿",
-            "title": "Zero Chemicals",
-            "copy": "Pesticide and additive free"
+            "title": "Sustainable Agriculture",
+            "copy": "Supporting eco-friendly and climate-resilient farming"
           }
         },
         "item_4": {
           "type": "item",
           "settings": {
             "icon": "🧪",
-            "title": "Lab Tested",
-            "copy": "Every batch certified"
+            "title": "Assured Quality",
+            "copy": "Trusted sourcing and careful product handling"
           }
         },
         "item_5": {
           "type": "item",
           "settings": {
             "icon": "📦",
-            "title": "Pan India Delivery",
-            "copy": "Free above Rs. 499"
+            "title": "From Chhattisgarh to India",
+            "copy": "Taking local farmer products to national markets"
           }
         }
       },
