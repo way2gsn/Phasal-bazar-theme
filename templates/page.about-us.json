@@ -12,7 +12,7 @@
     "hero": {
       "type": "phasal-about-hero",
       "custom_css": [
-        "h1{color: white}"
+        "h1 {color: white;}"
       ],
       "settings": {
         "image": "shopify://shop_images/WhatsApp_Image_2024-06-17_at_12.15.50.jpg",
@@ -26,9 +26,9 @@
       "settings": {
         "image": "shopify://shop_images/about-transparency-map.jpg",
         "eyebrow": "Our Philosophy",
-        "title": "The Modern Agrarian Philosophy",
-        "quote": "Rooted in integrity, grown for the future.",
-        "copy": "Our journey began with a simple observation: the connection between the land and the point of sale was broken. We believe in restoring that bond, ensuring every grain has a story and every farmer has a legacy.\n\nWe work directly with 72,000+ farmers across Chhattisgarh, ensuring they get fair value for their hard work."
+        "title": "Empowering Villages, Enabling Farmers",
+        "quote": "Farmer Empowerment + Village Development + Atmanirbhar Bharat)",
+        "copy": "At Sidharth Agro Marketing and Logistics Pvt. Ltd., our philosophy is rooted in the belief that true rural development begins with empowered farmers. When farmers become progressive, skilled, and financially strong, villages automatically move towards prosperity and self-reliance.\n\nWe are committed to making farmers unnat (progressive), saksham (capable), and atmanirbhar (self-reliant) by providing them access to technology, training, market linkages, and value addition opportunities. Through our digital platform Phasal Bazar and our rural Kissan Centers, we are building a system where farmers can sell their produce transparently and receive fair value for their hard work.\n\nOur focus is not just agriculture but rural transformation. We promote nutritious and climate-resilient crops like millets, support women self-help groups, and encourage rural entrepreneurship so that villages become centers of economic growth.\n\nWe believe that when villages grow, India grows. When farmers become self-reliant, the nation becomes stronger."
       }
     },
     "stats": {
