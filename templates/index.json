@@ -385,7 +385,7 @@
       ],
       "settings": {
         "eyebrow": "Browse Collection",
-        "title": "Shop by Grain",
+        "title": "Natural Grain",
         "copy": "Ancient superfoods grown in the heartland of Chhattisgarh",
         "link_label": "All Products",
         "link": "shopify://collections/all"
@@ -408,8 +408,8 @@
       "type": "phasal-wide-banner",
       "settings": {
         "eyebrow": "Farmer first",
-        "title": "<p>Healthy staples with a <strong>direct village story</strong></p>",
-        "copy": "Our millets are grown without pesticides, processed without additives, and packed to preserve every grain of nutrition from Chhattisgarh's fertile fields.",
+        "title": "<p>From Village Fields to Healthy Families</p>",
+        "copy": "Our products come directly from rural farmers who practice sustainable agriculture. We ensure quality, authenticity, and fair value while bringing the goodness of traditional grains to your kitchen.",
         "button_label": "Shop now",
         "button_link": "shopify://collections/all"
       }
@@ -504,24 +504,24 @@
           "type": "feature",
           "settings": {
             "icon": "🌾",
-            "title": "Traceable sourcing",
-            "copy": "Show how product origin and processing are made visible to customers."
+            "title": "Direct Farmer Network",
+            "copy": "Building transparent sourcing through our farmer ecosystem."
           }
         },
         "feature_2": {
           "type": "feature",
           "settings": {
             "icon": "🪨",
-            "title": "Traditional processing",
-            "copy": "Explain how you preserve texture, nutrition, and taste through careful handling."
+            "title": "Quality with Tradition",
+            "copy": "Combining traditional processing with modern standard"
           }
         },
         "feature_3": {
           "type": "feature",
           "settings": {
             "icon": "🤝",
-            "title": "Farmer value",
-            "copy": "Better sourcing means better outcomes beyond the checkout."
+            "title": "Strengthening Farmer Livelihoods",
+            "copy": "Creating better income opportunities through market linkages."
           }
         }
       },
@@ -532,8 +532,8 @@
       ],
       "settings": {
         "eyebrow": "Farm story",
-        "title": "Built with farmers, not around them",
-        "copy": "Phasal Bazar Ganwai was built on a single mission: give Chhattisgarh's millet farmers a direct channel to health-conscious consumers across India — eliminating exploitative middlemen and restoring the dignity of ancient grain farming.Our Millet Processing Unit at Dongitara, Raigarh processes grains the traditional way — no heat, no chemicals, no polishing. Just pure, honest food.",
+        "title": "Farmers at Our Core",
+        "copy": "Farmers are at the center of our work. We support them through capacity building programs, sustainable farming practices, and direct market linkages through our Phasal Bazar platform. Our efforts focus on reducing middlemen, improving price realization, and creating better livelihood opportunities.By providing technical guidance, aggregation support, and branding opportunities, we help farmers move towards profitable and self-reliant agriculture while strengthening rural communities.",
         "stat_number_1": "72K+",
         "stat_label_1": "farmer partners",
         "stat_number_2": "18",
