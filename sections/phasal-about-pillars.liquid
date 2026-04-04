@@ -28,7 +28,7 @@
 <style>
 .phasal-about-pillars {
   padding: 12rem 0;
-  background: #fff;
+  background: #fdfaf7;
 }
 
 .phasal-about-pillars__header {
@@ -39,67 +39,75 @@
 
 .phasal-about-pillars__title {
   font-family: 'Playfair Display', serif;
-  font-size: clamp(3.2rem, 5vw, 5.2rem);
+  font-size: clamp(3.6rem, 6vw, 6.2rem);
+  font-weight: 500;
   font-style: italic;
-  color: #1b3022;
+  color: #0d5a37;
+  letter-spacing: -0.01em;
 }
 
 .phasal-about-pillars__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
+  gap: 5.6rem;
 }
 
 .phasal-about-pillars__item {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  transition: transform 0.4s ease;
 }
 
 .phasal-about-pillars__icon-wrap {
-  width: 6.4rem;
-  height: 6.4rem;
-  border-radius: 50%;
-  background: #f5f5f0;
+  width: 7.2rem;
+  height: 7.2rem;
+  border-radius: 2rem;
+  background: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 2.8rem;
+  margin-bottom: 3.2rem;
+  box-shadow: 0 1.2rem 3rem rgba(13, 90, 55, 0.08);
 }
 
 .phasal-about-pillars__emoji {
-  font-size: 2.8rem;
+  font-size: 3.2rem;
 }
 
 .phasal-about-pillars__item-title {
   font-family: 'Playfair Display', serif;
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   font-weight: 700;
-  color: #1b3022;
-  margin: 0 0 1.6rem;
+  color: #0d5a37;
+  margin: 0 0 1.8rem;
+  line-height: 1.25;
 }
 
 .phasal-about-pillars__item-copy {
-  font-size: 1.55rem;
-  line-height: 1.65;
-  color: #8b796a;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  color: #56483d;
   margin: 0 0 4rem;
 }
 
 .phasal-about-pillars__item-image {
   width: 100%;
   aspect-ratio: 4/3;
-  border-radius: 1.6rem;
+  border-radius: 2.4rem;
   overflow: hidden;
   margin-top: auto;
+  box-shadow: 0 2rem 5rem rgba(27, 48, 34, 0.12);
 }
 
 .phasal-about-pillars__item-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.phasal-about-pillars__item:hover {
+  transform: translateY(-0.8rem);
 }
 
 .phasal-about-pillars__item:hover .phasal-about-pillars__item-image img {
