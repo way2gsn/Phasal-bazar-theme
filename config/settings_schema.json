@@ -1362,6 +1362,12 @@
         "id": "social_linkedin_link",
         "label": "LinkedIn",
         "placeholder": "https://linkedin.com/company/shopify"
+      },
+      {
+        "type": "text",
+        "id": "social_whatsapp_link",
+        "label": "t:settings_schema.social-media.settings.social_whatsapp_link.label",
+        "placeholder": "t:settings_schema.social-media.settings.social_whatsapp_link.info"
       }
     ]
   },
